@@ -1,8 +1,9 @@
-import { IconByName, Layout } from "@shiksha/common-lib";
+import { H2, IconByName, Layout } from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Box, HStack, Text, VStack } from "native-base";
+import RecommendedVisitsCard from "../components/RecommendedVisitsCard";
 
 export default function Attendance() {
   const { t } = useTranslation();
@@ -20,11 +21,12 @@ export default function Attendance() {
   return (
     <Layout
       _header={{
-        title: classObject?.title ? classObject?.title : "",
+        title: classObject?.title ? classObject?.title : "My Visits",
+        _heading: {color: 'white'},
         isEnableSearchBtn: true,
         setSearch: setSearch,
-        subHeading: t("ATTENDANCE_REGISTER"),
-        iconComponent: (
+        // subHeading: t("ATTENDANCE_REGISTER"),
+        /*iconComponent: (
           <Link
             to="/classes/attendance/report"
             style={{ color: "rgb(63, 63, 70)", textDecoration: "none" }}
@@ -40,10 +42,10 @@ export default function Attendance() {
               {t("REPORT")}
             </Box>
           </Link>
-        ),
+        ),*/
       }}
       _appBar={{ languages: ["en"] }}
-      subHeader={
+      /*subHeader={
         <Link
           to={"/students/class/" + classId}
           style={{ color: "rgb(63, 63, 70)", textDecoration: "none" }}
@@ -60,7 +62,7 @@ export default function Attendance() {
             <IconByName size="sm" name="ArrowRightSLineIcon" />
           </HStack>
         </Link>
-      }
+      }*/
       _subHeader={{ bg: "attendanceCard.500" }}
       _footer={{
         menues: [
@@ -72,15 +74,15 @@ export default function Attendance() {
             routeparameters: {},
           },
           {
-            title: "CLASSES",
-            icon: "TeamLineIcon",
+            title: "VISITS",
+            icon: "GovernmentLineIcon",
             module: "Registry",
             route: "/classes",
             routeparameters: {},
           },
           {
-            title: "SCHOOL",
-            icon: "GovernmentLineIcon",
+            title: "LEARNING",
+            icon: "LightbulbFlashLineIcon",
             module: "Registry",
             route: "/",
             routeparameters: {},
@@ -93,7 +95,7 @@ export default function Attendance() {
             routeparameters: {},
           },
           {
-            title: "CAREER",
+            title: "PROFILE",
             icon: "UserLineIcon",
             module: "Registry",
             route: "/",
@@ -102,7 +104,19 @@ export default function Attendance() {
         ],
       }}
     >
-      <div>Take Attendance</div>
+      <Box p={4}>
+        <VStack space={6}>
+          <Text>View your allocated schools with recommended visits</Text>
+
+          <Box>
+            <H2>Recommended Visits</H2>
+            <Text fontSize="xs">Schools not visited in last 2 months</Text>
+          </Box>
+
+          <RecommendedVisitsCard />
+          <RecommendedVisitsCard />
+        </VStack>
+      </Box>
     </Layout>
   );
 }
