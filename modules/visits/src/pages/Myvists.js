@@ -4,27 +4,19 @@ import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Box, HStack, Text, VStack } from "native-base";
 import RecommendedVisitsCard from "../components/RecommendedVisitsCard";
+import MySchoolsCard from "../components/MySchoolsCard";
 
-export default function Attendance() {
+export default function Myvists() {
   const { t } = useTranslation();
-  const [weekPage, setWeekPage] = useState(0);
-  const [allAttendanceStatus, setAllAttendanceStatus] = useState({});
-  const [students, setStudents] = useState([]);
-  const [searchStudents, setSearchStudents] = useState([]);
-  const [classObject, setClassObject] = useState({});
-  const { classId } = useParams();
-  const [loading, setLoading] = useState(false);
-  const teacherId = sessionStorage.getItem("id");
-  const [attendance, setAttendance] = useState([]);
-  const [search, setSearch] = useState();
+  const [recommendedVisits, setRecommendedVisits] = useState([{}, {}, {}, {}]);
 
   return (
     <Layout
       _header={{
-        title: classObject?.title ? classObject?.title : "My Visits",
-        _heading: {color: 'white'},
+        title: "My Visits",
+        _heading: { color: "white" },
         isEnableSearchBtn: true,
-        setSearch: setSearch,
+        // setSearch: setSearch,
         // subHeading: t("ATTENDANCE_REGISTER"),
         /*iconComponent: (
           <Link
@@ -104,17 +96,52 @@ export default function Attendance() {
         ],
       }}
     >
-      <Box p={4}>
+      <Box p={6}>
         <VStack space={6}>
           <Text>View your allocated schools with recommended visits</Text>
 
           <Box>
-            <H2>Recommended Visits</H2>
-            <Text fontSize="xs">Schools not visited in last 2 months</Text>
+            <VStack space={6}>
+              <Box>
+                <H2>Recommended Visits</H2>
+                <Text fontSize="xs">Schools not visited in last 2 months</Text>
+              </Box>
+              {recommendedVisits &&
+                recommendedVisits.length &&
+                recommendedVisits.map(() => {
+                  return <RecommendedVisitsCard />;
+                })}
+              <Box textAlign="center">
+                <Link
+                  to="/"
+                  style={{ color: "#6461D2", textDecoration: "none" }}
+                >
+                  Show More
+                </Link>
+              </Box>
+            </VStack>
           </Box>
 
-          <RecommendedVisitsCard />
-          <RecommendedVisitsCard />
+          <Box>
+            <VStack space={6}>
+              <Box>
+                <H2>My Schools</H2>
+              </Box>
+              {recommendedVisits &&
+                recommendedVisits.length &&
+                recommendedVisits.map(() => {
+                  return <MySchoolsCard isVisited={true} />;
+                })}
+              <Box textAlign="center">
+                <Link
+                  to="/"
+                  style={{ color: "#6461D2", textDecoration: "none" }}
+                >
+                  Show More
+                </Link>
+              </Box>
+            </VStack>
+          </Box>
         </VStack>
       </Box>
     </Layout>

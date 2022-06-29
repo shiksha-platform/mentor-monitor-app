@@ -9,7 +9,7 @@ import {
   Divider,
 } from "native-base";
 import { DEFAULT_THEME, H2, IconByName } from "@shiksha/common-lib";
-function RecommendedVisitsCard({ isVisited }) {
+function MySchoolsCard({ isVisited }) {
   return (
     <>
       <VStack space={6}>
@@ -107,4 +107,4 @@ function RecommendedVisitsCard({ isVisited }) {
     </>
   );
 }
-export default RecommendedVisitsCard;
+export default MySchoolsCard;
