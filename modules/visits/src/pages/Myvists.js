@@ -17,7 +17,8 @@ export default function Myvists() {
         _heading: { color: "white" },
         isEnableSearchBtn: true,
         // setSearch: setSearch,
-        // subHeading: t("ATTENDANCE_REGISTER"),
+        subHeading: t("View your allocated schools with recommended visits"),
+        _subHeading: { color: "white" },
         /*iconComponent: (
           <Link
             to="/classes/attendance/report"
@@ -69,7 +70,7 @@ export default function Myvists() {
             title: "VISITS",
             icon: "GovernmentLineIcon",
             module: "Registry",
-            route: "/classes",
+            route: "/my-visits",
             routeparameters: {},
           },
           {
@@ -98,8 +99,6 @@ export default function Myvists() {
     >
       <Box p={6}>
         <VStack space={6}>
-          <Text>View your allocated schools with recommended visits</Text>
-
           <Box>
             <VStack space={6}>
               <Box>
@@ -108,12 +107,12 @@ export default function Myvists() {
               </Box>
               {recommendedVisits &&
                 recommendedVisits.length &&
-                recommendedVisits.map(() => {
-                  return <RecommendedVisitsCard />;
+                recommendedVisits.map((visit, visitIndex) => {
+                  return <RecommendedVisitsCard key={`recommended${visitIndex}`} />;
                 })}
               <Box textAlign="center">
                 <Link
-                  to="/"
+                  to="/recommended-schools"
                   style={{ color: "#6461D2", textDecoration: "none" }}
                 >
                   Show More
@@ -129,12 +128,12 @@ export default function Myvists() {
               </Box>
               {recommendedVisits &&
                 recommendedVisits.length &&
-                recommendedVisits.map(() => {
-                  return <MySchoolsCard isVisited={true} />;
+                recommendedVisits.map((visit, visitIndex) => {
+                  return <MySchoolsCard isVisited={true} key={`myvisit${visitIndex}`} />;
                 })}
               <Box textAlign="center">
                 <Link
-                  to="/"
+                  to="/allocated-schools"
                   style={{ color: "#6461D2", textDecoration: "none" }}
                 >
                   Show More

@@ -26,6 +26,8 @@ export default function Allocatedschools() {
         title: "Allocated Schools",
         _heading: { color: "white" },
         isEnableSearchBtn: true,
+        subHeading: t('See all your allocated schools for visits here.'),
+        _subHeading: { color: "white" },
       }}
       _appBar={{ languages: ["en"] }}
       _subHeader={{ bg: "attendanceCard.500" }}
@@ -42,7 +44,7 @@ export default function Allocatedschools() {
             title: "VISITS",
             icon: "GovernmentLineIcon",
             module: "Registry",
-            route: "/classes",
+            route: "/my-visits",
             routeparameters: {},
           },
           {
@@ -71,26 +73,21 @@ export default function Allocatedschools() {
     >
       <Box p={6}>
         <VStack space={6}>
-          <Text>See all your allocated schools for visits here.</Text>
-
           <Box>
             <VStack space={6}>
               <Box>
-                <H2>13 Schools</H2>
-                <Text fontSize="xs">Schools not visited in last 2 months</Text>
-              </Box>
-              <Box>
-                <Button
-                  bg="#6461D2"
-                  _text={{
-                    color: "white",
-                  }}
-                  onPress={() => {
-                    setSortModal(true);
-                  }}
-                >
-                  {t("Sort")}
-                </Button>
+                <HStack alignItems="center" justifyContent="space-between">
+                  <Box>
+                    <H2>13 Schools</H2>
+                    <Text fontSize="xs">Schools not visited in last 2 months</Text>
+                  </Box>
+                  <Button
+                    variant="outline"
+                    onPress={() => {
+                      setSortModal(true);
+                    }}
+                  >Sort</Button>
+                </HStack>
               </Box>
               {recommendedVisits &&
                 recommendedVisits.length &&

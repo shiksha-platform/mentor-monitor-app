@@ -20,18 +20,18 @@ export default function Header({
       <Box {..._box} py={7} px={5}>
         <HStack justifyContent='space-between' alignItems='center'>
           <VStack>
-            {subHeadingComponent ? (
-              subHeadingComponent
-            ) : (
-              <Text fontSize='12px' {..._subHeading}>
-                {subHeading}
-              </Text>
-            )}
             {headingComponent ? (
               headingComponent
             ) : (
-              <Text bold fontSize='24px' {..._heading}>
+              <Text bold fontSize='18px' {..._heading}>
                 {title}
+              </Text>
+            )}
+            {subHeadingComponent ? (
+              subHeadingComponent
+            ) : (
+              <Text fontSize='14px' {..._subHeading}>
+                {subHeading}
               </Text>
             )}
           </VStack>
