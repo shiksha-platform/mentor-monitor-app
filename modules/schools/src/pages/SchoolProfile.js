@@ -2,22 +2,46 @@ import { H2, IconByName, Layout } from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Box, HStack, Text, VStack } from "native-base";
-import RecommendedVisitsCard from "../components/RecommendedVisitsCard";
+import { Box, HStack, Text, VStack, Button } from "native-base";
+import SchoolAddressCard from "../components/SchoolAddressCard";
 import MySchoolsCard from "../components/MySchoolsCard";
+import SchoolAdminDetailCard from "../components/SchoolAdminDetailCard";
+import SchoolAcademicDetailCard from "../components/SchoolAcademicDetailCard";
+import TeacherListCard from "../components/TeacherListCard";
 
-export default function Myvists() {
+export default function SchoolProfile() {
   const { t } = useTranslation();
   const [recommendedVisits, setRecommendedVisits] = useState([{}, {}, {}, {}]);
 
   return (
     <Layout
+      imageUrl={
+        "https://via.placeholder.com/728x90.png?text=Visit+WhoIsHostingThis.com+Buyers+Guide"
+      }
       _header={{
-        title: "My Visits",
+        title: "Delhi Public School, Ghaziabad",
         _heading: { color: "white" },
         isEnableSearchBtn: true,
         // setSearch: setSearch,
-        subHeading: t("View your allocated schools with recommended visits"),
+        subHeading: (
+          <VStack>
+            <Text fontSize="14px" color="white">
+              {t("Ghaziabad, Uttar Pradesh")}
+            </Text>
+            <HStack>
+              <IconByName
+                name="CameraLineIcon"
+                color={"white"}
+                // onPress={() => setSortModal(false)}
+              />
+              <IconByName
+                name="MapPinLineIcon"
+                color={"white"}
+                // onPress={() => setSortModal(false)}
+              />
+            </HStack>
+          </VStack>
+        ),
         _subHeading: { color: "white" },
         /*iconComponent: (
           <Link
@@ -38,25 +62,19 @@ export default function Myvists() {
         ),*/
       }}
       _appBar={{ languages: ["en"] }}
-      /*subHeader={
-        <Link
-          to={"/students/class/" + classId}
-          style={{ color: "rgb(63, 63, 70)", textDecoration: "none" }}
-        >
-          <HStack space="4" justifyContent="space-between">
-            <VStack>
-              <Text fontSize={"lg"}>
-                {classObject?.title ? classObject?.title : ""}
-              </Text>
-              <Text fontSize={"sm"}>
-                {t("TOTAL") + " " + students.length + " " + t("STUDENTS")}
-              </Text>
-            </VStack>
-            <IconByName size="sm" name="ArrowRightSLineIcon" />
+      subHeader={
+        <Box bg={"white"} px={2}>
+          <HStack>
+            <Button
+              color="white"
+              leftIcon={<IconByName color="white" name="ArrowRightSFillIcon" />}
+            >
+              Start a Visit
+            </Button>
           </HStack>
-        </Link>
-      }*/
-      _subHeader={{ bg: "attendanceCard.500" }}
+        </Box>
+      }
+      _subHeader={{ bg: "white" }}
       _footer={{
         menues: [
           {
@@ -101,25 +119,10 @@ export default function Myvists() {
         <VStack space={6}>
           <Box>
             <VStack space={6}>
-              <Box>
-                <H2>Recommended Visits</H2>
-                <Text fontSize="xs">Schools not visited in last 2 months</Text>
-              </Box>
-              {recommendedVisits &&
-                recommendedVisits.length &&
-                recommendedVisits.map((visit, visitIndex) => {
-                  return (
-                    <RecommendedVisitsCard key={`recommended${visitIndex}`} />
-                  );
-                })}
-              <Box textAlign="center">
-                <Link
-                  to="/recommended-schools"
-                  style={{ color: "#6461D2", textDecoration: "none" }}
-                >
-                  Show More
-                </Link>
-              </Box>
+              <SchoolAddressCard />
+              <SchoolAdminDetailCard />
+              <SchoolAcademicDetailCard />
+              <TeacherListCard />
             </VStack>
           </Box>
 
@@ -128,16 +131,9 @@ export default function Myvists() {
               <Box>
                 <H2>My Schools</H2>
               </Box>
-              {recommendedVisits &&
-                recommendedVisits.length &&
-                recommendedVisits.map((visit, visitIndex) => {
-                  return (
-                    <MySchoolsCard
-                      isVisited={true}
-                      key={`myvisit${visitIndex}`}
-                    />
-                  );
-                })}
+
+              <MySchoolsCard isVisited={false} />
+
               <Box textAlign="center">
                 <Link
                   to="/allocated-schools"
