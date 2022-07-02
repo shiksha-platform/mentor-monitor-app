@@ -68,19 +68,22 @@ const DEFAULT_THEME = {
     },
     Button: {
       baseStyle: {
-        rounded: 'lg'
+        rounded: 'md'
       },
       defaultProps: {
         colorScheme: 'button',
         _text: {
-          textTransform: 'uppercase',
-          fontSize: '12px',
-          fontWeight: '600'
+          textTransform: 'capitalize',
+          fontSize: '14px',
+          fontWeight: '400'
         }
       }
     }
   },
   colors: {
+    myVisitTheme: {
+      500: '#6461D2'
+    },
     widgetColor: {
       400: '#7F9DAC',
       500: '#DDD8F3',
@@ -191,11 +194,11 @@ const DEFAULT_THEME = {
     button: {
       50: '#fcf1ee',
       100: '#fae2dd',
-      200: '#f5c8bc',
-      300: '#f2ab99',
+      200: '#E0DFF6',
+      300: '#6461D2',
       400: '#ee8e78',
-      500: '#F87558',
-      600: '#d9654c'
+      500: '#6461D2',
+      600: '#6461D2'
     },
     attendancePresent: {
       600: '#2BB639',

@@ -1,15 +1,16 @@
 import { H2, IconByName, Layout } from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Box, HStack, Text, VStack, Button } from "native-base";
 import SchoolAddressCard from "../components/SchoolAddressCard";
-import MySchoolsCard from "../components/MySchoolsCard";
 import SchoolAdminDetailCard from "../components/SchoolAdminDetailCard";
 import SchoolAcademicDetailCard from "../components/SchoolAcademicDetailCard";
 import TeacherListCard from "../components/TeacherListCard";
+import MentorVisitCard from "../components/MentorVisitCard";
 
 export default function SchoolProfile() {
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const [recommendedVisits, setRecommendedVisits] = useState([{}, {}, {}, {}]);
 
@@ -66,8 +67,8 @@ export default function SchoolProfile() {
         <Box bg={"white"} px={2}>
           <HStack>
             <Button
-              color="white"
-              leftIcon={<IconByName color="white" name="ArrowRightSFillIcon" />}
+              leftIcon={<IconByName name="ArrowRightSFillIcon" p={0} />}
+              onPress={() => {navigate('/my-visits')}}
             >
               Start a Visit
             </Button>
@@ -123,24 +124,14 @@ export default function SchoolProfile() {
               <SchoolAdminDetailCard />
               <SchoolAcademicDetailCard />
               <TeacherListCard />
-            </VStack>
-          </Box>
+              <MentorVisitCard />
 
-          <Box>
-            <VStack space={6}>
               <Box>
-                <H2>My Schools</H2>
-              </Box>
-
-              <MySchoolsCard isVisited={false} />
-
-              <Box textAlign="center">
-                <Link
-                  to="/allocated-schools"
-                  style={{ color: "#6461D2", textDecoration: "none" }}
+                <Button
+                  variant="outline"
                 >
-                  Show More
-                </Link>
+                  See All Allocated Teachers
+                </Button>
               </Box>
             </VStack>
           </Box>

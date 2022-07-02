@@ -36,12 +36,14 @@ function SchoolAdminDetailCard() {
                 </HStack>
 
                 <HStack alignItems="center">
-                  <HStack>
-                    <Text>Boys: </Text>
+                  <HStack alignItems="center">
+                    <Box bg="#3498DB" style={{width: '12px', height: '12px'}} ></Box>
+                    <Text mx={2}>Boys:</Text>
                     <Text bold>150</Text>
                   </HStack>
-                  <HStack pl={2}>
-                    <Text>Girls: </Text>
+                  <HStack ml={4} alignItems="center">
+                    <Box bg="#BB6BD9" style={{width: '12px', height: '12px'}} ></Box>
+                    <Text mx={2}>Girls:</Text>
                     <Text bold>125</Text>
                   </HStack>
                 </HStack>
@@ -59,12 +61,14 @@ function SchoolAdminDetailCard() {
                 </HStack>
 
                 <HStack alignItems="center">
-                  <HStack>
-                    <Text>Male: </Text>
+                  <HStack alignItems="center">
+                    <Box bg="#3498DB" style={{width: '12px', height: '12px'}} ></Box>
+                    <Text mx={2}>Male: </Text>
                     <Text bold>05</Text>
                   </HStack>
-                  <HStack pl={2}>
-                    <Text>Female: </Text>
+                  <HStack ml={4} alignItems="center">
+                    <Box bg="#BB6BD9" style={{width: '12px', height: '12px'}} ></Box>
+                    <Text mx={2}>Female: </Text>
                     <Text bold>03</Text>
                   </HStack>
                 </HStack>

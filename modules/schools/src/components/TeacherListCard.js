@@ -23,7 +23,7 @@ import {
 } from "native-base";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { H2 } from "@shiksha/common-lib";
 // import StudentDetailCard from "./StudentDetail";
 
@@ -41,17 +41,17 @@ const TeacherListCard = ({ classId, students, setHeaderDetails }) => {
       {
         id: 1,
         name: "Rahul",
-        fathersName: "Father's Name",
+        class: "VI A",
       },
       {
         id: 2,
         name: "Rahul",
-        fathersName: "Father's Name",
+        class: "VI A",
       },
       {
         id: 3,
         name: "Rahul",
-        fathersName: "Father's Name",
+        class: "VI A",
       },
     ]);
   }, []);
@@ -61,7 +61,7 @@ const TeacherListCard = ({ classId, students, setHeaderDetails }) => {
       defaultCollapse={true}
       header={
         <Box py={4}>
-          <H2>Teacher List</H2>
+          <H2>Teachers List</H2>
         </Box>
       }
     >
@@ -91,7 +91,7 @@ const TeacherListCard = ({ classId, students, setHeaderDetails }) => {
                         {index + 1} . {teacher.name}
                       </Text>
                       <Text color="gray.400" fontSize={"xs"}>
-                        Class Teacher: VI A
+                        Class Teacher: {teacher.class}
                       </Text>
                     </VStack>
                     <Spacer />
@@ -99,10 +99,19 @@ const TeacherListCard = ({ classId, students, setHeaderDetails }) => {
                 </Pressable>
               </Box>
 
-              {teacherlist.length - 1 != index && <Divider></Divider>}
+              <Divider />
+
             </React.Fragment>
           );
         })}
+      <Box pt={4} textAlign="center">
+        <Link
+          to="/allocated-schools"
+          style={{ color: "#6461D2", textDecoration: "none" }}
+        >
+          Load More
+        </Link>
+      </Box>
     </Collapsible>
   );
 };
