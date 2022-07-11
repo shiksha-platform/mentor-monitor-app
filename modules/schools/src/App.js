@@ -53,7 +53,7 @@ function App() {
     {
       path: "teacher-details",
       component: TeacherDetails,
-    },    
+    },
     {
       path: "*",
       component: SchoolProfile,

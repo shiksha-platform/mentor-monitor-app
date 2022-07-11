@@ -26,7 +26,7 @@ export default function AttendanceReportDashboard() {
   const [weekPage, setWeekPage] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [weekDays, setWeekDays] = useState([]);
-  
+
   return (
     <Layout
       _header={{
