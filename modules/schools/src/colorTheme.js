@@ -9,4 +9,8 @@ export const visitedCard = {
   muted: "#666666",
 };
 
+export const colors = {
+  
+}
+
 export default colorTheme;

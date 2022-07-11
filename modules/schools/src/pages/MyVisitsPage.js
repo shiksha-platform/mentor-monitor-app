@@ -1,7 +1,8 @@
 import { H2, IconByName, Layout } from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
-import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import {
   Box,
   HStack,
@@ -13,35 +14,44 @@ import {
   Divider,
   Avatar,
 } from "native-base";
-import SchoolAddressCard from "../components/SchoolAddressCard";
-import SchoolAdminDetailCard from "../components/SchoolAdminDetailCard";
-import SchoolAcademicDetailCard from "../components/SchoolAcademicDetailCard";
-import TeacherListCard from "../components/TeacherListCard";
-import MentorVisitCard from "../components/MentorVisitCard";
 import TeacherTile from "../components/TeacherTile";
 
 export default function Myvisitspage() {
   const { t } = useTranslation();
-  const [recommendedVisits, setRecommendedVisits] = useState([{}, {}, {}, {}]);
   const [teacherDetailModal, setTeacherDetailModal] = useState(false);
-
+  const navigate = useNavigate();
   const [teacherlist, setTeacherList] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setTeacherList([
       {
         id: 1,
-        name: "Rahul",
+        name: "Chandan Pandit",
         class: "VI A",
       },
       {
         id: 2,
-        name: "Rahul",
+        name: "Sudesh Sharma",
         class: "VI A",
       },
       {
         id: 3,
-        name: "Rahul",
+        name: "Nikita Singh",
+        class: "VI A",
+      },
+      {
+        id: 4,
+        name: "Mahesh Yadav",
+        class: "VI A",
+      },
+      {
+        id: 5,
+        name: "Tej Prakash",
+        class: "VI A",
+      },
+      {
+        id: 6,
+        name: "Pratik Verma",
         class: "VI A",
       },
     ]);
@@ -178,6 +188,14 @@ export default function Myvisitspage() {
               <Text>10 Aug, 2013</Text>
             </Box>
           </VStack>
+          <Divider marginTop={6} />
+          <Button
+            width="100%"
+            marginTop={6}
+            onPress={(e) => navigate("/teacher-details")}
+          >
+            See More
+          </Button>
         </Box>
       </Actionsheet>
     </Layout>

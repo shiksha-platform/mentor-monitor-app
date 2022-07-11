@@ -26,26 +26,7 @@ export default function AttendanceReportDashboard() {
   const [weekPage, setWeekPage] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [weekDays, setWeekDays] = useState([]);
-  React.useEffect(() => {
-    setTeacherList([
-      {
-        id: 1,
-        name: "Rahul",
-        class: "VI A",
-      },
-      {
-        id: 2,
-        name: "Rahul",
-        class: "VI A",
-      },
-      {
-        id: 3,
-        name: "Rahul",
-        class: "VI A",
-      },
-    ]);
-  }, []);
-
+  
   return (
     <Layout
       _header={{
