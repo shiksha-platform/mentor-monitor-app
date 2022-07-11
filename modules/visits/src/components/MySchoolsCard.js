@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Center,
@@ -8,12 +8,30 @@ import {
   Avatar,
   Divider,
 } from "native-base";
-import { DEFAULT_THEME, H2, IconByName } from "@shiksha/common-lib";
+import {
+  DEFAULT_THEME,
+  H2,
+  IconByName,
+  overrideColorTheme,
+} from "@shiksha/common-lib";
+import { visitedCard } from "../colorTheme";
+
+let colors = DEFAULT_THEME;
+
 function MySchoolsCard({ isVisited }) {
+  useEffect(() => {
+    if (isVisited) {
+      colors = overrideColorTheme(visitedCard);
+    }
+  }, [isVisited]);
   return (
     <>
       <VStack space={6}>
-        <Box bg={isVisited ? "#C5DCC3" : "white"} borderRadius={10}>
+        <Box
+          bg={colors.cardBg}
+          borderRadius={10}
+          borderColor={colors.visitedCardBorderColor}
+        >
           <Box p={4}>
             <VStack space={6}>
               <HStack alignItems="center">

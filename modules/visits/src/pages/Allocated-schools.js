@@ -1,4 +1,10 @@
-import { H2, IconByName, Layout } from "@shiksha/common-lib";
+import {
+  DEFAULT_THEME,
+  FilterButton,
+  H2,
+  IconByName,
+  Layout,
+} from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -15,10 +21,40 @@ import {
 import RecommendedVisitsCard from "../components/RecommendedVisitsCard";
 import MySchoolsCard from "../components/MySchoolsCard";
 
+const defaultInputs = [
+  {
+    name: "District",
+    attributeName: "year",
+    data: ["2021", "2022", "2023", "2024", "2025"],
+  },
+  {
+    name: "Block",
+    attributeName: "block",
+    data: [
+      "Block 1",
+      "Block 2",
+      "Block 3",
+      "Block 4",
+      "Block 5",
+      "Block 6",
+      "Block 7",
+      "Block 8",
+      "Block 9",
+      "Block 10",
+    ],
+  },
+];
+let colors = DEFAULT_THEME;
 export default function Allocatedschools() {
   const { t } = useTranslation();
   const [recommendedVisits, setRecommendedVisits] = useState([{}, {}, {}, {}]);
   const [sortModal, setSortModal] = useState(false);
+
+  const [filterObject, setFilterObject] = React.useState({});
+
+  const callBackFilterObject = React.useCallback((e) => {
+    setFilterObject();
+  }, []);
 
   return (
     <Layout
@@ -26,6 +62,8 @@ export default function Allocatedschools() {
         title: "Allocated Schools",
         _heading: { color: "white" },
         isEnableSearchBtn: true,
+        subHeading: t("See all your allocated schools for visits here."),
+        _subHeading: { color: "white" },
       }}
       _appBar={{ languages: ["en"] }}
       _subHeader={{ bg: "attendanceCard.500" }}
@@ -42,7 +80,7 @@ export default function Allocatedschools() {
             title: "VISITS",
             icon: "GovernmentLineIcon",
             module: "Registry",
-            route: "/classes",
+            route: "/my-visits",
             routeparameters: {},
           },
           {
@@ -71,26 +109,40 @@ export default function Allocatedschools() {
     >
       <Box p={6}>
         <VStack space={6}>
-          <Text>See all your allocated schools for visits here.</Text>
-
           <Box>
             <VStack space={6}>
               <Box>
-                <H2>13 Schools</H2>
-                <Text fontSize="xs">Schools not visited in last 2 months</Text>
+                <HStack alignItems="center" justifyContent="space-between">
+                  <Box>
+                    <H2>13 Schools</H2>
+                    <Text fontSize="xs">
+                      Schools not visited in last 2 months
+                    </Text>
+                  </Box>
+                  <Button
+                    variant="outline"
+                    onPress={() => {
+                      setSortModal(true);
+                    }}
+                  >
+                    Sort
+                  </Button>
+                </HStack>
               </Box>
               <Box>
-                <Button
-                  bg="#6461D2"
-                  _text={{
-                    color: "white",
+                <FilterButton
+                  getObject={callBackFilterObject}
+                  object={filterObject}
+                  _actionSheet={{ bg: colors.cardBg }}
+                  _box={{ pt: 5, px: 5 }}
+                  _button={{ bg: colors.primary, px: "15px", py: "2" }}
+                  _filterButton={{
+                    rightIcon: "",
+                    bg: "white",
                   }}
-                  onPress={() => {
-                    setSortModal(true);
-                  }}
-                >
-                  {t("Sort")}
-                </Button>
+                  resetButtonText={t("COLLAPSE")}
+                  filters={defaultInputs}
+                />
               </Box>
               {recommendedVisits &&
                 recommendedVisits.length &&
