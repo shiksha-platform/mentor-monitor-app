@@ -2,13 +2,13 @@
 
 We welcome contributions in several forms, e.g.
 
-- Improve end user documenting on the [Wiki](https://github.com/shiksha-platform/frontend-modulefederation/wiki)
+- Improve end user documenting on the [Wiki](https://github.com/shiksha-platform/mentor-monitor-app/wiki)
 
 - Write unit tests and learn how the code works
 
-- Verify available [patches (pull requests)](https://github.com/shiksha-platform/frontend-modulefederation/pulls)
+- Verify available [patches (pull requests)](https://github.com/shiksha-platform/mentor-monitor-app/pulls)
 
-- Working on [issues](https://github.com/shiksha-platform/frontend-modulefederation/issues)
+- Working on [issues](https://github.com/shiksha-platform/mentor-monitor-app/issues)
 
   - Fix a bug
   - Add a new feature
@@ -104,7 +104,7 @@ You can add additional details after a new line to describe the change in detail
 feat(CONTRIBUTING.md): create initial CONTRIBUTING.md
 
 makes the following wiki Page obsolete:
-- https://github.com/shiksha-platform/frontend-modulefederation/wiki/Reporting-bugs
+- https://github.com/shiksha-platform/mentor-monitor-app/wiki/Reporting-bugs
 
 This closes #22
 ```
@@ -139,15 +139,15 @@ Please keep them clean from unwanted commits.
 Follow the steps to get your work included in the project.
 
 1. [Fork](https://help.github.com/fork-a-repo/) the project, clone your fork,
-   and add the frontend-modulefederation remote:
+   and add the mentor-monitor-app remote:
 
    ```bash
    # Clone your fork of the repo into the current directory
-   git clone https://github.com/<your-username>/frontend-modulefederation.git
+   git clone https://github.com/<your-username>/mentor-monitor-app.git
    # Navigate to the cloned directory
-   cd frontend-modulefederation
+   cd mentor-monitor-app
    # Assign the original repo to a remote called "upstream"
-   git remote add upstream https://github.com/shiksha-platform/frontend-modulefederation.git
+   git remote add upstream https://github.com/shiksha-platform/mentor-monitor-app.git
    ```
 
 2. Get the latest changes from upstream:
@@ -178,10 +178,10 @@ Follow the steps to get your work included in the project.
    ```
 
 4) It's coding time!
-   Please respect the coding convention: [Coding guidelines](https://github.com/shiksha-platform/frontend-modulefederation/wiki)
+   Please respect the coding convention: [Coding guidelines](https://github.com/shiksha-platform/mentor-monitor-app/wiki)
 
    Commit your changes in logical chunks. Please adhere to **Git Commit Conventions**
-   and [Coding guidelines](https://github.com/shiksha-platform/frontend-modulefederation/wiki)
+   and [Coding guidelines](https://github.com/shiksha-platform/mentor-monitor-app/wiki)
    or your code is unlikely to be merged into the main project.
    Use Git's [interactive rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase)
    feature to tidy up your commits before making them public.
