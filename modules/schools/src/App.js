@@ -13,6 +13,7 @@ import AssessmentReportDashboard from "./pages/reports/AssessmentReportDashboard
 import AssessmentSectionWiseReport from "./pages/reports/AssessmentSectionWiseReport";
 import AssessmentDetailedReport from "./pages/reports/AssessmentDetailedReport";
 import TeacherDetails from "pages/TeacherDetails";
+import TeacherAttendanceReport from "pages/TeacherAttendanceReport";
 
 function App() {
   const theme = extendTheme(DEFAULT_THEME);
@@ -53,6 +54,10 @@ function App() {
     {
       path: "teacher-details",
       component: TeacherDetails,
+    },
+    {
+      path: "teacher-attendance-report",
+      component: TeacherAttendanceReport,
     },
     {
       path: "*",

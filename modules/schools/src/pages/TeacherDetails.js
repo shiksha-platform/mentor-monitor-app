@@ -10,8 +10,10 @@ import {
   Button,
 } from "native-base";
 import VisitedCard from "colorTheme";
+import { useNavigate } from "react-router-dom";
 
 const TeacherDetails = () => {
+  const navigate = useNavigate();
   return (
     <Layout
       _header={{
@@ -92,7 +94,13 @@ const TeacherDetails = () => {
             </Box>
           </HStack>
           <Divider marginY={6} />
-          <Button width="100%" variant="outline">
+          <Button
+            width="100%"
+            variant="outline"
+            onPress={() => {
+              navigate("/teacher-attendance-report");
+            }}
+          >
             Attendance Report
           </Button>
         </Collapsible>
