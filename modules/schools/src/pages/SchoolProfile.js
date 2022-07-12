@@ -7,7 +7,7 @@ import SchoolAddressCard from "../components/SchoolAddressCard";
 import SchoolAdminDetailCard from "../components/SchoolAdminDetailCard";
 import SchoolAcademicDetailCard from "../components/SchoolAcademicDetailCard";
 import TeacherListCard from "../components/TeacherListCard";
-import MentorVisitCard from "../components/MentorVisitCard";
+import PastVisitCard from "../components/PastVisitCard";
 
 export default function SchoolProfile() {
   const navigate = useNavigate();
@@ -65,14 +65,23 @@ export default function SchoolProfile() {
       _appBar={{ languages: ["en"] }}
       subHeader={
         <Box bg={"white"} px={2}>
-          <HStack>
+          <HStack alignItems="center" justifyContent="space-between">
             <Button
               leftIcon={<IconByName name="ArrowRightSFillIcon" p={0} />}
+              onPress={() => {
+                navigate("/new-visit");
+              }}
+            >
+              Start a Visit
+            </Button>
+            <Button
+              variant="outline"
+              leftIcon={<IconByName name="CalendarEventLineIcon" p={0} />}
               onPress={() => {
                 navigate("/my-visits");
               }}
             >
-              Start a Visit
+              See Calendar
             </Button>
           </HStack>
         </Box>
@@ -126,7 +135,7 @@ export default function SchoolProfile() {
               <SchoolAdminDetailCard />
               <SchoolAcademicDetailCard />
               <TeacherListCard />
-              <MentorVisitCard />
+              <PastVisitCard />
 
               <Box>
                 <Button variant="outline">See All Allocated Teachers</Button>

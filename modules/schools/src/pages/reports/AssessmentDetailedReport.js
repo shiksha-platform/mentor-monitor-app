@@ -14,7 +14,7 @@ import {
   Avatar,
 } from "native-base";
 
-import ClassParticipationCollapsibleCard from "../../components/Reports/AssessmentReports/ClassParticipationCard";
+import ClassParticipationCard from "../../components/Reports/AssessmentReports/ClassParticipationCard";
 import AttendanceSuccessFailureCard from "../../components/Reports/AttendanceReports/AttendanceSuccessFailureCard";
 import StudentAttendanceCollapsibleCard from "../../components/Reports/AttendanceReports/StudentAttendanceCollapsibleCard";
 import AssessmentAchieverCard from "../../components/Reports/AssessmentReports/AssessmentAchieverCard";
@@ -125,7 +125,7 @@ export default function AssessmentDetailedReport() {
             </HStack>
           </Box>
           <VStack space={6}>
-            <ClassParticipationCollapsibleCard />
+            <ClassParticipationCard />
             <AssessmentAchieverCard />
             <StudentAssessmentCollapsibleCard />
           </VStack>

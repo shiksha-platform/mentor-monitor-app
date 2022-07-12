@@ -14,10 +14,25 @@ import AssessmentSectionWiseReport from "./pages/reports/AssessmentSectionWiseRe
 import AssessmentDetailedReport from "./pages/reports/AssessmentDetailedReport";
 import TeacherDetails from "pages/TeacherDetails";
 import TeacherAttendanceReport from "pages/TeacherAttendanceReport";
+import NewVisitPage from "./pages/visit/NewVisitPage";
+import VisitSubmit from "./pages/visit/VisitSubmit";
+import TeacherVisitReport from "./pages/TeacherVisitReport";
 
 function App() {
   const theme = extendTheme(DEFAULT_THEME);
   const routes = [
+    {
+      path: "new-visit",
+      component: NewVisitPage,
+    },
+    {
+      path: "visit-submit",
+      component: VisitSubmit,
+    },
+    {
+      path: "teacher-visit-report",
+      component: TeacherVisitReport,
+    },
     {
       path: "assessment-report",
       component: AssessmentReportDashboard,

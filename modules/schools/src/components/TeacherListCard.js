@@ -105,7 +105,7 @@ const TeacherListCard = ({ classId, students, setHeaderDetails }) => {
         })}
       <Box pt={4} textAlign="center">
         <Link
-          to="/allocated-schools"
+          to="/my-visits"
           style={{ color: "#6461D2", textDecoration: "none" }}
         >
           Load More
