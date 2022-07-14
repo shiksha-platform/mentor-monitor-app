@@ -11,6 +11,10 @@ import {
 } from "native-base";
 import VisitedCard from "colorTheme";
 import { useNavigate } from "react-router-dom";
+import {
+  buildStyles,
+  CircularProgressbarWithChildren,
+} from "react-circular-progressbar";
 
 const TeacherDetails = () => {
   const navigate = useNavigate();
@@ -93,6 +97,47 @@ const TeacherDetails = () => {
               </Text>
             </Box>
           </HStack>
+          <Box pt={6}>
+            <HStack justifyContent="space-around">
+              <VStack alignItems="center" space={3}>
+                <Box w="100px" h="100px">
+                  <CircularProgressbarWithChildren
+                    value={51}
+                    maxValue={100}
+                    styles={buildStyles({
+                      pathColor: "#DF5B5B",
+                      textColor: "#DF5B5B",
+                      trailColor: "#F9DEDE",
+                    })}
+                  >
+                    <Box textAlign="center">
+                      <Text fontSize={18}>51%</Text>
+                    </Box>
+                  </CircularProgressbarWithChildren>
+                </Box>
+                <Text>This Month</Text>
+              </VStack>
+
+              <VStack alignItems="center" space={3}>
+                <Box w="100px" h="100px">
+                  <CircularProgressbarWithChildren
+                    value={90}
+                    maxValue={100}
+                    styles={buildStyles({
+                      pathColor: "#43B13A",
+                      textColor: "#43B13A",
+                      trailColor: "#D9EFD8",
+                    })}
+                  >
+                    <Box textAlign="center">
+                      <Text fontSize={18}>90%</Text>
+                    </Box>
+                  </CircularProgressbarWithChildren>
+                </Box>
+                <Text>Last Year</Text>
+              </VStack>
+            </HStack>
+          </Box>
           <Divider marginY={6} />
           <Button
             width="100%"

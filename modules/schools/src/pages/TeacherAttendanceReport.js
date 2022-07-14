@@ -92,7 +92,7 @@ const TeacherAttendanceReport = () => {
             monthDays={weekDays}
             item={teacherObject}
             attendance={attendance}
-            setAttendanceObject={setAttendanceObject}            
+            setAttendanceObject={setAttendanceObject}
           />
         </Collapsible>
       </Box>

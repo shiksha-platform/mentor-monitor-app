@@ -16,13 +16,13 @@ import {
   IconByName,
   Collapsible,
 } from "@shiksha/common-lib";
-function MentorVisitCard() {
+function PastVisitCard() {
   return (
     <Collapsible
       defaultCollapse={true}
       header={
         <Box py={4}>
-          <H2>Mentor Visit Details</H2>
+          <H2>Past Visit Details</H2>
         </Box>
       }
     >
@@ -193,4 +193,4 @@ function MentorVisitCard() {
     </Collapsible>
   );
 }
-export default MentorVisitCard;
+export default PastVisitCard;
