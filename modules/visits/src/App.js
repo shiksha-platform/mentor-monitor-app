@@ -30,7 +30,7 @@ function App() {
     },
     {
       path: "*",
-      component: Myvists,
+      component: Homepage,
     },
   ];
   const LoginComponent = React.lazy(() => import("core/Login"));

@@ -23,10 +23,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import manifest from "../../manifest.json";
 import { useNavigate } from "react-router-dom";
-export default function VisitSubmit({
-                                                   handleBackButton,
-                                                   formObject,
-                                                 }) {
+export default function VisitSubmit({ handleBackButton, formObject }) {
   const [width, height] = useWindowSize();
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -54,7 +51,7 @@ export default function VisitSubmit({
   return (
     <Layout
       isDisabledAppBar={true}
-      pageBgColor={'#D9EFD8'}
+      pageBgColor={"#D9EFD8"}
       _footer={{
         menues: [
           {
@@ -138,7 +135,9 @@ export default function VisitSubmit({
                     </Text>
                     <HStack align="middle">
                       <Text color="#333333">VI A</Text>
-                      <Text fontSize='8px' color="#B5B5C8" mx={2}>●</Text>
+                      <Text fontSize="8px" color="#B5B5C8" mx={2}>
+                        ●
+                      </Text>
                       <Text color="#333333">Mathematics</Text>
                     </HStack>
                   </Box>
@@ -149,7 +148,7 @@ export default function VisitSubmit({
             <Box px={4}>
               <Box bg="white" p={4} rounded={10} pb={100}>
                 <>
-                  <Text bold fontSize={'sm'}>
+                  <Text bold fontSize={"sm"}>
                     <Box py={4}>
                       <H2>Visit Review</H2>
                     </Box>
@@ -162,68 +161,94 @@ export default function VisitSubmit({
                         {/*row 1 box*/}
                         <Box>
                           <VStack space={6}>
-                            <Box bg={'#F9DEDE'} rounded={5} p={2}>
-                              <HStack alignItems={'center'}>
+                            <Box bg={"#F9DEDE"} rounded={5} p={2}>
+                              <HStack alignItems={"center"}>
                                 <IconByName
                                   name="EmotionSadLineIcon"
                                   color={"#DF5B5B"}
                                   // onPress={() => setSortModal(false)}
                                 />
-                                <Box borderLeftWidth={2} borderLeftColor={'#DF5B5B'} pl={2}>
-                                  <Text fontSize={11} color="#DF5B5B">You spent only 10 minutes on this visit!</Text>
+                                <Box
+                                  borderLeftWidth={2}
+                                  borderLeftColor={"#DF5B5B"}
+                                  pl={2}
+                                >
+                                  <Text fontSize={11} color="#DF5B5B">
+                                    You spent only 10 minutes on this visit!
+                                  </Text>
                                 </Box>
                               </HStack>
                             </Box>
                             <VStack space={8}>
                               <Box>
-                                <Text bold>Q1. Is the teacher aware of nipun lakshyas for their respective subejct & grades?</Text>
+                                <Text bold>
+                                  Q1. Is the teacher aware of nipun lakshyas for
+                                  their respective subejct & grades?
+                                </Text>
                                 <Text>Whiteboard</Text>
                               </Box>
 
                               <Box>
-                                <Text bold>Q2. Does the classroom have NIPUN Lakshya   charts pasted on walls?</Text>
+                                <Text bold>
+                                  Q2. Does the classroom have NIPUN Lakshya
+                                  charts pasted on walls?
+                                </Text>
                                 <Text>Answer as in ODK</Text>
                               </Box>
                               <Box>
-                                <Text bold>Q1. Is the teacher aware of nipun lakshyas for their respective subejct & grades?</Text>
+                                <Text bold>
+                                  Q1. Is the teacher aware of nipun lakshyas for
+                                  their respective subejct & grades?
+                                </Text>
                                 <Text>Whiteboard</Text>
                               </Box>
 
                               <Box>
-                                <Text bold>Q2. Does the classroom have NIPUN Lakshya   charts pasted on walls?</Text>
+                                <Text bold>
+                                  Q2. Does the classroom have NIPUN Lakshya
+                                  charts pasted on walls?
+                                </Text>
                                 <Text>Answer as in ODK</Text>
                               </Box>
                               <Box>
-                                <Text bold>Q1. Is the teacher aware of nipun lakshyas for their respective subejct & grades?</Text>
+                                <Text bold>
+                                  Q1. Is the teacher aware of nipun lakshyas for
+                                  their respective subejct & grades?
+                                </Text>
                                 <Text>Whiteboard</Text>
                               </Box>
 
                               <Box>
-                                <Text bold>Q2. Does the classroom have NIPUN Lakshya   charts pasted on walls?</Text>
+                                <Text bold>
+                                  Q2. Does the classroom have NIPUN Lakshya
+                                  charts pasted on walls?
+                                </Text>
                                 <Text>Answer as in ODK</Text>
                               </Box>
                               <Box>
-                                <Text bold>Q1. Is the teacher aware of nipun lakshyas for their respective subejct & grades?</Text>
+                                <Text bold>
+                                  Q1. Is the teacher aware of nipun lakshyas for
+                                  their respective subejct & grades?
+                                </Text>
                                 <Text>Whiteboard</Text>
                               </Box>
 
                               <Box>
-                                <Text bold>Q2. Does the classroom have NIPUN Lakshya   charts pasted on walls?</Text>
+                                <Text bold>
+                                  Q2. Does the classroom have NIPUN Lakshya
+                                  charts pasted on walls?
+                                </Text>
                                 <Text>Answer as in ODK</Text>
                               </Box>
                             </VStack>
-                            <Box
-                              bg="white"
-                              p="5"
-                              shadow={2}
-                            >
-                              <HStack justifyContent={'space-between'}>
+                            <Box bg="white" p="5" shadow={2}>
+                              <HStack justifyContent={"space-between"}>
                                 <Button
                                   colorScheme="button"
                                   variant="outline"
                                   _text={{
-                                    fontSize: '14px',
-                                    p:'1'
+                                    fontSize: "14px",
+                                    p: "1",
                                   }}
                                   // onPress={()=> setSelectedStudent()}
                                 >
@@ -233,9 +258,9 @@ export default function VisitSubmit({
                                 <Button
                                   colorScheme="button"
                                   _text={{
-                                    color: '#fff',
-                                    fontSize: '14px',
-                                    p:'1'
+                                    color: "#fff",
+                                    fontSize: "14px",
+                                    p: "1",
                                   }}
                                 >
                                   {t("Start Another Visit")}
@@ -250,11 +275,9 @@ export default function VisitSubmit({
                 </>
               </Box>
             </Box>
-
           </VStack>
         }
       />
-
     </Layout>
   );
 }

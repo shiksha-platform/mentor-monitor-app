@@ -61,7 +61,7 @@ const TeacherListCard = ({ classId, students, setHeaderDetails }) => {
       defaultCollapse={true}
       header={
         <Box py={4}>
-          <H2>Teachers List</H2>
+          <H2>Allocated Teachers List</H2>
         </Box>
       }
     >
@@ -72,29 +72,48 @@ const TeacherListCard = ({ classId, students, setHeaderDetails }) => {
             <React.Fragment key={`student${index}`}>
               <Box py="2">
                 <Pressable onPress={() => navigate("/assessment-result")}>
-                  <HStack alignItems="center" space={3}>
-                    <Avatar
-                      size="48px"
-                      borderRadius="md"
-                      source={{
-                        uri: "https://via.placeholder.com/50x50.png",
-                      }}
-                    />
-                    <VStack>
-                      <Text
-                        color="coolGray.800"
-                        _dark={{
-                          color: "warmGray.50",
-                        }}
-                        bold
-                      >
-                        {index + 1} . {teacher.name}
-                      </Text>
-                      <Text color="gray.400" fontSize={"xs"}>
-                        Class Teacher: {teacher.class}
-                      </Text>
-                    </VStack>
-                    <Spacer />
+                  <HStack justifyContent="space-between" alignItems="center">
+                    <Box>
+                      <HStack alignItems="center" space={3}>
+                        <Avatar
+                          size="48px"
+                          borderRadius="md"
+                          source={{
+                            uri: "https://via.placeholder.com/50x50.png",
+                          }}
+                        />
+                        <VStack>
+                          <Text
+                            color="coolGray.800"
+                            _dark={{
+                              color: "warmGray.50",
+                            }}
+                            bold
+                          >
+                            {index + 1} . {teacher.name}
+                          </Text>
+                          <Text color="gray.400" fontSize={"xs"}>
+                            Class Teacher: {teacher.class}
+                          </Text>
+                        </VStack>
+                      </HStack>
+                    </Box>
+                    <Box>
+                      <HStack alignItems="center">
+                        <IconByName
+                          _icon={{ size: "22" }}
+                          borderRadius="full"
+                          bg="#282754"
+                          color="white"
+                          name="UserLineIcon"
+                        />
+                        <IconByName
+                          _icon={{ size: "18" }}
+                          color="#BBBBBB"
+                          name="ArrowRightSLineIcon"
+                        />
+                      </HStack>
+                    </Box>
                   </HStack>
                 </Pressable>
               </Box>

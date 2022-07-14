@@ -1,4 +1,10 @@
-import { DEFAULT_THEME, FilterButton, H2, IconByName, Layout } from "@shiksha/common-lib";
+import {
+  DEFAULT_THEME,
+  FilterButton,
+  H2,
+  IconByName,
+  Layout,
+} from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -12,7 +18,7 @@ import {
   Stack,
   Divider,
   Avatar,
-  Input
+  Input,
 } from "native-base";
 import TeacherFilterButton from "../../components/NewVisit/TeacherFilterButton";
 import ClassFilterButton from "../../components/NewVisit/ClassFilterButton";
@@ -61,7 +67,7 @@ export default function NewVisitPage() {
       }}
       _appBar={{
         languages: ["en"],
-        isEnableSearchBtn: true
+        isEnableSearchBtn: true,
       }}
       _footer={{
         menues: [
@@ -116,7 +122,7 @@ export default function NewVisitPage() {
                   getObject={callBackFilterObject}
                   object={filterObject}
                   _actionSheet={{ bg: colors.cardBg }}
-                  _box={{ pt: 5}}
+                  _box={{ pt: 5 }}
                   _button={{ bg: colors.primary, px: "15px", py: "2" }}
                   _filterButton={{
                     rightIcon: "",
@@ -124,7 +130,6 @@ export default function NewVisitPage() {
                   }}
                   resetButtonText={t("COLLAPSE")}
                 />
-
               </Box>
               <Box>
                 <ClassFilterButton
@@ -156,10 +161,7 @@ export default function NewVisitPage() {
           </Box>
           <Divider />
           <Box p={4}>
-            <Button
-              colorScheme="button"
-              py={3}
-            >
+            <Button colorScheme="button" py={3}>
               {t("Start Visit")}
             </Button>
           </Box>

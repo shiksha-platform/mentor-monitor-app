@@ -1,13 +1,21 @@
-import { DEFAULT_THEME, FilterButton, H2, IconByName, Layout } from "@shiksha/common-lib";
+import {
+  DEFAULT_THEME,
+  FilterButton,
+  H2,
+  IconByName,
+  Layout,
+} from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Avatar, Box, HStack, Text, VStack, Divider } from "native-base";
 import RecommendedVisitsCard from "../components/RecommendedVisitsCard";
 import MySchoolsCard from "../components/MySchoolsCard";
-import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
-
+import {
+  CircularProgressbarWithChildren,
+  buildStyles,
+} from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
 const defaultInputs = [
   {
@@ -18,7 +26,20 @@ const defaultInputs = [
   {
     name: "Month",
     attributeName: "month",
-    data: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    data: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ],
   },
   {
     name: "District",
@@ -70,9 +91,7 @@ export default function Homepage() {
                 <Text fontWeight={300} fontSize={"xs"}>
                   Welcome
                 </Text>
-                <Text>
-                  Mr. Dhananjay Tripathi
-                </Text>
+                <Text>Mr. Dhananjay Tripathi</Text>
               </VStack>
             </HStack>
           </Box>
@@ -135,15 +154,17 @@ export default function Homepage() {
                       value={24}
                       maxValue={60}
                       styles={buildStyles({
-                        pathColor: '#BB6BD9',
-                        textColor: '#f88',
-                        trailColor: '#F3F3F3',
+                        pathColor: "#BB6BD9",
+                        textColor: "#f88",
+                        trailColor: "#F3F3F3",
                       })}
                     >
                       <Box textAlign="center">
                         <VStack>
                           <Text color="#BB6BD9" fontSize={18}>
-                            <Text fontSize={18} bold>24/</Text>
+                            <Text fontSize={18} bold>
+                              24/
+                            </Text>
                             <Text fontSize={15}>60</Text>
                           </Text>
                           <Text fontSize={11}>Teachers Mentored</Text>
@@ -157,18 +178,24 @@ export default function Homepage() {
                       value={7}
                       maxValue={14}
                       styles={buildStyles({
-                        pathColor: '#3498DB',
-                        textColor: '#f88',
-                        trailColor: '#F3F3F3',
+                        pathColor: "#3498DB",
+                        textColor: "#f88",
+                        trailColor: "#F3F3F3",
                       })}
                     >
                       <Box textAlign="center">
                         <VStack>
                           <Text color="#3498DB" fontSize={18}>
-                            <Text fontSize={18} bold>07/</Text>
+                            <Text fontSize={18} bold>
+                              07/
+                            </Text>
                             <Text fontSize={15}>14</Text>
                           </Text>
-                          <Text fontSize={11}>Schools<br/>Covered</Text>
+                          <Text fontSize={11}>
+                            Schools
+                            <br />
+                            Covered
+                          </Text>
                         </VStack>
                       </Box>
                     </CircularProgressbarWithChildren>
@@ -179,7 +206,9 @@ export default function Homepage() {
               <Box p={4}>
                 <HStack alignItems="center" justifyContent="space-between">
                   <Text fontSize="xs">Average Mentoring Time</Text>
-                  <Text fontSize={16} color="#43B13A">2.5 Hrs</Text>
+                  <Text fontSize={16} color="#43B13A">
+                    2.5 Hrs
+                  </Text>
                 </HStack>
               </Box>
             </VStack>
@@ -191,7 +220,7 @@ export default function Homepage() {
               getObject={callBackFilterObject}
               object={filterObject}
               _actionSheet={{ bg: colors.cardBg }}
-              _box={{ pt: 5}}
+              _box={{ pt: 5 }}
               _button={{ bg: colors.primary, px: "15px", py: "2" }}
               _filterButton={{
                 rightIcon: "",
@@ -204,16 +233,23 @@ export default function Homepage() {
 
           <Box>
             <HStack space="20px">
-              <Box bg="white" rounded={10} flexGrow={1} alignItems="center" textAlign="center" py={4}>
+              <Box
+                bg="white"
+                rounded={10}
+                flexGrow={1}
+                alignItems="center"
+                textAlign="center"
+                py={4}
+              >
                 <VStack space={4} alignItems="center">
                   <Box w="50px" h="50px">
                     <CircularProgressbarWithChildren
                       value={0}
                       maxValue={756}
                       styles={buildStyles({
-                        pathColor: '#BB6BD9',
-                        textColor: '#f88',
-                        trailColor: '#F3F3F3',
+                        pathColor: "#BB6BD9",
+                        textColor: "#f88",
+                        trailColor: "#F3F3F3",
                       })}
                     >
                       <Text>756</Text>
@@ -222,38 +258,64 @@ export default function Homepage() {
                   <Text>No of Mentors</Text>
                 </VStack>
               </Box>
-              <Box bg="white" rounded={10} flexGrow={1} alignItems="center" textAlign="center" py={4}>
+              <Box
+                bg="white"
+                rounded={10}
+                flexGrow={1}
+                alignItems="center"
+                textAlign="center"
+                py={4}
+              >
                 <VStack space={4} alignItems="center">
                   <Box w="50px" h="50px">
                     <CircularProgressbarWithChildren
                       value={450}
                       maxValue={600}
                       styles={buildStyles({
-                        pathColor: '#6461D2',
-                        trailColor: '#F3F3F3',
+                        pathColor: "#6461D2",
+                        trailColor: "#F3F3F3",
                       })}
                     >
                       <Text color="#6461D2">450</Text>
                     </CircularProgressbarWithChildren>
                   </Box>
-                  <Text>No of<br/>Monthly Targets<br/>achievers</Text>
+                  <Text>
+                    No of
+                    <br />
+                    Monthly Targets
+                    <br />
+                    achievers
+                  </Text>
                 </VStack>
               </Box>
-              <Box bg="white" rounded={10} flexGrow={1} alignItems="center" textAlign="center" py={4}>
+              <Box
+                bg="white"
+                rounded={10}
+                flexGrow={1}
+                alignItems="center"
+                textAlign="center"
+                py={4}
+              >
                 <VStack space={4} alignItems="center">
                   <Box w="50px" h="50px">
                     <CircularProgressbarWithChildren
                       value={45}
                       maxValue={100}
                       styles={buildStyles({
-                        pathColor: '#6461D2',
-                        trailColor: '#F3F3F3',
+                        pathColor: "#6461D2",
+                        trailColor: "#F3F3F3",
                       })}
                     >
                       <Text color="#6461D2">45%</Text>
                     </CircularProgressbarWithChildren>
                   </Box>
-                  <Text>Percentage of<br/>monthly target<br/>achievers</Text>
+                  <Text>
+                    Percentage of
+                    <br />
+                    monthly target
+                    <br />
+                    achievers
+                  </Text>
                 </VStack>
               </Box>
             </HStack>

@@ -1,4 +1,4 @@
-import { H2, IconByName, Layout } from "@shiksha/common-lib";
+import { H2, IconByName, Layout, SearchLayout } from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -12,7 +12,6 @@ import PastVisitCard from "../components/PastVisitCard";
 export default function SchoolProfile() {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const [recommendedVisits, setRecommendedVisits] = useState([{}, {}, {}, {}]);
 
   return (
     <Layout
@@ -22,8 +21,6 @@ export default function SchoolProfile() {
       _header={{
         title: "Delhi Public School, Ghaziabad",
         _heading: { color: "white" },
-        isEnableSearchBtn: true,
-        // setSearch: setSearch,
         subHeading: (
           <VStack>
             <Text fontSize="14px" color="white">
@@ -44,25 +41,13 @@ export default function SchoolProfile() {
           </VStack>
         ),
         _subHeading: { color: "white" },
-        /*iconComponent: (
-          <Link
-            to="/classes/attendance/report"
-            style={{ color: "rgb(63, 63, 70)", textDecoration: "none" }}
-          >
-            <Box
-              rounded="full"
-              borderColor="button.500"
-              borderWidth="1"
-              _text={{ color: "button.500" }}
-              px={6}
-              py={2}
-            >
-              {t("REPORT")}
-            </Box>
-          </Link>
-        ),*/
       }}
-      _appBar={{ languages: ["en"] }}
+      _appBar={{
+        languages: ["en"],
+        // isEnableSearchBtn: true,
+        // setSearch,
+        // setSearchState,
+      }}
       subHeader={
         <Box bg={"white"} px={2}>
           <HStack alignItems="center" justifyContent="space-between">
