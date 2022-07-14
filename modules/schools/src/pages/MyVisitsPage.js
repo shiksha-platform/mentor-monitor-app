@@ -192,7 +192,7 @@ export default function Myvisitspage() {
           <Button
             width="100%"
             marginTop={6}
-            onPress={(e) => navigate("/teacher-details")}
+            onPress={(e) => navigate("/schools/teacher-details")}
           >
             See More
           </Button>

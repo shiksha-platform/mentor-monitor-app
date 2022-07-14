@@ -1,32 +1,15 @@
-import {
-  DEFAULT_THEME,
-  FilterButton,
-  H2,
-  IconByName,
-  Layout,
-} from "@shiksha/common-lib";
+import { DEFAULT_THEME, H2, Layout } from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import {
-  Box,
-  HStack,
-  Text,
-  VStack,
-  Button,
-  Actionsheet,
-  Stack,
-  Divider,
-  Avatar,
-  Input,
-} from "native-base";
+import { Box, VStack, Button, Divider } from "native-base";
 import TeacherFilterButton from "../../components/NewVisit/TeacherFilterButton";
 import ClassFilterButton from "../../components/NewVisit/ClassFilterButton";
 import SubjectFilterButton from "../../components/NewVisit/SubjectFilterButton";
-
+import { useNavigate } from "react-router-dom";
 let colors = DEFAULT_THEME;
 
 export default function NewVisitPage() {
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const [recommendedVisits, setRecommendedVisits] = useState([{}, {}, {}, {}]);
   const [teacherDetailModal, setTeacherDetailModal] = useState(false);
@@ -68,45 +51,6 @@ export default function NewVisitPage() {
       _appBar={{
         languages: ["en"],
         isEnableSearchBtn: true,
-      }}
-      _footer={{
-        menues: [
-          {
-            title: "HOME",
-            icon: "Home4LineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "VISITS",
-            icon: "GovernmentLineIcon",
-            module: "Registry",
-            route: "/my-visits",
-            routeparameters: {},
-          },
-          {
-            title: "LEARNING",
-            icon: "LightbulbFlashLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "MATERIALS",
-            icon: "BookOpenLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "PROFILE",
-            icon: "UserLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-        ],
       }}
     >
       <Box rounded={10} bg="white" shadow="md">
@@ -161,7 +105,13 @@ export default function NewVisitPage() {
           </Box>
           <Divider />
           <Box p={4}>
-            <Button colorScheme="button" py={3}>
+            <Button
+              colorScheme="button"
+              py={3}
+              onPress={() => {
+                navigate("/schools/questionnaire");
+              }}
+            >
               {t("Start Visit")}
             </Button>
           </Box>

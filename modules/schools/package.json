@@ -43,6 +43,7 @@
     "workbox-strategies": "^5.1.4",
     "workbox-streams": "^5.1.4"
   },
+  "homepage": "modules/schools",
   "scripts": {
     "start": "craco start",
     "build": "craco build",

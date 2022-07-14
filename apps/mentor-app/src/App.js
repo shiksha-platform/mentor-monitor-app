@@ -1,27 +1,119 @@
-import React, { Suspense } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
+import React from "react";
 import "./App.css";
-import { extendTheme, NativeBaseProvider } from "native-base";
+import { extendTheme } from "native-base";
 import { DEFAULT_THEME, AppShell } from "@shiksha/common-lib";
-import Sample from "pages/Sample";
+import Home from "pages/Home";
 
 function App() {
   const theme = extendTheme(DEFAULT_THEME);
+  const SchoolProfile = React.lazy(() => import("schools/SchoolProfile"));
+  const MyVisitsPage = React.lazy(() => import("schools/MyVisitsPage"));
+  const AttendanceReportDashboard = React.lazy(() =>
+    import("schools/AttendanceReportDashboard")
+  );
+  const AttendanceSectionWiseReport = React.lazy(() =>
+    import("schools/AttendanceSectionWiseReport")
+  );
+  const AttendanceDetailedReport = React.lazy(() =>
+    import("schools/AttendanceDetailedReport")
+  );
+  const AssessmentReportDashboard = React.lazy(() =>
+    import("schools/AssessmentReportDashboard")
+  );
+  const AssessmentSectionWiseReport = React.lazy(() =>
+    import("schools/AssessmentSectionWiseReport")
+  );
+  const AssessmentDetailedReport = React.lazy(() =>
+    import("schools/AssessmentDetailedReport")
+  );
+  const TeacherDetails = React.lazy(() => import("schools/TeacherDetails"));
+  const TeacherAttendanceReport = React.lazy(() =>
+    import("schools/TeacherAttendanceReport")
+  );
+  const NewVisitPage = React.lazy(() => import("schools/NewVisitPage"));
+  const VisitSubmit = React.lazy(() => import("schools/VisitSubmit"));
+  const TeacherVisitReport = React.lazy(() =>
+    import("schools/TeacherVisitReport")
+  );
+  const Question = React.lazy(() => import("schools/Question"));
   const routes = [
     {
       path: "/",
-      component: Sample,
+      component: Home,
+    },
+    {
+      path: "/schools/new-visit",
+      component: NewVisitPage,
+    },
+    {
+      path: "/schools/visit-submit",
+      component: VisitSubmit,
+    },
+    {
+      path: "/schools/teacher-visit-report",
+      component: TeacherVisitReport,
+    },
+    {
+      path: "/schools/assessment-report",
+      component: AssessmentReportDashboard,
+    },
+    {
+      path: "/schools/assessment-section-report",
+      component: AssessmentSectionWiseReport,
+    },
+    {
+      path: "/schools/assessment-detailed-report",
+      component: AssessmentDetailedReport,
+    },
+    {
+      path: "/schools/attendance-report",
+      component: AttendanceReportDashboard,
+    },
+    {
+      path: "/schools/attendance-section-report",
+      component: AttendanceSectionWiseReport,
+    },
+    {
+      path: "/schools/attendance-detailed-report",
+      component: AttendanceDetailedReport,
+    },
+    {
+      path: "/schools/my-visits",
+      component: MyVisitsPage,
+    },
+    {
+      path: "/schools/school-profile",
+      component: SchoolProfile,
+    },
+    ,
+    {
+      path: "/schools/teacher-details",
+      component: TeacherDetails,
+    },
+    {
+      path: "/schools/teacher-attendance-report",
+      component: TeacherAttendanceReport,
+    },
+    {
+      path: "/schools/questionnaire",
+      component: Question,
     },
     {
       path: "*",
-      component: Sample,
+      component: Home,
     },
   ];
   const LoginComponent = React.lazy(() => import("core/Login"));
 
   return (
-    <AppShell theme={theme} routes={routes} AuthComponent={LoginComponent} />
+    <AppShell
+      theme={theme}
+      basename={process.env.PUBLIC_URL}
+      routes={routes}
+      AuthComponent={LoginComponent}
+      isShowFooterLink={true}
+      appName="Mentor/Monitor App"
+    />
   );
 }
 

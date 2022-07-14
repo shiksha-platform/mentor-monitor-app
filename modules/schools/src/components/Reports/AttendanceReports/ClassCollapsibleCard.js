@@ -111,7 +111,7 @@ function ClassCollapsibleCard() {
             <Button
               variant={"outline"}
               onPress={() => {
-                navigate("/attendance-section-report");
+                navigate("/schools/attendance-section-report");
               }}
             >
               See Section Wise Report

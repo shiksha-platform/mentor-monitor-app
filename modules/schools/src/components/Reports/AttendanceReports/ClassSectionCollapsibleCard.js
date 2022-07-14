@@ -119,7 +119,7 @@ function ClassSectionCollapsibleCard() {
             <Button
               variant={"outline"}
               onPress={() => {
-                navigate("/attendance-detailed-report");
+                navigate("/schools/attendance-detailed-report");
               }}
             >
               See Full Report

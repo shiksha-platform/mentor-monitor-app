@@ -1,5 +1,4 @@
-import React, { Suspense } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React from "react";
 
 import "./App.css";
 import { extendTheme } from "native-base";
@@ -7,7 +6,6 @@ import { DEFAULT_THEME, AppShell } from "@shiksha/common-lib";
 import Myvists from "./pages/Myvisits";
 import Recommendedschools from "./pages/Recommended-schools";
 import Allocatedschools from "./pages/Allocated-schools";
-import Homepage from "./pages/Homepage";
 
 function App() {
   const theme = extendTheme(DEFAULT_THEME);
@@ -25,12 +23,8 @@ function App() {
       component: Allocatedschools,
     },
     {
-      path: "home",
-      component: Homepage,
-    },
-    {
       path: "*",
-      component: Homepage,
+      component: Myvists,
     },
   ];
   const LoginComponent = React.lazy(() => import("core/Login"));
