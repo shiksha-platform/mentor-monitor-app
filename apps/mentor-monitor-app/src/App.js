@@ -86,7 +86,7 @@ function App() {
       component: MyVisitsPage,
     },
     {
-      path: "/schools/school-profile",
+      path: "/schools",
       component: SchoolProfile,
     },
     ,
