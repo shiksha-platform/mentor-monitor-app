@@ -6,9 +6,15 @@ import { extendTheme, NativeBaseProvider } from "native-base";
 import { DEFAULT_THEME, AppShell } from "@shiksha/common-lib";
 import Sample from "pages/Sample";
 
+const SchoolProfile = React.lazy(() => import("schools/SchoolProfile"));
+
 function App() {
   const theme = extendTheme(DEFAULT_THEME);
   const routes = [
+    {
+      path: "school-profile",
+      component: SchoolProfile,
+    },
     {
       path: "/",
       component: Sample,
