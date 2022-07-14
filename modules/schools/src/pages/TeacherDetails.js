@@ -9,7 +9,6 @@ import {
   Divider,
   Button,
 } from "native-base";
-import VisitedCard from "colorTheme";
 import { useNavigate } from "react-router-dom";
 import {
   buildStyles,
@@ -143,7 +142,7 @@ const TeacherDetails = () => {
             width="100%"
             variant="outline"
             onPress={() => {
-              navigate("/teacher-attendance-report");
+              navigate("/schools/teacher-attendance-report");
             }}
           >
             Attendance Report

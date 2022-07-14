@@ -21,12 +21,11 @@ import {
 } from "native-base";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import manifest from "../../manifest.json";
-import { useNavigate } from "react-router-dom";
+
 export default function VisitSubmit({ handleBackButton, formObject }) {
   const [width, height] = useWindowSize();
   const { t } = useTranslation();
-  const navigate = useNavigate();
+
   const [progressAssessment, setProgressAssessment] = React.useState([
     {
       name: "12 Assessed",

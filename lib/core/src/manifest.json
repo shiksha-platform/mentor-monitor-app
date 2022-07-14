@@ -32,7 +32,7 @@
         "title": "MY_CLASSES",
         "icon": "users",
         "module": "Registry",
-        "route": "/classes",
+        "route": "/schools",
         "routeparameters": {}
       }
     ],

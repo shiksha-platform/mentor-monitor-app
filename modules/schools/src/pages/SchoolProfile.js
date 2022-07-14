@@ -54,7 +54,7 @@ export default function SchoolProfile() {
             <Button
               leftIcon={<IconByName name="ArrowRightSFillIcon" p={0} />}
               onPress={() => {
-                navigate("/new-visit");
+                navigate("/schools/new-visit");
               }}
             >
               Start a Visit
@@ -63,7 +63,7 @@ export default function SchoolProfile() {
               variant="outline"
               leftIcon={<IconByName name="CalendarEventLineIcon" p={0} />}
               onPress={() => {
-                navigate("/my-visits");
+                navigate("/schools/my-visits");
               }}
             >
               See Calendar

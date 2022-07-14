@@ -1,16 +1,7 @@
-import {
-  DEFAULT_THEME,
-  FilterButton,
-  H2,
-  IconByName,
-  Layout,
-} from "@shiksha/common-lib";
+import { DEFAULT_THEME, FilterButton, H2, Layout } from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
 import { Avatar, Box, HStack, Text, VStack, Divider } from "native-base";
-import RecommendedVisitsCard from "../components/RecommendedVisitsCard";
-import MySchoolsCard from "../components/MySchoolsCard";
 import {
   CircularProgressbarWithChildren,
   buildStyles,
@@ -65,7 +56,7 @@ const defaultInputs = [
 ];
 let colors = DEFAULT_THEME;
 
-export default function Homepage() {
+export default function Home({ footerLinks, appName }) {
   const { t } = useTranslation();
   const [recommendedVisits, setRecommendedVisits] = useState([{}, {}, {}, {}]);
   const [filterObject, setFilterObject] = React.useState({});
@@ -112,7 +103,7 @@ export default function Homepage() {
             title: "VISITS",
             icon: "GovernmentLineIcon",
             module: "Registry",
-            route: "/my-visits",
+            route: "/schools/questionnaire",
             routeparameters: {},
           },
           {

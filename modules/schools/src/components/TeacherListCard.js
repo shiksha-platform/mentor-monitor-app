@@ -71,7 +71,9 @@ const TeacherListCard = ({ classId, students, setHeaderDetails }) => {
           return (
             <React.Fragment key={`student${index}`}>
               <Box py="2">
-                <Pressable onPress={() => navigate("/assessment-result")}>
+                <Pressable
+                  onPress={() => navigate("/schools/assessment-result")}
+                >
                   <HStack justifyContent="space-between" alignItems="center">
                     <Box>
                       <HStack alignItems="center" space={3}>
