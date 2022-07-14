@@ -103,7 +103,7 @@ export default function Home({ footerLinks, appName }) {
             title: "VISITS",
             icon: "GovernmentLineIcon",
             module: "Registry",
-            route: "/schools/questionnaire",
+            route: "/schools/my-visits",
             routeparameters: {},
           },
           {

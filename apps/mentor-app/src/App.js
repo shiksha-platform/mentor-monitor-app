@@ -38,6 +38,10 @@ function App() {
   const Question = React.lazy(() => import("schools/Question"));
   const routes = [
     {
+      path: "school-profile",
+      component: SchoolProfile,
+    },
+    {
       path: "/",
       component: Home,
     },

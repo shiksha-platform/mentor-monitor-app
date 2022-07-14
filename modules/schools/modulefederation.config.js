@@ -5,12 +5,18 @@ module.exports = {
   exposes: {
     "./SchoolProfile": "./src/pages/SchoolProfile",
     "./MyVisitsPage": "./src/pages/MyVisitsPage",
-    "./AttendanceReportDashboard": "./src/pages/reports/AttendanceReportDashboard",
-    "./AttendanceSectionWiseReport": "./src/pages/reports/AttendanceSectionWiseReport",
-    "./AttendanceDetailedReport": "./src/pages/reports/AttendanceDetailedReport",
-    "./AssessmentReportDashboard": "./src/pages/reports/AssessmentReportDashboard",
-    "./AssessmentSectionWiseReport": "./src/pages/reports/AssessmentSectionWiseReport",
-    "./AssessmentDetailedReport": "./src/pages/reports/AssessmentDetailedReport",
+    "./AttendanceReportDashboard":
+      "./src/pages/reports/AttendanceReportDashboard",
+    "./AttendanceSectionWiseReport":
+      "./src/pages/reports/AttendanceSectionWiseReport",
+    "./AttendanceDetailedReport":
+      "./src/pages/reports/AttendanceDetailedReport",
+    "./AssessmentReportDashboard":
+      "./src/pages/reports/AssessmentReportDashboard",
+    "./AssessmentSectionWiseReport":
+      "./src/pages/reports/AssessmentSectionWiseReport",
+    "./AssessmentDetailedReport":
+      "./src/pages/reports/AssessmentDetailedReport",
     "./TeacherDetails": "./src/pages/TeacherDetails",
     "./TeacherAttendanceReport": "./src/pages/TeacherAttendanceReport",
     "./NewVisitPage": "./src/pages/visit/NewVisitPage",
