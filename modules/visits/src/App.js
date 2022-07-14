@@ -7,6 +7,7 @@ import { DEFAULT_THEME, AppShell } from "@shiksha/common-lib";
 import Myvists from "./pages/Myvisits";
 import Recommendedschools from "./pages/Recommended-schools";
 import Allocatedschools from "./pages/Allocated-schools";
+import Homepage from "./pages/Homepage";
 
 function App() {
   const theme = extendTheme(DEFAULT_THEME);
@@ -24,8 +25,12 @@ function App() {
       component: Allocatedschools,
     },
     {
+      path: "home",
+      component: Homepage,
+    },
+    {
       path: "*",
-      component: Myvists,
+      component: Homepage,
     },
   ];
   const LoginComponent = React.lazy(() => import("core/Login"));

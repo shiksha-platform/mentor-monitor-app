@@ -1,4 +1,4 @@
-import { H2, IconByName, Layout } from "@shiksha/common-lib";
+import { H2, IconByName, Layout, SearchLayout } from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -9,53 +9,49 @@ import MySchoolsCard from "../components/MySchoolsCard";
 export default function Myvists() {
   const { t } = useTranslation();
   const [recommendedVisits, setRecommendedVisits] = useState([{}, {}, {}, {}]);
+  const [searchState, setSearchState] = React.useState(false);
+  const [search, setSearch] = React.useState(true);
+
+  if (searchState) {
+    return (
+      <SearchLayout
+        {...{
+          search,
+          setSearch,
+          minStringLength: 3,
+          notFoundMessage: t("TYPE_TO_START_SEARCHING_WORKSHEETS"),
+          onCloseSearch: setSearchState,
+        }}
+      >
+        <Box p={6}>
+          <VStack space={6}>
+            {recommendedVisits &&
+              recommendedVisits.length &&
+              recommendedVisits.map((visit, visitIndex) => {
+                return (
+                  <RecommendedVisitsCard key={`recommended${visitIndex}`} />
+                );
+              })}
+          </VStack>
+        </Box>
+      </SearchLayout>
+    );
+  }
 
   return (
     <Layout
       _header={{
         title: "My Visits",
         _heading: { color: "white" },
-        isEnableSearchBtn: true,
-        // setSearch: setSearch,
-        subHeading: t("View your allocated schools with recommended visits"),
+        subHeading: t("View recommended and allocated schools for your visits"),
         _subHeading: { color: "white" },
-        /*iconComponent: (
-          <Link
-            to="/classes/attendance/report"
-            style={{ color: "rgb(63, 63, 70)", textDecoration: "none" }}
-          >
-            <Box
-              rounded="full"
-              borderColor="button.500"
-              borderWidth="1"
-              _text={{ color: "button.500" }}
-              px={6}
-              py={2}
-            >
-              {t("REPORT")}
-            </Box>
-          </Link>
-        ),*/
       }}
-      _appBar={{ languages: ["en"] }}
-      /*subHeader={
-        <Link
-          to={"/students/class/" + classId}
-          style={{ color: "rgb(63, 63, 70)", textDecoration: "none" }}
-        >
-          <HStack space="4" justifyContent="space-between">
-            <VStack>
-              <Text fontSize={"lg"}>
-                {classObject?.title ? classObject?.title : ""}
-              </Text>
-              <Text fontSize={"sm"}>
-                {t("TOTAL") + " " + students.length + " " + t("STUDENTS")}
-              </Text>
-            </VStack>
-            <IconByName size="sm" name="ArrowRightSLineIcon" />
-          </HStack>
-        </Link>
-      }*/
+      _appBar={{
+        languages: ["en"],
+        isEnableSearchBtn: true,
+        setSearch,
+        setSearchState,
+      }}
       _subHeader={{ bg: "attendanceCard.500" }}
       _footer={{
         menues: [

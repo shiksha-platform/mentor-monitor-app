@@ -25,7 +25,7 @@ const defaultInputs = [
   {
     name: "District",
     attributeName: "year",
-    data: ["2021", "2022", "2023", "2024", "2025"],
+    data: ["District1", "District2", "District3", "District4", "District5"],
   },
   {
     name: "Block",
@@ -137,7 +137,7 @@ export default function Recommendedschools() {
                   getObject={callBackFilterObject}
                   object={filterObject}
                   _actionSheet={{ bg: colors.cardBg }}
-                  _box={{ pt: 5, px: 5 }}
+                  _box={{ pt: 5 }}
                   _button={{ bg: colors.primary, px: "15px", py: "2" }}
                   _filterButton={{
                     rightIcon: "",
