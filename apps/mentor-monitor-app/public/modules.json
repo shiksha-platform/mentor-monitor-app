@@ -4,5 +4,8 @@
   },
   "schools": {
     "url": "http://localhost:3003/modules/schools"
+  },
+  "visits": {
+    "url": "http://localhost:3002/modules/visits"
   }
 }

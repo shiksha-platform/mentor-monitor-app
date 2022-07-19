@@ -9,6 +9,7 @@ import {
   Divider,
   Actionsheet,
   Stack,
+  Pressable,
 } from "native-base";
 import {
   DEFAULT_THEME,
@@ -17,9 +18,11 @@ import {
   Collapsible,
 } from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 export default function SchoolAcademicDetailCard() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [academicDetailModal, setAcademicDetailModal] = useState(false);
   return (
     <>
@@ -85,8 +88,16 @@ export default function SchoolAcademicDetailCard() {
           </HStack>
         </Actionsheet.Content>
         <Box w="100%" p={4} justifyContent="center" bg="white">
-          <Actionsheet.Item>Attendance Reports</Actionsheet.Item>
-          <Actionsheet.Item>Assessment Reports</Actionsheet.Item>
+          <Actionsheet.Item
+            onPress={() => navigate("/schools/attendance-report")}
+          >
+            Attendance Reports
+          </Actionsheet.Item>
+          <Actionsheet.Item
+            onPress={() => navigate("/schools/assessment-report")}
+          >
+            Assessment Reports
+          </Actionsheet.Item>
         </Box>
       </Actionsheet>
     </>

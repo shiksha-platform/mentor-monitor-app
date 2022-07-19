@@ -80,7 +80,7 @@ export default function Allocatedschools() {
             title: "VISITS",
             icon: "GovernmentLineIcon",
             module: "Registry",
-            route: "/my-visits",
+            route: "/",
             routeparameters: {},
           },
           {

@@ -36,6 +36,11 @@ function App() {
     import("schools/TeacherVisitReport")
   );
   const Question = React.lazy(() => import("schools/Question"));
+  const Myvists = React.lazy(() => import("visits/Myvisits"));
+  const Recommendedschools = React.lazy(() =>
+    import("visits/Recommended-schools")
+  );
+  const Allocatedschools = React.lazy(() => import("visits/Allocated-schools"));
   const routes = [
     {
       path: "school-profile",
@@ -101,6 +106,18 @@ function App() {
     {
       path: "/schools/questionnaire",
       component: Question,
+    },
+    {
+      path: "/visits/recommended-schools",
+      component: Recommendedschools,
+    },
+    {
+      path: "/visits/allocated-schools",
+      component: Allocatedschools,
+    },
+    {
+      path: "visits",
+      component: Myvists,
     },
     {
       path: "*",

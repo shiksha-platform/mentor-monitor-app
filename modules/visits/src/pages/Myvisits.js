@@ -53,45 +53,6 @@ export default function Myvists() {
         setSearchState,
       }}
       _subHeader={{ bg: "attendanceCard.500" }}
-      _footer={{
-        menues: [
-          {
-            title: "HOME",
-            icon: "Home4LineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "VISITS",
-            icon: "GovernmentLineIcon",
-            module: "Registry",
-            route: "/my-visits",
-            routeparameters: {},
-          },
-          {
-            title: "LEARNING",
-            icon: "LightbulbFlashLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "MATERIALS",
-            icon: "BookOpenLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "PROFILE",
-            icon: "UserLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-        ],
-      }}
     >
       <Box p={6}>
         <VStack space={6}>
@@ -105,12 +66,18 @@ export default function Myvists() {
                 recommendedVisits.length &&
                 recommendedVisits.map((visit, visitIndex) => {
                   return (
-                    <RecommendedVisitsCard key={`recommended${visitIndex}`} />
+                    <a href="http://localhost:3003/modules/schools">
+                      <Box textDecoration="none">
+                        <RecommendedVisitsCard
+                          key={`recommended${visitIndex}`}
+                        />
+                      </Box>
+                    </a>
                   );
                 })}
               <Box textAlign="center">
                 <Link
-                  to="/recommended-schools"
+                  to="/visits/recommended-schools"
                   style={{ color: "#6461D2", textDecoration: "none" }}
                 >
                   Show More
@@ -136,7 +103,7 @@ export default function Myvists() {
                 })}
               <Box textAlign="center">
                 <Link
-                  to="/allocated-schools"
+                  to="/visits/allocated-schools"
                   style={{ color: "#6461D2", textDecoration: "none" }}
                 >
                   Show More

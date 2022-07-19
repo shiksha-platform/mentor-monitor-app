@@ -68,46 +68,7 @@ export default function Recommendedschools() {
         _subHeading: { color: "white" },
       }}
       _appBar={{ languages: ["en"] }}
-      _subHeader={{ bg: "attendanceCard.500" }}
-      _footer={{
-        menues: [
-          {
-            title: "HOME",
-            icon: "Home4LineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "VISITS",
-            icon: "GovernmentLineIcon",
-            module: "Registry",
-            route: "/my-visits",
-            routeparameters: {},
-          },
-          {
-            title: "LEARNING",
-            icon: "LightbulbFlashLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "MATERIALS",
-            icon: "BookOpenLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "PROFILE",
-            icon: "UserLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-        ],
-      }}
+      _subHeader={{ bg: "attendanceCard.500" }}      
     >
       <Box p={6}>
         <VStack space={6}>

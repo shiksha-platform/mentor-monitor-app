@@ -62,9 +62,6 @@ export default function SchoolProfile() {
             <Button
               variant="outline"
               leftIcon={<IconByName name="CalendarEventLineIcon" p={0} />}
-              onPress={() => {
-                navigate("/schools/my-visits");
-              }}
             >
               See Calendar
             </Button>
