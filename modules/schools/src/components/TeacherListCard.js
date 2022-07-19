@@ -1,28 +1,15 @@
 import React, { useState } from "react";
-import {
-  Collapsible,
-  IconByName,
-  attendanceRegistryService,
-  ProgressBar,
-  getUniqAttendance,
-} from "@shiksha/common-lib";
+import { Collapsible, IconByName } from "@shiksha/common-lib";
 import {
   HStack,
   Text,
   VStack,
-  Stack,
   Box,
-  Progress,
-  Button,
   Divider,
-  Actionsheet,
-  Checkbox,
   Avatar,
-  Spacer,
   Pressable,
 } from "native-base";
 import { useTranslation } from "react-i18next";
-import moment from "moment";
 import { Link, useNavigate } from "react-router-dom";
 import { H2 } from "@shiksha/common-lib";
 // import StudentDetailCard from "./StudentDetail";
@@ -126,8 +113,8 @@ const TeacherListCard = ({ classId, students, setHeaderDetails }) => {
         })}
       <Box pt={4} textAlign="center">
         <Link
-          to="/my-visits"
-          style={{ color: "#6461D2", textDecoration: "none" }}
+          to="/schools/my-visits"
+          style={{ color: "#6461D2", textDecoration: "none" }}          
         >
           Load More
         </Link>

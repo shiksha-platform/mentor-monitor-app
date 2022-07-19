@@ -35,7 +35,7 @@ function ClassSectionCollapsibleCard() {
       ),
     },
     {
-      title: t("MATHEMATICS"),
+      title: t("MATHS"),
       component: (
         <Box py={4}>
           <SectionWiseSubjectProgress />
@@ -59,7 +59,7 @@ function ClassSectionCollapsibleCard() {
       ),
     },
     {
-      title: t("GEOGRAPHY"),
+      title: t("GEO"),
       component: (
         <Box py={4}>
           <SectionWiseSubjectProgress />
