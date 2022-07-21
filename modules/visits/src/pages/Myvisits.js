@@ -6,7 +6,7 @@ import { Box, HStack, Text, VStack } from "native-base";
 import RecommendedVisitsCard from "../components/RecommendedVisitsCard";
 import MySchoolsCard from "../components/MySchoolsCard";
 
-export default function Myvists() {
+export default function Myvisits() {
   const { t } = useTranslation();
   const [recommendedVisits, setRecommendedVisits] = useState([{}, {}, {}, {}]);
   const [searchState, setSearchState] = React.useState(false);
@@ -66,13 +66,9 @@ export default function Myvists() {
                 recommendedVisits.length &&
                 recommendedVisits.map((visit, visitIndex) => {
                   return (
-                    <a href="http://localhost:3003/modules/schools">
-                      <Box textDecoration="none">
-                        <RecommendedVisitsCard
-                          key={`recommended${visitIndex}`}
-                        />
-                      </Box>
-                    </a>
+                    <Box textDecoration="none">
+                      <RecommendedVisitsCard key={`recommended${visitIndex}`} />
+                    </Box>
                   );
                 })}
               <Box textAlign="center">

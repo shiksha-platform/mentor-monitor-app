@@ -48,10 +48,7 @@ export default function VisitSubmit({ handleBackButton, formObject }) {
   };
 
   return (
-    <Layout
-      isDisabledAppBar={true}
-      pageBgColor={"#D9EFD8"}     
-    >
+    <Layout isDisabledAppBar={true} pageBgColor={"#D9EFD8"}>
       <Loading
         width={width}
         height={height}

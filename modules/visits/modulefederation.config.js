@@ -3,7 +3,7 @@ const { dependencies } = require("./package.json");
 module.exports = {
   name: "visits",
   exposes: {
-    "./Myvists": "./src/pages/Myvisits",
+    "./Myvisits": "./src/pages/Myvisits",
     "./Recommendedschools": "./src/pages/Recommended-schools",
     "./Allocatedschools": "./src/pages/Allocated-schools",
   },

@@ -36,7 +36,7 @@ function App() {
     import("schools/TeacherVisitReport")
   );
   const Question = React.lazy(() => import("schools/Question"));
-  const Myvists = React.lazy(() => import("visits/Myvisits"));
+  const Myvisits = React.lazy(() => import("visits/Myvisits"));
   const Recommendedschools = React.lazy(() =>
     import("visits/Recommended-schools")
   );
@@ -117,7 +117,7 @@ function App() {
     },
     {
       path: "visits",
-      component: Myvists,
+      component: Myvisits,
     },
     {
       path: "*",
