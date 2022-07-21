@@ -1,5 +1,5 @@
 {
-  "name": "my-visits",
+  "name": "visits",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -18,6 +18,7 @@
     "moment": "^2.29.1",
     "native-base": "^3.2.2",
     "react": "^17.0.2",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "^17.0.2",
     "react-i18next": "^11.15.3",
     "react-native-safe-area-context": "^3.3.2",
@@ -40,6 +41,7 @@
     "workbox-strategies": "^5.1.4",
     "workbox-streams": "^5.1.4"
   },
+  "homepage": "modules/visits",
   "scripts": {
     "start": "craco start",
     "build": "craco build",

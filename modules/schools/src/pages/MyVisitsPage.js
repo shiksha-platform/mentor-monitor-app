@@ -67,51 +67,12 @@ export default function Myvisitspage() {
         _heading: { color: "white" },
       }}
       _appBar={{ languages: ["en"] }}
-      _footer={{
-        menues: [
-          {
-            title: "HOME",
-            icon: "Home4LineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "VISITS",
-            icon: "GovernmentLineIcon",
-            module: "Registry",
-            route: "/my-visits",
-            routeparameters: {},
-          },
-          {
-            title: "LEARNING",
-            icon: "LightbulbFlashLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "MATERIALS",
-            icon: "BookOpenLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "PROFILE",
-            icon: "UserLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-        ],
-      }}
     >
       <Box p={6}>
         <VStack space={6}>
           <Box>
             <H2>Teacher’s List</H2>
-            <Text fontSize="xs">View all allocated teachers</Text>
+            <Text fontSize="xs">View all teachers</Text>
           </Box>
           <VStack space={6}>
             {teacherlist &&
@@ -192,7 +153,7 @@ export default function Myvisitspage() {
           <Button
             width="100%"
             marginTop={6}
-            onPress={(e) => navigate("/teacher-details")}
+            onPress={(e) => navigate("/schools/teacher-details")}
           >
             See More
           </Button>

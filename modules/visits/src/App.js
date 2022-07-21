@@ -1,37 +1,42 @@
-import React, { Suspense } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React from "react";
 
 import "./App.css";
 import { extendTheme } from "native-base";
 import { DEFAULT_THEME, AppShell } from "@shiksha/common-lib";
-import Myvists from "./pages/Myvisits";
+import Myvisits from "./pages/Myvisits";
 import Recommendedschools from "./pages/Recommended-schools";
 import Allocatedschools from "./pages/Allocated-schools";
+import Home from "pages/Home";
 
 function App() {
   const theme = extendTheme(DEFAULT_THEME);
   const routes = [
     {
-      path: "my-visits",
-      component: Myvists,
+      path: "/",
+      component: Home,
     },
     {
-      path: "recommended-schools",
+      path: "/visits/recommended-schools",
       component: Recommendedschools,
     },
     {
-      path: "allocated-schools",
+      path: "/visits/allocated-schools",
       component: Allocatedschools,
     },
     {
       path: "*",
-      component: Myvists,
+      component: Myvisits,
     },
   ];
   const LoginComponent = React.lazy(() => import("core/Login"));
 
   return (
-    <AppShell theme={theme} routes={routes} AuthComponent={LoginComponent} />
+    <AppShell
+      theme={theme}
+      routes={routes}
+      AuthComponent={LoginComponent}
+      basename={process.env.PUBLIC_URL}
+    />
   );
 }
 

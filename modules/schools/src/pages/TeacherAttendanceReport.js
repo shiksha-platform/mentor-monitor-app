@@ -49,7 +49,6 @@ const TeacherAttendanceReport = () => {
   const token = localStorage.getItem("token");
   const [attendance, setAttendance] = useState([]);
   const [attendanceObject, setAttendanceObject] = useState({});
-  const [showModal, setShowModal] = useState(false);
   const [weekDays, setWeekDays] = useState([]);
 
   useEffect(() => {
@@ -92,7 +91,7 @@ const TeacherAttendanceReport = () => {
             monthDays={weekDays}
             item={teacherObject}
             attendance={attendance}
-            setAttendanceObject={setAttendanceObject}            
+            setAttendanceObject={setAttendanceObject}
           />
         </Collapsible>
       </Box>
@@ -162,6 +161,8 @@ const CalendarComponent = ({
   loding,
   _weekBox,
 }) => {
+  const sample = ["Present", "Absent", "SpecialDuty"];
+
   return monthDays.map((week, index) => (
     <HStack
       key={index}
@@ -259,7 +260,10 @@ const CalendarComponent = ({
                     _icon={{ _fontawesome: { spin: true } }}
                   />
                 ) : (
-                  <GetIcon {...smsIconProp} status="SpecialDuty" />
+                  <GetIcon
+                    {...smsIconProp}
+                    status={sample[Math.floor(Math.random() * sample.length)]}
+                  />
                 )}
               </Box>
             </TouchableHighlight>

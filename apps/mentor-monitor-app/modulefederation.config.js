@@ -1,12 +1,14 @@
 const { dependencies } = require("./package.json");
 
 module.exports = {
-  name: "samplemodule",
+  name: "mentor_monitor_app",
   exposes: {
-    "./SampleComponent": "./src/components/SampleComponent",
+    "./App": "./src/App.js",
   },
   remotes: {
     core: `core@[window.appModules.core.url]/moduleEntry.js`,
+    schools: `schools@[window.appModules.schools.url]/moduleEntry.js`,
+    visits: `visits@[window.appModules.visits.url]/moduleEntry.js`,
   },
   filename: "moduleEntry.js",
   shared: {

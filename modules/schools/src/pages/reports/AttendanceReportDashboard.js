@@ -1,7 +1,6 @@
 import { H2, H3, IconByName, Layout } from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
 import {
   Box,
   HStack,

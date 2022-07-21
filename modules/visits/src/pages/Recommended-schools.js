@@ -25,7 +25,7 @@ const defaultInputs = [
   {
     name: "District",
     attributeName: "year",
-    data: ["2021", "2022", "2023", "2024", "2025"],
+    data: ["District1", "District2", "District3", "District4", "District5"],
   },
   {
     name: "Block",
@@ -69,45 +69,6 @@ export default function Recommendedschools() {
       }}
       _appBar={{ languages: ["en"] }}
       _subHeader={{ bg: "attendanceCard.500" }}
-      _footer={{
-        menues: [
-          {
-            title: "HOME",
-            icon: "Home4LineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "VISITS",
-            icon: "GovernmentLineIcon",
-            module: "Registry",
-            route: "/my-visits",
-            routeparameters: {},
-          },
-          {
-            title: "LEARNING",
-            icon: "LightbulbFlashLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "MATERIALS",
-            icon: "BookOpenLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "PROFILE",
-            icon: "UserLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-        ],
-      }}
     >
       <Box p={6}>
         <VStack space={6}>
@@ -137,7 +98,7 @@ export default function Recommendedschools() {
                   getObject={callBackFilterObject}
                   object={filterObject}
                   _actionSheet={{ bg: colors.cardBg }}
-                  _box={{ pt: 5, px: 5 }}
+                  _box={{ pt: 5 }}
                   _button={{ bg: colors.primary, px: "15px", py: "2" }}
                   _filterButton={{
                     rightIcon: "",

@@ -1,28 +1,15 @@
 import React, { useState } from "react";
-import {
-  Collapsible,
-  IconByName,
-  attendanceRegistryService,
-  ProgressBar,
-  getUniqAttendance,
-} from "@shiksha/common-lib";
+import { Collapsible, IconByName } from "@shiksha/common-lib";
 import {
   HStack,
   Text,
   VStack,
-  Stack,
   Box,
-  Progress,
-  Button,
   Divider,
-  Actionsheet,
-  Checkbox,
   Avatar,
-  Spacer,
   Pressable,
 } from "native-base";
 import { useTranslation } from "react-i18next";
-import moment from "moment";
 import { Link, useNavigate } from "react-router-dom";
 import { H2 } from "@shiksha/common-lib";
 // import StudentDetailCard from "./StudentDetail";
@@ -61,7 +48,7 @@ const TeacherListCard = ({ classId, students, setHeaderDetails }) => {
       defaultCollapse={true}
       header={
         <Box py={4}>
-          <H2>Teachers List</H2>
+          <H2>Allocated Teachers List</H2>
         </Box>
       }
     >
@@ -71,30 +58,51 @@ const TeacherListCard = ({ classId, students, setHeaderDetails }) => {
           return (
             <React.Fragment key={`student${index}`}>
               <Box py="2">
-                <Pressable onPress={() => navigate("/assessment-result")}>
-                  <HStack alignItems="center" space={3}>
-                    <Avatar
-                      size="48px"
-                      borderRadius="md"
-                      source={{
-                        uri: "https://via.placeholder.com/50x50.png",
-                      }}
-                    />
-                    <VStack>
-                      <Text
-                        color="coolGray.800"
-                        _dark={{
-                          color: "warmGray.50",
-                        }}
-                        bold
-                      >
-                        {index + 1} . {teacher.name}
-                      </Text>
-                      <Text color="gray.400" fontSize={"xs"}>
-                        Class Teacher: {teacher.class}
-                      </Text>
-                    </VStack>
-                    <Spacer />
+                <Pressable
+                  onPress={() => navigate("/schools/assessment-result")}
+                >
+                  <HStack justifyContent="space-between" alignItems="center">
+                    <Box>
+                      <HStack alignItems="center" space={3}>
+                        <Avatar
+                          size="48px"
+                          borderRadius="md"
+                          source={{
+                            uri: "https://via.placeholder.com/50x50.png",
+                          }}
+                        />
+                        <VStack>
+                          <Text
+                            color="coolGray.800"
+                            _dark={{
+                              color: "warmGray.50",
+                            }}
+                            bold
+                          >
+                            {index + 1} . {teacher.name}
+                          </Text>
+                          <Text color="gray.400" fontSize={"xs"}>
+                            Class Teacher: {teacher.class}
+                          </Text>
+                        </VStack>
+                      </HStack>
+                    </Box>
+                    <Box>
+                      <HStack alignItems="center">
+                        <IconByName
+                          _icon={{ size: "22" }}
+                          borderRadius="full"
+                          bg="#282754"
+                          color="white"
+                          name="UserLineIcon"
+                        />
+                        <IconByName
+                          _icon={{ size: "18" }}
+                          color="#BBBBBB"
+                          name="ArrowRightSLineIcon"
+                        />
+                      </HStack>
+                    </Box>
                   </HStack>
                 </Pressable>
               </Box>
@@ -105,7 +113,7 @@ const TeacherListCard = ({ classId, students, setHeaderDetails }) => {
         })}
       <Box pt={4} textAlign="center">
         <Link
-          to="/allocated-schools"
+          to="/schools/my-visits"
           style={{ color: "#6461D2", textDecoration: "none" }}
         >
           Load More

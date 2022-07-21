@@ -14,7 +14,7 @@ import {
   Avatar,
 } from "native-base";
 
-import ClassParticipationCollapsibleCard from "../../components/Reports/AssessmentReports/ClassParticipationCard";
+import ClassParticipationCard from "../../components/Reports/AssessmentReports/ClassParticipationCard";
 import AttendanceSuccessFailureCard from "../../components/Reports/AttendanceReports/AttendanceSuccessFailureCard";
 import StudentAttendanceCollapsibleCard from "../../components/Reports/AttendanceReports/StudentAttendanceCollapsibleCard";
 import AssessmentAchieverCard from "../../components/Reports/AssessmentReports/AssessmentAchieverCard";
@@ -119,13 +119,19 @@ export default function AssessmentDetailedReport() {
       <Box p={6}>
         <VStack space={6}>
           <Box>
-            <HStack>
-              <Text>15 Jan 2022</Text>
-              <Text>15 Jan 2022</Text>
-            </HStack>
+            <VStack>
+              <H2>Science</H2>
+              <HStack align="middle">
+                <Text>Class I</Text>
+                <Text fontSize="8px" color="#666" mx={2}>
+                  ●
+                </Text>
+                <Text color="#666">Sec A</Text>
+              </HStack>
+            </VStack>
           </Box>
           <VStack space={6}>
-            <ClassParticipationCollapsibleCard />
+            <ClassParticipationCard />
             <AssessmentAchieverCard />
             <StudentAssessmentCollapsibleCard />
           </VStack>

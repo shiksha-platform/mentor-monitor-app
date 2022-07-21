@@ -29,7 +29,7 @@ function AppShell({
             title: 'CLASSES',
             icon: 'TeamLineIcon',
             module: 'Registry',
-            route: '/classes',
+            route: '/schools',
             routeparameters: {}
           },
           {

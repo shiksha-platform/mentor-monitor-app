@@ -15,6 +15,7 @@ import {
 } from "native-base";
 
 import ClassSectionCollapsibleCard from "../../components/Reports/AssessmentReports/ClassSectionCollapsibleCard";
+import ExaminationTypeFilterButton from "../../components/Reports/AssessmentReports/ExaminationTypeFilterButton";
 
 export default function AssessmentSectionWiseReport() {
   const { t } = useTranslation();
@@ -96,9 +97,8 @@ export default function AssessmentSectionWiseReport() {
       <Box p={6}>
         <VStack space={6}>
           <Box>
-            <HStack>
-              <Text>15 Jan 2022</Text>
-              <Text>15 Jan 2022</Text>
+            <HStack justifyContent="end">
+              <ExaminationTypeFilterButton />
             </HStack>
           </Box>
           <VStack space={6}>
