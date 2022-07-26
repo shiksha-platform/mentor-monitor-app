@@ -66,7 +66,7 @@ export default function Myvisitspage() {
         title: "My Visits",
         _heading: { color: "white" },
       }}
-      _appBar={{ languages: ["en"] }}      
+      _appBar={{ languages: ["en"] }}
     >
       <Box p={6}>
         <VStack space={6}>

@@ -3,7 +3,7 @@ import React from "react";
 import "./App.css";
 import { extendTheme } from "native-base";
 import { DEFAULT_THEME, AppShell } from "@shiksha/common-lib";
-import Myvists from "./pages/Myvisits";
+import Myvisits from "./pages/Myvisits";
 import Recommendedschools from "./pages/Recommended-schools";
 import Allocatedschools from "./pages/Allocated-schools";
 import Home from "pages/Home";
@@ -25,7 +25,7 @@ function App() {
     },
     {
       path: "*",
-      component: Myvists,
+      component: Myvisits,
     },
   ];
   const LoginComponent = React.lazy(() => import("core/Login"));

@@ -68,7 +68,7 @@ export default function Recommendedschools() {
         _subHeading: { color: "white" },
       }}
       _appBar={{ languages: ["en"] }}
-      _subHeader={{ bg: "attendanceCard.500" }}      
+      _subHeader={{ bg: "attendanceCard.500" }}
     >
       <Box p={6}>
         <VStack space={6}>
