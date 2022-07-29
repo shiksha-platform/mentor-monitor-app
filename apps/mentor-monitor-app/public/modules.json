@@ -7,5 +7,8 @@
   },
   "visits": {
     "url": "http://localhost:3002/modules/visits"
+  },
+  "mylearning": {
+    "url": "http://localhost:3010/modules/mylearning"
   }
 }

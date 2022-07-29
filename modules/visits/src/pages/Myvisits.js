@@ -6,7 +6,7 @@ import { Box, HStack, Text, VStack } from "native-base";
 import RecommendedVisitsCard from "../components/RecommendedVisitsCard";
 import MySchoolsCard from "../components/MySchoolsCard";
 
-export default function Myvisits() {
+export default function Myvisits({ footerLinks }) {
   const { t } = useTranslation();
   const [recommendedVisits, setRecommendedVisits] = useState([{}, {}, {}, {}]);
   const [searchState, setSearchState] = React.useState(false);
@@ -53,6 +53,7 @@ export default function Myvisits() {
         setSearchState,
       }}
       _subHeader={{ bg: "attendanceCard.500" }}
+      _footer={footerLinks}
     >
       <Box p={6}>
         <VStack space={6}>

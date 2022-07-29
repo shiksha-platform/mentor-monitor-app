@@ -17,7 +17,7 @@ export default function Header({
   let newAvatar = localStorage.getItem('firstName')
   return !isDisabledHeader ? (
     !customeComponent ? (
-      <Box {..._box} py={7} px={5}>
+      <Box py={7} px={5} {..._box}>
         <HStack justifyContent='space-between' alignItems='center'>
           <VStack>
             {headingComponent ? (

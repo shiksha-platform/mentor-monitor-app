@@ -26,28 +26,28 @@ function AppShell({
             routeparameters: {}
           },
           {
-            title: 'CLASSES',
-            icon: 'TeamLineIcon',
+            title: 'VISITS',
+            icon: 'GovernmentLineIcon',
             module: 'Registry',
-            route: '/schools',
+            route: '/visits',
             routeparameters: {}
           },
           {
-            title: 'SCHOOL',
-            icon: 'GovernmentLineIcon',
+            title: 'LEARNING',
+            icon: 'LightbulbFlashLineIcon',
             module: 'Registry',
-            route: '/',
+            route: '/mylearning',
             routeparameters: {}
           },
           {
             title: 'MATERIALS',
             icon: 'BookOpenLineIcon',
             module: 'Registry',
-            route: '/worksheet',
+            route: '/',
             routeparameters: {}
           },
           {
-            title: 'CAREER',
+            title: 'PROFILE',
             icon: 'UserLineIcon',
             module: 'Registry',
             route: '/',
