@@ -36,7 +36,7 @@ const weekDates = (currentDate = moment()) => {
   return days;
 };
 
-export default function TeacherVisitReport() {
+export default function TeacherVisitReport({ footerLinks }) {
   const { t } = useTranslation();
   const [teacherlist, setTeacherList] = useState([]);
   const [page, setPage] = React.useState(0);
@@ -108,45 +108,7 @@ export default function TeacherVisitReport() {
         _heading: { color: "white" },
       }}
       _appBar={{ languages: ["en"] }}
-      _footer={{
-        menues: [
-          {
-            title: "HOME",
-            icon: "Home4LineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "VISITS",
-            icon: "GovernmentLineIcon",
-            module: "Registry",
-            route: "/my-visits",
-            routeparameters: {},
-          },
-          {
-            title: "LEARNING",
-            icon: "LightbulbFlashLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "MATERIALS",
-            icon: "BookOpenLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "PROFILE",
-            icon: "UserLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-        ],
-      }}
+      _footer={footerLinks}
     >
       <Collapsible
         defaultCollapse={true}

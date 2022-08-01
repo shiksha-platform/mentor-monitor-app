@@ -20,7 +20,7 @@ const ASSIGNED = "Assigned";
 const COMPLETED = "Completed";
 
 const AttributeData = [
-  { icon: "CalendarCheckLineIcon", label: "SOURCE", attribute: "Source" },
+  { icon: "BookLineIcon", label: "SOURCE", attribute: "Source" },
 ];
 
 export default function VideoBox({
