@@ -1,11 +1,15 @@
 import React from "react";
 import "./App.css";
 import { extendTheme } from "native-base";
-import { DEFAULT_THEME, AppShell } from "@shiksha/common-lib";
+import { DEFAULT_THEME, AppShell, initializeI18n } from "@shiksha/common-lib";
 import Home from "pages/Home";
 
 function App() {
   const theme = extendTheme(DEFAULT_THEME);
+  initializeI18n(
+    ["mentor"],
+    `${process.env.PUBLIC_URL}/locales/{{lng}}/{{ns}}.json`
+  );
   const SchoolProfile = React.lazy(() => import("schools/SchoolProfile"));
   const MyVisitsPage = React.lazy(() => import("schools/MyVisitsPage"));
   const AttendanceReportDashboard = React.lazy(() =>
@@ -41,6 +45,12 @@ function App() {
     import("visits/Recommended-schools")
   );
   const Allocatedschools = React.lazy(() => import("visits/Allocated-schools"));
+
+  const MyLearning = React.lazy(() => import("mylearning/MyLearning"));
+  const CourseList = React.lazy(() => import("mylearning/CourseList"));
+  const CourseDetails = React.lazy(() => import("mylearning/CourseDetails"));
+  const VideoList = React.lazy(() => import("mylearning/VideoList"));
+  const VideoDetails = React.lazy(() => import("mylearning/VideoDetails"));
   const routes = [
     {
       path: "school-profile",
@@ -118,6 +128,32 @@ function App() {
     {
       path: "visits",
       component: Myvisits,
+    },
+
+    { path: "/mylearning", component: MyLearning },
+    {
+      path: "/mylearning/list/:state",
+      component: CourseList,
+    },
+    {
+      path: "/mylearning/list",
+      component: CourseList,
+    },
+    {
+      path: "/mylearning/:id/view",
+      component: CourseDetails,
+    },
+    {
+      path: "/mylearning/video/list/:state",
+      component: VideoList,
+    },
+    {
+      path: "/mylearning/video/list",
+      component: VideoList,
+    },
+    {
+      path: "/mylearning/video/:id/view",
+      component: VideoDetails,
     },
     {
       path: "*",

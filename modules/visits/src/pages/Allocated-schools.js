@@ -45,7 +45,7 @@ const defaultInputs = [
   },
 ];
 let colors = DEFAULT_THEME;
-export default function Allocatedschools() {
+export default function Allocatedschools({ footerLinks }) {
   const { t } = useTranslation();
   const [recommendedVisits, setRecommendedVisits] = useState([{}, {}, {}, {}]);
   const [sortModal, setSortModal] = useState(false);
@@ -67,45 +67,7 @@ export default function Allocatedschools() {
       }}
       _appBar={{ languages: ["en"] }}
       _subHeader={{ bg: "attendanceCard.500" }}
-      _footer={{
-        menues: [
-          {
-            title: "HOME",
-            icon: "Home4LineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "VISITS",
-            icon: "GovernmentLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "LEARNING",
-            icon: "LightbulbFlashLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "MATERIALS",
-            icon: "BookOpenLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "PROFILE",
-            icon: "UserLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-        ],
-      }}
+      _footer={footerLinks}
     >
       <Box p={6}>
         <VStack space={6}>

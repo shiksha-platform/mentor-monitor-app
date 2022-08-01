@@ -17,7 +17,7 @@ import {
 import ClassCollapsibleCard from "../../components/Reports/AssessmentReports/ClassCollapsibleCard";
 import ExaminationTypeFilterButton from "../../components/Reports/AssessmentReports/ExaminationTypeFilterButton";
 
-export default function AssessmentReportDashboard() {
+export default function AssessmentReportDashboard({ footerLinks }) {
   const { t } = useTranslation();
   const [teacherlist, setTeacherList] = useState([]);
 
@@ -51,45 +51,7 @@ export default function AssessmentReportDashboard() {
         languages: ["en"],
         isEnableSearchBtn: true,
       }}
-      _footer={{
-        menues: [
-          {
-            title: "HOME",
-            icon: "Home4LineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "VISITS",
-            icon: "GovernmentLineIcon",
-            module: "Registry",
-            route: "/my-visits",
-            routeparameters: {},
-          },
-          {
-            title: "LEARNING",
-            icon: "LightbulbFlashLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "MATERIALS",
-            icon: "BookOpenLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-          {
-            title: "PROFILE",
-            icon: "UserLineIcon",
-            module: "Registry",
-            route: "/",
-            routeparameters: {},
-          },
-        ],
-      }}
+      _footer={footerLinks}
     >
       <Box p={6}>
         <VStack space={6}>

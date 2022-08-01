@@ -9,6 +9,7 @@ module.exports = {
     core: `core@[window.appModules.core.url]/moduleEntry.js`,
     schools: `schools@[window.appModules.schools.url]/moduleEntry.js`,
     visits: `visits@[window.appModules.visits.url]/moduleEntry.js`,
+    mylearning: `mylearning@[window.appModules.mylearning.url]/moduleEntry.js`,
   },
   filename: "moduleEntry.js",
   shared: {
