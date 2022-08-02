@@ -5,6 +5,8 @@ import {
   Layout,
   BodyLarge,
   DEFAULT_THEME,
+  overrideColorTheme,
+  H3,
 } from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
@@ -25,6 +27,8 @@ import {
 import TeacherTile from "../components/TeacherTile";
 import DayWiseBar from "../components/DayWiseBar";
 import moment from "moment";
+import colorTheme from "../colorTheme";
+const colors0 = overrideColorTheme(colorTheme);
 
 const colors = DEFAULT_THEME;
 const weekDates = (currentDate = moment()) => {
@@ -94,10 +98,10 @@ export default function TeacherVisitReport() {
                 }}
               />
               <VStack>
-                <Text color="white" fontSize={"xs"}>
+                <Text color={colors0.white} fontSize={"xs"}>
                   Past Visit Records
                 </Text>
-                <Text color="white" bold>
+                <Text color={colors0.white} bold>
                   Mr. Dhananjay Tripathi
                 </Text>
               </VStack>
@@ -175,16 +179,18 @@ export default function TeacherVisitReport() {
                   key={key}
                 >
                   <Box
-                    bg={isToday ? "#6461D2" : ""}
+                    bg={isToday ? colors0.primary : ""}
                     px="3"
                     py="10px"
                     rounded="8px"
                   >
                     <VStack alignItems="center" space="2">
-                      <BodyLarge color={isToday ? "white" : "#999999"}>
+                      <BodyLarge color={isToday ? colors0.white : "#999999"}>
                         {date.format("ddd")}
                       </BodyLarge>
-                      <BodyLarge color={isToday ? "white" : "#333333"}>
+                      <BodyLarge
+                        color={isToday ? colors0.white : colors0.bodyText}
+                      >
                         {date.format("DD")}
                       </BodyLarge>
                     </VStack>
@@ -198,64 +204,64 @@ export default function TeacherVisitReport() {
         <Box py={4}>
           <VStack space={8}>
             <Box>
-              <Text bold color="#333333">
+              <H3 color={colors0.bodyText}>
                 Q1. Is the teacher aware of nipun lakshyas for their respective
                 subejct & grades?
-              </Text>
-              <Text>Whiteboard</Text>
+              </H3>
+              <BodyLarge>Whiteboard</BodyLarge>
             </Box>
 
             <Box>
-              <Text bold color="#333333">
+              <H3 color={colors0.bodyText}>
                 Q2. Does the classroom have NIPUN Lakshya charts pasted on
                 walls?
-              </Text>
-              <Text>Answer as in ODK</Text>
+              </H3>
+              <BodyLarge>Answer as in ODK</BodyLarge>
             </Box>
             <Box>
-              <Text bold color="#333333">
+              <H3 color={colors0.bodyText}>
                 Q1. Is the teacher aware of nipun lakshyas for their respective
                 subejct & grades?
-              </Text>
-              <Text>Whiteboard</Text>
+              </H3>
+              <BodyLarge>Whiteboard</BodyLarge>
             </Box>
 
             <Box>
-              <Text bold color="#333333">
+              <H3 color={colors0.bodyText}>
                 Q2. Does the classroom have NIPUN Lakshya charts pasted on
                 walls?
-              </Text>
-              <Text>Answer as in ODK</Text>
+              </H3>
+              <BodyLarge>Answer as in ODK</BodyLarge>
             </Box>
             <Box>
-              <Text bold color="#333333">
+              <H3 color={colors0.bodyText}>
                 Q1. Is the teacher aware of nipun lakshyas for their respective
                 subejct & grades?
-              </Text>
-              <Text>Whiteboard</Text>
+              </H3>
+              <BodyLarge>Whiteboard</BodyLarge>
             </Box>
 
             <Box>
-              <Text bold color="#333333">
+              <H3 bold color={colors0.bodyText}>
                 Q2. Does the classroom have NIPUN Lakshya charts pasted on
                 walls?
-              </Text>
-              <Text>Answer as in ODK</Text>
+              </H3>
+              <BodyLarge>Answer as in ODK</BodyLarge>
             </Box>
             <Box>
-              <Text bold color="#333333">
+              <H3 color={colors0.bodyText}>
                 Q1. Is the teacher aware of nipun lakshyas for their respective
                 subejct & grades?
-              </Text>
-              <Text>Whiteboard</Text>
+              </H3>
+              <BodyLarge>Whiteboard</BodyLarge>
             </Box>
 
             <Box>
-              <Text bold color="#333333">
+              <H3 color={colors0.bodyText}>
                 Q2. Does the classroom have NIPUN Lakshya charts pasted on
                 walls?
-              </Text>
-              <Text>Answer as in ODK</Text>
+              </H3>
+              <BodyLarge>Answer as in ODK</BodyLarge>
             </Box>
           </VStack>
         </Box>

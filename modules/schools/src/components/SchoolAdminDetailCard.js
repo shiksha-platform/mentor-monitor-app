@@ -13,8 +13,12 @@ import {
   H2,
   IconByName,
   Collapsible,
+  overrideColorTheme,
 } from "@shiksha/common-lib";
 import SchoolAdminTile from "./SchoolAdminTile";
+import colorTheme from "../colorTheme";
+const colors = overrideColorTheme(colorTheme);
+
 function SchoolAdminDetailCard() {
   return (
     <Collapsible

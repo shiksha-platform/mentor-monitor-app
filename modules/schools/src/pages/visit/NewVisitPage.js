@@ -1,4 +1,9 @@
-import { DEFAULT_THEME, H2, Layout } from "@shiksha/common-lib";
+import {
+  DEFAULT_THEME,
+  H2,
+  Layout,
+  overrideColorTheme,
+} from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import { Box, VStack, Button, Divider } from "native-base";
@@ -6,6 +11,8 @@ import TeacherFilterButton from "../../components/NewVisit/TeacherFilterButton";
 import ClassFilterButton from "../../components/NewVisit/ClassFilterButton";
 import SubjectFilterButton from "../../components/NewVisit/SubjectFilterButton";
 import { useNavigate } from "react-router-dom";
+import colorTheme from "../../colorTheme";
+const colors0 = overrideColorTheme(colorTheme);
 let colors = DEFAULT_THEME;
 
 export default function NewVisitPage() {
@@ -46,14 +53,14 @@ export default function NewVisitPage() {
     <Layout
       _header={{
         title: "New Visit",
-        _heading: { color: "white" },
+        _heading: { color: colors0.white },
       }}
       _appBar={{
         languages: ["en"],
         isEnableSearchBtn: true,
       }}
     >
-      <Box rounded={10} bg="white" shadow="md">
+      <Box rounded={10} bg={colors0.white} shadow="md">
         <VStack>
           <Box p={4}>
             <H2>Start your visit based on</H2>
@@ -70,7 +77,7 @@ export default function NewVisitPage() {
                   _button={{ bg: colors.primary, px: "15px", py: "2" }}
                   _filterButton={{
                     rightIcon: "",
-                    bg: "white",
+                    bg: colors0.white,
                   }}
                   resetButtonText={t("COLLAPSE")}
                 />
@@ -83,7 +90,7 @@ export default function NewVisitPage() {
                   _button={{ bg: colors.primary, px: "15px", py: "2" }}
                   _filterButton={{
                     rightIcon: "",
-                    bg: "white",
+                    bg: colors0.white,
                   }}
                   resetButtonText={t("COLLAPSE")}
                 />
@@ -96,7 +103,7 @@ export default function NewVisitPage() {
                   _button={{ bg: colors.primary, px: "15px", py: "2" }}
                   _filterButton={{
                     rightIcon: "",
-                    bg: "white",
+                    bg: colors0.white,
                   }}
                   resetButtonText={t("COLLAPSE")}
                 />

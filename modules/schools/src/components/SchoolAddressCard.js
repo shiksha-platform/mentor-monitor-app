@@ -8,26 +8,37 @@ import {
   Avatar,
   Divider,
 } from "native-base";
-import { DEFAULT_THEME, H2, IconByName } from "@shiksha/common-lib";
+import {
+  BodyLarge,
+  DEFAULT_THEME,
+  H2,
+  H4,
+  IconByName,
+  overrideColorTheme,
+} from "@shiksha/common-lib";
+import colorTheme from "../colorTheme";
+const colors = overrideColorTheme(colorTheme);
+
 function SchoolAddressCard({ isVisited }) {
   return (
     <>
       <VStack space={6}>
-        <Box bg={isVisited ? "#C5DCC3" : "white"} borderRadius={10}>
+        <Box
+          bg={isVisited ? colors.cardBackground : colors.white}
+          borderRadius={10}
+        >
           <Box p={4}>
-            <Text bold fontSize={14}>
-              Address
-            </Text>
+            <H2>School Overview</H2>
           </Box>
           <Divider />
           <Box p={4}>
             <VStack space={6}>
               <Box>
-                <Text color="#666">Address</Text>
-                <Text>
+                <H4 color={colors.subtitle}>Address</H4>
+                <BodyLarge>
                   Silicon Hills, Near DLF Cybercity, Patia, Bhubaneswar, Odisha
                   751024.
-                </Text>
+                </BodyLarge>
               </Box>
 
               <Box>
@@ -43,8 +54,8 @@ function SchoolAddressCard({ isVisited }) {
                       marginBottom: 12,
                     }}
                   >
-                    <Text color="#666">District</Text>
-                    <Text>Khordha</Text>
+                    <H4 color={colors.subtitle}>District</H4>
+                    <BodyLarge>Khordha</BodyLarge>
                   </Box>
                   <Box
                     style={{
@@ -53,8 +64,8 @@ function SchoolAddressCard({ isVisited }) {
                       marginBottom: 12,
                     }}
                   >
-                    <Text color="#666">Block</Text>
-                    <Text>East</Text>
+                    <H4 color={colors.subtitle}>Block</H4>
+                    <BodyLarge>East</BodyLarge>
                   </Box>
                   <Box
                     style={{
@@ -63,8 +74,8 @@ function SchoolAddressCard({ isVisited }) {
                       marginBottom: 12,
                     }}
                   >
-                    <Text color="#666">Headmaster</Text>
-                    <Text>Siddhant Chaturvedi</Text>
+                    <H4 color={colors.subtitle}>Headmaster</H4>
+                    <BodyLarge>Siddhant Chaturvedi</BodyLarge>
                   </Box>
                 </HStack>
               </Box>
@@ -82,8 +93,8 @@ function SchoolAddressCard({ isVisited }) {
                       marginBottom: 12,
                     }}
                   >
-                    <Text color="#666">Contact</Text>
-                    <Text>+91 9654788934</Text>
+                    <H4 color={colors.subtitle}>Contact</H4>
+                    <BodyLarge>+91 9654788934</BodyLarge>
                   </Box>
                 </HStack>
               </Box>
@@ -101,8 +112,8 @@ function SchoolAddressCard({ isVisited }) {
                       marginBottom: 12,
                     }}
                   >
-                    <Text color="#666">Medium</Text>
-                    <Text>English</Text>
+                    <H4 color={colors.subtitle}>Medium</H4>
+                    <BodyLarge>English</BodyLarge>
                   </Box>
                   <Box
                     style={{
@@ -111,8 +122,8 @@ function SchoolAddressCard({ isVisited }) {
                       marginBottom: 12,
                     }}
                   >
-                    <Text color="#666">Board</Text>
-                    <Text>CBSE</Text>
+                    <H4 color={colors.subtitle}>Board</H4>
+                    <BodyLarge>CBSE</BodyLarge>
                   </Box>
                 </HStack>
               </Box>

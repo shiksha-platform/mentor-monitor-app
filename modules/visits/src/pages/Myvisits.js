@@ -1,10 +1,19 @@
-import { H2, IconByName, Layout, SearchLayout } from "@shiksha/common-lib";
+import {
+  BodyMedium,
+  H2,
+  IconByName,
+  Layout,
+  overrideColorTheme,
+  SearchLayout,
+} from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Box, HStack, Text, VStack } from "native-base";
 import RecommendedVisitsCard from "../components/RecommendedVisitsCard";
 import MySchoolsCard from "../components/MySchoolsCard";
+import colorTheme from "../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 
 export default function Myvisits() {
   const { t } = useTranslation();
@@ -42,9 +51,13 @@ export default function Myvisits() {
     <Layout
       _header={{
         title: "My Visits",
-        _heading: { color: "white" },
+        _heading: { color: colors.white },
         subHeading: t("View recommended and allocated schools for your visits"),
-        _subHeading: { color: "white" },
+        _subHeading: {
+          color: colors.white,
+          textTransform: "none",
+          maxWidth: "330px",
+        },
       }}
       _appBar={{
         languages: ["en"],
@@ -52,7 +65,46 @@ export default function Myvisits() {
         setSearch,
         setSearchState,
       }}
-      _subHeader={{ bg: "attendanceCard.500" }}
+      _subHeader={{ bg: colors.lightPurple }}
+      _footer={{
+        menues: [
+          {
+            title: "HOME",
+            icon: "Home4LineIcon",
+            module: "Registry",
+            route: "/",
+            routeparameters: {},
+          },
+          {
+            title: "VISITS",
+            icon: "GovernmentLineIcon",
+            module: "Registry",
+            route: "/",
+            routeparameters: {},
+          },
+          {
+            title: "LEARNING",
+            icon: "LightbulbFlashLineIcon",
+            module: "Registry",
+            route: "/",
+            routeparameters: {},
+          },
+          {
+            title: "MATERIALS",
+            icon: "BookOpenLineIcon",
+            module: "Registry",
+            route: "/",
+            routeparameters: {},
+          },
+          {
+            title: "PROFILE",
+            icon: "UserLineIcon",
+            module: "Registry",
+            route: "/",
+            routeparameters: {},
+          },
+        ],
+      }}
     >
       <Box p={6}>
         <VStack space={6}>
@@ -60,7 +112,7 @@ export default function Myvisits() {
             <VStack space={6}>
               <Box>
                 <H2>Recommended Visits</H2>
-                <Text fontSize="xs">Schools not visited in last 2 months</Text>
+                <BodyMedium>Schools not visited in last 2 months</BodyMedium>
               </Box>
               {recommendedVisits &&
                 recommendedVisits.length &&
@@ -74,7 +126,7 @@ export default function Myvisits() {
               <Box textAlign="center">
                 <Link
                   to="/visits/recommended-schools"
-                  style={{ color: "#6461D2", textDecoration: "none" }}
+                  style={{ color: colors.primary, textDecoration: "none" }}
                 >
                   Show More
                 </Link>
@@ -100,7 +152,7 @@ export default function Myvisits() {
               <Box textAlign="center">
                 <Link
                   to="/visits/allocated-schools"
-                  style={{ color: "#6461D2", textDecoration: "none" }}
+                  style={{ color: colors.primary, textDecoration: "none" }}
                 >
                   Show More
                 </Link>

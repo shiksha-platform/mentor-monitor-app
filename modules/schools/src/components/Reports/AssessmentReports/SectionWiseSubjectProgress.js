@@ -18,25 +18,31 @@ import {
   Collapsible,
   ProgressBar,
   Tab,
+  overrideColorTheme,
+  BodyLarge,
+  H4,
+  BodyMedium,
 } from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
+import colorTheme from "../../../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 
 function SectionWiseSubjectProgress() {
   const { t } = useTranslation();
   const [progressData, setProgressData] = React.useState([
     {
       name: "22 Present",
-      color: "#43B13A",
+      color: colors.green,
       value: 22,
     },
     {
       name: "4 Absent",
-      color: "#DF5B5B",
+      color: colors.absent,
       value: 4,
     },
     {
       name: "1 Unmarked",
-      color: "#C1C0ED",
+      color: colors.unmarked,
       value: 1,
     },
   ]);
@@ -44,12 +50,12 @@ function SectionWiseSubjectProgress() {
   const [progressData2, setProgressData2] = React.useState([
     {
       name: "16 Assessed",
-      color: "#0D921B",
+      color: colors.green,
       value: 16,
     },
     {
       name: "4 Pending",
-      color: "#DDDDDD",
+      color: colors.gray,
       value: 4,
     },
   ]);
@@ -58,7 +64,7 @@ function SectionWiseSubjectProgress() {
     <React.Fragment>
       <VStack space={6}>
         <HStack alignItems="center" justifyContent="space-between">
-          <Text>Performance</Text>
+          <BodyMedium>Performance</BodyMedium>
           <Box flexGrow={1} ml={4}>
             <ProgressBar data={progressData} />
           </Box>
@@ -66,25 +72,26 @@ function SectionWiseSubjectProgress() {
 
         <HStack alignItems="center" justifyContent="space-between">
           <HStack alignItems="center">
-            <Box bg="#2BB639" w="15px" h="15px" rounded={4} />
-            <Text mx={2}>Passed</Text>
+            <Box bg={colors.green} w="15px" h="15px" rounded={4} />
+            <BodyMedium mx={2}>Passed</BodyMedium>
           </HStack>
           <HStack alignItems="center">
-            <Box bg="#F57B7B" w="15px" h="15px" rounded={4} />
-            <Text mx={2}>Failed</Text>
+            <Box bg={colors.absent} w="15px" h="15px" rounded={4} />
+            <BodyMedium mx={2}>Failed</BodyMedium>
           </HStack>
           <HStack alignItems="center">
-            <Box bg="#B5B5C8" w="15px" h="15px" rounded={4} />
-            <Text mx={2}>Not attempted</Text>
+            <Box bg={colors.unmarked} w="15px" h="15px" rounded={4} />
+            <BodyMedium mx={2}>Not attempted</BodyMedium>
           </HStack>
         </HStack>
 
         <Divider />
         <Box>
           <VStack space={4}>
-            <Text>
-              Average Class Score is <Text bold>{"18/25"}</Text>
-            </Text>
+            <BodyLarge>
+              Average Class Score is <H2>18</H2>
+              <H4>/25"</H4>
+            </BodyLarge>
             <ProgressBar
               isTextShow
               legendType="separated"

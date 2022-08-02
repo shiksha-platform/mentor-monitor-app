@@ -4,6 +4,7 @@ import {
   IconByName,
   Layout,
   Caption,
+  overrideColorTheme,
 } from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
@@ -22,6 +23,8 @@ import {
   useToast,
 } from "native-base";
 import moment from "moment";
+import colorTheme from "../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 
 const DayWiseBar = ({ activeColor, setActiveColor, page, setPage, _box }) => {
   const [date, setDate] = React.useState();

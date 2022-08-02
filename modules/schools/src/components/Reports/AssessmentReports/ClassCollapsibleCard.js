@@ -18,10 +18,15 @@ import {
   Collapsible,
   ProgressBar,
   Tab,
+  overrideColorTheme,
+  BodyLarge,
+  H4,
 } from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import ClassWiseSubjectProgress from "./ClassWiseSubjectProgress";
 import { useNavigate } from "react-router-dom";
+import colorTheme from "../../../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 
 // const MyClassRoute = React.lazy(() => import("classes/MyClassRoute"));
 // const TimeTableRoute = React.lazy(() => import("calendar/TimeTableRoute"));
@@ -75,12 +80,12 @@ function ClassCollapsibleCard() {
   const [progressData2, setProgressData2] = React.useState([
     {
       name: "16 Assessed",
-      color: "#0D921B",
+      color: colors.green,
       value: 16,
     },
     {
       name: "4 Pending",
-      color: "#DDDDDD",
+      color: colors.gray,
       value: 4,
     },
   ]);
@@ -108,9 +113,10 @@ function ClassCollapsibleCard() {
                   </Box>
                   <Box>
                     <VStack space={4}>
-                      <Text>
-                        Average Class Score is <Text bold>{"18/25"}</Text>
-                      </Text>
+                      <BodyLarge>
+                        Average Class Score is <H2>18</H2>
+                        <H4>/25</H4>
+                      </BodyLarge>
                       <ProgressBar
                         isTextShow
                         legendType="separated"

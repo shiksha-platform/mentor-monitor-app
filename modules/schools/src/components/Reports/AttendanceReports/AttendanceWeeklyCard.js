@@ -5,6 +5,7 @@ import {
   attendanceRegistryService,
   ProgressBar,
   getUniqAttendance,
+  BodyMedium,
 } from "@shiksha/common-lib";
 import {
   HStack,
@@ -24,8 +25,10 @@ import {
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import { Link, useNavigate } from "react-router-dom";
-import { H2 } from "@shiksha/common-lib";
+import { H2, overrideColorTheme } from "@shiksha/common-lib";
 import RoundedProgressBar from "../../RoundedProgressBar";
+import colorTheme from "../../../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 // import StudentDetailCard from "./StudentDetail";
 
 const PRESENT = "Present";
@@ -37,7 +40,7 @@ const AttendanceWeeklyCard = () => {
   const { t } = useTranslation();
 
   return (
-    <Box borderColor="#EEEEEE" borderWidth={1} rounded={10}>
+    <Box borderColor={colors.borderSeprator} borderWidth={1} rounded={10}>
       <Box p={4}>
         <HStack alignItems="center" justifyContent="space-between">
           <Box>
@@ -54,17 +57,21 @@ const AttendanceWeeklyCard = () => {
                 <VStack>
                   <H2>Shah Rukh Khan</H2>
                   <HStack alignItems={"center"}>
-                    <Text color={"#373839"} fontSize={"xs"} fontWeight={400}>
+                    <BodyMedium color={colors.darkGray}>
                       {t("Roll No. 23")}{" "}
-                    </Text>
-                    <Text fontSize="5px" color="#373839" fontWeight={400}>
+                    </BodyMedium>
+                    <Text
+                      fontSize="5px"
+                      color={colors.darkGray}
+                      fontWeight={400}
+                    >
                       {" "}
                       ●{" "}
                     </Text>
-                    <Text color="#373839" fontSize={"xs"} fontWeight={400}>
+                    <BodyMedium color={colors.darkGray}>
                       {" "}
                       {t("Mr. Father's Name")}
-                    </Text>
+                    </BodyMedium>
                   </HStack>
                 </VStack>
               </Box>
@@ -72,7 +79,7 @@ const AttendanceWeeklyCard = () => {
           </Box>
           <RoundedProgressBar
             values={[5, 2]}
-            colors={["#43B13A", "#C1C0ED"]}
+            colors={[colors.green, colors.unmarkeds]}
             title={{ text: "5", fontSize: "12px" }}
             legend={{ text: "Days", fontSize: "14px" }}
             cutout={"79%"}
@@ -81,12 +88,12 @@ const AttendanceWeeklyCard = () => {
         </HStack>
       </Box>
       <Divider />
-      <Box borderColor="#EFEFEF" borderRadius={10} p={4}>
+      <Box borderColor={colors.borderSeprator} borderRadius={10} p={4}>
         <HStack justifyContent="space-between" flexWrap="wrap">
           <Box minW="14%" textAlign="center">
             <VStack justifyContent="center" space={2}>
               <Box>
-                <Text fontSize="xs" color="#666">
+                <Text fontSize="xs" color={colors.absent}>
                   Mon
                 </Text>
                 <Text fontSize="xs">10</Text>
@@ -94,7 +101,7 @@ const AttendanceWeeklyCard = () => {
               {/*<IconByName name="CheckboxCircleLineIcon" color={"#0D921B"} p={0} _icon={{ size: 20 }} mx={"auto"} />*/}
               <IconByName
                 name="CloseCircleLineIcon"
-                color={"#F57B7B"}
+                color={colors.absent}
                 p={0}
                 _icon={{ size: 20 }}
                 mx={"auto"}
@@ -104,14 +111,14 @@ const AttendanceWeeklyCard = () => {
           <Box minW="14%" textAlign="center">
             <VStack justifyContent="center" space={2}>
               <Box>
-                <Text fontSize="xs" color="#666">
+                <Text fontSize="xs" color={colors.subtitle}>
                   Tue
                 </Text>
                 <Text fontSize="xs">11</Text>
               </Box>
               <IconByName
                 name="CheckboxCircleLineIcon"
-                color={"#0D921B"}
+                color={colors.greens}
                 p={0}
                 _icon={{ size: 20 }}
                 mx={"auto"}
@@ -122,14 +129,14 @@ const AttendanceWeeklyCard = () => {
           <Box minW="14%" textAlign="center">
             <VStack justifyContent="center" space={2}>
               <Box>
-                <Text fontSize="xs" color="#666">
+                <Text fontSize="xs" color={colors.subtitles}>
                   Wed
                 </Text>
                 <Text fontSize="xs">12</Text>
               </Box>
               <IconByName
                 name="CheckboxCircleLineIcon"
-                color={"#0D921B"}
+                color={colors.green}
                 p={0}
                 _icon={{ size: 20 }}
                 mx={"auto"}
@@ -140,14 +147,14 @@ const AttendanceWeeklyCard = () => {
           <Box minW="14%" textAlign="center">
             <VStack justifyContent="center" space={2}>
               <Box>
-                <Text fontSize="xs" color="#666">
+                <Text fontSize="xs" color={colors.subtitle}>
                   Thu
                 </Text>
                 <Text fontSize="xs">13</Text>
               </Box>
               <IconByName
                 name="CheckboxCircleLineIcon"
-                color={"#0D921B"}
+                color={colors.green}
                 p={0}
                 _icon={{ size: 20 }}
                 mx={"auto"}
@@ -158,14 +165,14 @@ const AttendanceWeeklyCard = () => {
           <Box minW="14%" textAlign="center">
             <VStack justifyContent="center" space={2}>
               <Box>
-                <Text fontSize="xs" color="#666">
+                <Text fontSize="xs" color={colors.subtitle}>
                   Fri
                 </Text>
                 <Text fontSize="xs">14</Text>
               </Box>
               <IconByName
                 name="CheckboxCircleLineIcon"
-                color={"#0D921B"}
+                color={colors.green}
                 p={0}
                 _icon={{ size: 20 }}
                 mx={"auto"}
@@ -176,14 +183,14 @@ const AttendanceWeeklyCard = () => {
           <Box minW="14%" textAlign="center">
             <VStack justifyContent="center" space={2}>
               <Box>
-                <Text fontSize="xs" color="#666">
+                <Text fontSize="xs" color={colors.subtitle}>
                   Sat
                 </Text>
                 <Text fontSize="xs">15</Text>
               </Box>
               <IconByName
                 name="CheckboxBlankCircleLineIcon"
-                color={"#B5B5C8"}
+                color={colors.attendanceUnmarked}
                 p={0}
                 _icon={{ size: 20 }}
                 mx={"auto"}
@@ -194,16 +201,16 @@ const AttendanceWeeklyCard = () => {
           <Box minW="14%" textAlign="center">
             <VStack justifyContent="center" space={2}>
               <Box>
-                <Text fontSize="xs" color="#D9D9D9">
+                <Text fontSize="xs" color={colors.date}>
                   Sun
                 </Text>
-                <Text fontSize="xs" color="#D9D9D9">
+                <Text fontSize="xs" color={colors.date}>
                   16
                 </Text>
               </Box>
               <IconByName
                 name="CheckboxBlankCircleLineIcon"
-                color={"#eee"}
+                color={colors.borderSeprator}
                 p={0}
                 _icon={{ size: 20 }}
                 mx={"auto"}

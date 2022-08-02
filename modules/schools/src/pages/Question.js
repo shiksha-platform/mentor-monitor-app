@@ -1,12 +1,14 @@
-import { Layout } from "@shiksha/common-lib";
+import { Layout, overrideColorTheme } from "@shiksha/common-lib";
 import React from "react";
+import colorTheme from "../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 
 const Question = () => {
   return (
     <Layout
       _header={{
         title: "Fill the following questionnaire",
-        _heading: { color: "white" },
+        _heading: { color: colors.white },
       }}
       _appBar={{ languages: ["en"] }}
     >

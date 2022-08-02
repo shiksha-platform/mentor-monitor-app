@@ -1,4 +1,11 @@
-import { H2, IconByName, Layout, SearchLayout } from "@shiksha/common-lib";
+import {
+  H2,
+  IconByName,
+  Layout,
+  SearchLayout,
+  overrideColorTheme,
+  BodyLarge,
+} from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -8,6 +15,8 @@ import SchoolAdminDetailCard from "../components/SchoolAdminDetailCard";
 import SchoolAcademicDetailCard from "../components/SchoolAcademicDetailCard";
 import TeacherListCard from "../components/TeacherListCard";
 import PastVisitCard from "../components/PastVisitCard";
+import colorTheme from "../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 
 export default function SchoolProfile() {
   const navigate = useNavigate();
@@ -20,27 +29,27 @@ export default function SchoolProfile() {
       }
       _header={{
         title: "Delhi Public School, Ghaziabad",
-        _heading: { color: "white" },
+        _heading: { color: colors.white },
         subHeading: (
           <VStack>
-            <Text fontSize="14px" color="white">
+            <BodyLarge color={colors.white}>
               {t("Ghaziabad, Uttar Pradesh")}
-            </Text>
+            </BodyLarge>
             <HStack>
               <IconByName
                 name="CameraLineIcon"
-                color={"white"}
+                color={colors.white}
                 // onPress={() => setSortModal(false)}
               />
               <IconByName
                 name="MapPinLineIcon"
-                color={"white"}
+                color={colors.white}
                 // onPress={() => setSortModal(false)}
               />
             </HStack>
           </VStack>
         ),
-        _subHeading: { color: "white" },
+        _subHeading: { color: colors.white },
       }}
       _appBar={{
         languages: ["en"],
@@ -49,7 +58,7 @@ export default function SchoolProfile() {
         // setSearchState,
       }}
       subHeader={
-        <Box bg={"white"} px={2}>
+        <Box bg={colors.white} px={2}>
           <HStack alignItems="center" justifyContent="space-between">
             <Button
               leftIcon={<IconByName name="ArrowRightSFillIcon" p={0} />}
@@ -68,7 +77,7 @@ export default function SchoolProfile() {
           </HStack>
         </Box>
       }
-      _subHeader={{ bg: "white" }}
+      _subHeader={{ bg: colors.white }}
       _footer={{
         menues: [
           {

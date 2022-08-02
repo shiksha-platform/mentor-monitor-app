@@ -13,7 +13,9 @@ import {
 } from "native-base";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { IconByName } from "@shiksha/common-lib";
+import { H2, H4, IconByName, overrideColorTheme } from "@shiksha/common-lib";
+import colorTheme from "../../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 
 export default function SubjectFilterButton({
   getObject,
@@ -35,7 +37,7 @@ export default function SubjectFilterButton({
   return (
     <Box roundedBottom={"xl"} {..._box}>
       <VStack space={2}>
-        <Text>Subject</Text>
+        <H4>Subject</H4>
         <Button
           rounded="10"
           colorScheme="button"
@@ -43,7 +45,7 @@ export default function SubjectFilterButton({
           px="5"
           rightIcon={
             <IconByName
-              color="button.500"
+              color={colors.primary}
               name="ArrowDownSLineIcon"
               isDisabled
             />
@@ -55,29 +57,28 @@ export default function SubjectFilterButton({
           }}
           {..._button}
         >
-          <Text color="button.500">
+          <Text color={colors.primary}>
             {selectData && selectData.length ? selectData[0] : "Subject"}
           </Text>
         </Button>
         <Actionsheet isOpen={filterData} onClose={() => setFilterData()}>
           <Actionsheet.Content
             alignItems={"left"}
-            bg="classCard.500"
+            bg={colors.lightGray}
             {..._actionSheet}
           >
             <HStack justifyContent={"space-between"}>
-              <Stack p={5} pt={2} pb="25px">
-                <Text fontSize="16px" fontWeight={"600"}>
-                  {t("Choose Teacher")}
-                </Text>
+              <Stack p={5} pt={2} pb="15px">
+                <H2>{t("Choose Subject")}</H2>
               </Stack>
               <IconByName
                 name="CloseCircleLineIcon"
                 onPress={(e) => setFilterData()}
+                color={colors.primary}
               />
             </HStack>
           </Actionsheet.Content>
-          <Box bg="white" width={"100%"} pt={4}>
+          <Box bg={colors.white} width={"100%"} pt={4}>
             <VStack space={4}>
               {filterData?.data &&
                 filterData?.data.map((value, index) => (
@@ -94,7 +95,7 @@ export default function SubjectFilterButton({
             <Box p="5">
               <Button
                 colorScheme="button"
-                _text={{ color: "white" }}
+                _text={{ color: colors.white }}
                 onPress={() => {
                   setFilterData({});
                   if (getObject) getObject(selectData);

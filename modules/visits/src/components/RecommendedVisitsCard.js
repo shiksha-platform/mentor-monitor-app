@@ -8,7 +8,13 @@ import {
   Avatar,
   Divider,
 } from "native-base";
-import { DEFAULT_THEME, H2, IconByName } from "@shiksha/common-lib";
+import {
+  BodyLarge,
+  BodyMedium,
+  DEFAULT_THEME,
+  H2,
+  IconByName,
+} from "@shiksha/common-lib";
 function RecommendedVisitsCard({ isVisited }) {
   return (
     <>
@@ -26,12 +32,8 @@ function RecommendedVisitsCard({ isVisited }) {
                   }}
                 />
                 <VStack>
-                  <Text bold fontSize={14}>
-                    Delhi Public School, Ghaziabad
-                  </Text>
-                  <Text bold fontSize={12} color="#666">
-                    Ghaziabad, Uttar Pradesh
-                  </Text>
+                  <BodyLarge>Delhi Public School, Ghaziabad</BodyLarge>
+                  <BodyMedium color="#666">Ghaziabad, Uttar Pradesh</BodyMedium>
                 </VStack>
               </HStack>
             </VStack>
@@ -53,11 +55,9 @@ function RecommendedVisitsCard({ isVisited }) {
                 <VStack>
                   <HStack alignItems="center">
                     <IconByName size="12px" mr={2} name="MapPinLineIcon" />
-                    <Text color="#666" fontSize="12">
-                      District
-                    </Text>
+                    <BodyMedium color="#666">District</BodyMedium>
                   </HStack>
-                  <Text fontSize="12">Ghaziabad</Text>
+                  <BodyMedium>Ghaziabad</BodyMedium>
                 </VStack>
               </div>
 
@@ -71,11 +71,9 @@ function RecommendedVisitsCard({ isVisited }) {
                 <VStack>
                   <HStack alignItems="center">
                     <IconByName size="12px" mr={2} name="GovernmentLineIcon" />
-                    <Text color="#666" fontSize="12">
-                      Block
-                    </Text>
+                    <BodyMedium color="#666">Block</BodyMedium>
                   </HStack>
-                  <Text fontSize="12">Not Available</Text>
+                  <BodyMedium>Not Available</BodyMedium>
                 </VStack>
               </div>
 
@@ -93,11 +91,9 @@ function RecommendedVisitsCard({ isVisited }) {
                       mr={2}
                       name="CalendarEventLineIcon"
                     />
-                    <Text color="#666" fontSize="12">
-                      Last Visited
-                    </Text>
+                    <BodyMedium color="#666">Last Visited</BodyMedium>
                   </HStack>
-                  <Text fontSize="12">30 May 2022</Text>
+                  <BodyMedium>30 May 2022</BodyMedium>
                 </VStack>
               </div>
             </HStack>

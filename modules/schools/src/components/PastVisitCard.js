@@ -15,10 +15,16 @@ import {
   H2,
   IconByName,
   Collapsible,
+  overrideColorTheme,
+  BodyMedium,
+  H3,
 } from "@shiksha/common-lib";
+import colorTheme from "../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 function PastVisitCard() {
   return (
     <Collapsible
+      borderRadius={10}
       defaultCollapse={true}
       header={
         <Box py={4}>
@@ -30,7 +36,12 @@ function PastVisitCard() {
         <Divider mb={4} />
         <VStack space={6}>
           {/*bordered box*/}
-          <Box p={6} borderColor={"#eee"} borderWidth={1} rounded={10}>
+          <Box
+            p={6}
+            borderColor={colors.borderSeprator}
+            borderWidth={1}
+            rounded={10}
+          >
             <VStack space={6}>
               {/*row 1 box*/}
               <Box>
@@ -46,23 +57,26 @@ function PastVisitCard() {
                         }}
                       />
                       <VStack>
-                        <Text
-                          color="coolGray.800"
+                        <H3
+                          color={colors.bodyText}
                           _dark={{
                             color: "warmGray.50",
                           }}
                           bold
                         >
                           Snehal Verma
-                        </Text>
-                        <Text color="gray.400" fontSize={"xs"}>
+                        </H3>
+                        <BodyMedium color={colors.subtitle}>
                           Class Teacher: VI A
-                        </Text>
+                        </BodyMedium>
                       </VStack>
                       <Spacer />
                     </HStack>
                   </Box>
-                  <IconByName name="ArrowRightSLineIcon" />
+                  <IconByName
+                    name="ArrowRightSLineIcon"
+                    color={colors.lightGray}
+                  />
                 </HStack>
               </Box>
               {/*row 2 box*/}
@@ -83,12 +97,13 @@ function PastVisitCard() {
                         size="12px"
                         mr={2}
                         name="CalendarEventLineIcon"
+                        color={colors.subtitle}
                       />
-                      <Text color="#666" fontSize="12">
+                      <BodyMedium color={colors.subtitle}>
                         Last visited On:
-                      </Text>
+                      </BodyMedium>
                     </HStack>
-                    <Text>30/5/2022</Text>
+                    <BodyMedium color={colors.bodyText}>30/5/2022</BodyMedium>
                   </Box>
                   <Box
                     style={{
@@ -97,12 +112,19 @@ function PastVisitCard() {
                     }}
                   >
                     <HStack alignItems="center">
-                      <IconByName size="12px" mr={2} name="BarChart2LineIcon" />
-                      <Text color="#666" fontSize="12">
+                      <IconByName
+                        size="12px"
+                        mr={2}
+                        name="BarChart2LineIcon"
+                        color={colors.subtitle}
+                      />
+                      <BodyMedium color={colors.subtitle}>
                         Last visited By:
-                      </Text>
+                      </BodyMedium>
                     </HStack>
-                    <Text>Kritika Kumar Gupta</Text>
+                    <BodyMedium color={colors.bodyText}>
+                      Kritika Kumar Gupta
+                    </BodyMedium>
                   </Box>
                 </HStack>
               </Box>
@@ -110,7 +132,12 @@ function PastVisitCard() {
           </Box>
 
           {/*bordered box*/}
-          <Box p={6} borderColor={"#eee"} borderWidth={1} rounded={10}>
+          <Box
+            p={6}
+            borderColor={colors.borderSeprator}
+            borderWidth={1}
+            rounded={10}
+          >
             <VStack space={6}>
               {/*row 1 box*/}
               <Box>
@@ -126,23 +153,26 @@ function PastVisitCard() {
                         }}
                       />
                       <VStack>
-                        <Text
-                          color="coolGray.800"
+                        <H3
+                          color={colors.bodyText}
                           _dark={{
                             color: "warmGray.50",
                           }}
                           bold
                         >
                           Snehal Verma
-                        </Text>
-                        <Text color="gray.400" fontSize={"xs"}>
+                        </H3>
+                        <BodyMedium color={colors.subtitle}>
                           Class Teacher: VI A
-                        </Text>
+                        </BodyMedium>
                       </VStack>
                       <Spacer />
                     </HStack>
                   </Box>
-                  <IconByName name="ArrowRightSLineIcon" />
+                  <IconByName
+                    name="ArrowRightSLineIcon"
+                    color={colors.lightGray}
+                  />
                 </HStack>
               </Box>
               {/*row 2 box*/}
@@ -163,12 +193,13 @@ function PastVisitCard() {
                         size="12px"
                         mr={2}
                         name="CalendarEventLineIcon"
+                        color={colors.subtitle}
                       />
-                      <Text color="#666" fontSize="12">
+                      <BodyMedium color={colors.subtitle}>
                         Last visited On:
-                      </Text>
+                      </BodyMedium>
                     </HStack>
-                    <Text>30/5/2022</Text>
+                    <BodyMedium color={colors.bodyText}>30/5/2022</BodyMedium>
                   </Box>
                   <Box
                     style={{
@@ -177,12 +208,19 @@ function PastVisitCard() {
                     }}
                   >
                     <HStack alignItems="center">
-                      <IconByName size="12px" mr={2} name="BarChart2LineIcon" />
-                      <Text color="#666" fontSize="12">
+                      <IconByName
+                        size="12px"
+                        mr={2}
+                        name="BarChart2LineIcon"
+                        color={colors.subtitle}
+                      />
+                      <BodyMedium color={colors.subtitle}>
                         Last visited By:
-                      </Text>
+                      </BodyMedium>
                     </HStack>
-                    <Text>Kritika Kumar Gupta</Text>
+                    <BodyMedium color={colors.bodyText}>
+                      Kritika Kumar Gupta
+                    </BodyMedium>
                   </Box>
                 </HStack>
               </Box>

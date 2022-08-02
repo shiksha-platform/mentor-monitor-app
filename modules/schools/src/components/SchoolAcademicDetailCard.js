@@ -16,9 +16,14 @@ import {
   H2,
   IconByName,
   Collapsible,
+  overrideColorTheme,
+  H3,
+  BodyMedium,
 } from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import colorTheme from "../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 
 export default function SchoolAcademicDetailCard() {
   const { t } = useTranslation();
@@ -37,32 +42,44 @@ export default function SchoolAcademicDetailCard() {
         <>
           <Divider mb={4} />
           <VStack space={6}>
-            <Box p={6} borderColor={"#eee"} borderWidth={1} rounded={10}>
+            <Box
+              p={6}
+              borderColor={colors.borderSeprator}
+              borderWidth={1}
+              rounded={10}
+            >
               <HStack alignItems="center" justifyContent="space-between">
                 <Box>
                   <VStack>
-                    <Text bold>Grade I</Text>
-                    <Text color="#666">65 Students</Text>
+                    <H3 color={colors.bodyText}>Class I</H3>
+                    <BodyMedium color={colors.subtitle}>65 Students</BodyMedium>
                   </VStack>
                 </Box>
                 <IconByName
                   name="ArrowRightSLineIcon"
                   onPress={() => setAcademicDetailModal(true)}
+                  color={colors.lightGray}
                 />
               </HStack>
             </Box>
 
-            <Box p={6} borderColor={"#eee"} borderWidth={1} rounded={10}>
+            <Box
+              p={6}
+              borderColor={colors.borderSeprator}
+              borderWidth={1}
+              rounded={10}
+            >
               <HStack alignItems="center" justifyContent="space-between">
                 <Box>
                   <VStack>
-                    <Text bold>Grade II</Text>
-                    <Text color="#666">69 Students</Text>
+                    <H3 color={colors.bodyText}>Class II</H3>
+                    <BodyMedium color={colors.subtitle}>69 Students</BodyMedium>
                   </VStack>
                 </Box>
                 <IconByName
                   name="ArrowRightSLineIcon"
                   onPress={() => setAcademicDetailModal(true)}
+                  color={colors.lightGray}
                 />
               </HStack>
             </Box>
@@ -73,21 +90,19 @@ export default function SchoolAcademicDetailCard() {
         isOpen={academicDetailModal}
         onClose={() => setAcademicDetailModal(false)}
       >
-        <Actionsheet.Content alignItems={"left"} bg="#E0DFF6">
+        <Actionsheet.Content alignItems={"left"} bg={colors.lightGray}>
           <HStack justifyContent={"space-between"}>
-            <Stack p={5} pt={2} pb="25px">
-              <Text fontSize="16px" fontWeight={"600"}>
-                {t("Select Academic Details")}
-              </Text>
+            <Stack p={5} pt={2} pb="15px">
+              <H2>{t("Select Academic Details")}</H2>
             </Stack>
             <IconByName
               name="CloseCircleLineIcon"
-              color={"#6461D2"}
+              color={colors.primary}
               onPress={() => setAcademicDetailModal(false)}
             />
           </HStack>
         </Actionsheet.Content>
-        <Box w="100%" p={4} justifyContent="center" bg="white">
+        <Box w="100%" p={4} justifyContent="center" bg={colors.white}>
           <Actionsheet.Item
             onPress={() => navigate("/schools/attendance-report")}
           >

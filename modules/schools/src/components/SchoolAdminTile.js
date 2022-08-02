@@ -16,8 +16,14 @@ import {
   H2,
   IconByName,
   Collapsible,
+  overrideColorTheme,
+  H4,
+  BodyLarge,
 } from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
+import colorTheme from "../colorTheme";
+const colors = overrideColorTheme(colorTheme);
+
 function SchoolAdminTile({ title }) {
   const { t } = useTranslation();
   const [academicDetailModal, setAcademicDetailModal] = useState(false);
@@ -45,23 +51,23 @@ function SchoolAdminTile({ title }) {
                 <VStack space={4}>
                   <HStack alignItems="center">
                     <HStack alignItems="center">
-                      <Text bold>Grade 1 : </Text>
-                      <Text>50</Text>
+                      <H4>Grade 1 : </H4>
+                      <BodyLarge>50</BodyLarge>
                     </HStack>
                     <HStack alignItems="center" ml={10}>
-                      <Text bold>Grade 2 : </Text>
-                      <Text>125</Text>
+                      <H4>Grade 2 : </H4>
+                      <BodyLarge>125</BodyLarge>
                     </HStack>
                   </HStack>
 
                   <HStack alignItems="center">
                     <HStack alignItems="center">
-                      <Text bold>Grade 3 : </Text>
-                      <Text>50</Text>
+                      <H4>Grade 3 : </H4>
+                      <BodyLarge>50</BodyLarge>
                     </HStack>
                     <HStack alignItems="center" ml={10}>
-                      <Text bold>Grade 4 : </Text>
-                      <Text>125</Text>
+                      <H4>Grade 4 : </H4>
+                      <BodyLarge>125</BodyLarge>
                     </HStack>
                   </HStack>
                 </VStack>
@@ -91,19 +97,19 @@ function SchoolAdminTile({ title }) {
               <HStack alignItems="center">
                 <HStack alignItems="center">
                   <Box
-                    bg="#3498DB"
+                    bg={colors.blue}
                     style={{ width: "12px", height: "12px" }}
                   ></Box>
-                  <Text mx={2}>Boys:</Text>
-                  <Text bold>150</Text>
+                  <BodyLarge mx={2}>Boys:</BodyLarge>
+                  <H4>150</H4>
                 </HStack>
                 <HStack ml={4} alignItems="center">
                   <Box
-                    bg="#BB6BD9"
+                    bg={colors.purple}
                     style={{ width: "12px", height: "12px" }}
                   ></Box>
-                  <Text mx={2}>Girls:</Text>
-                  <Text bold>125</Text>
+                  <BodyLarge mx={2}>Girls:</BodyLarge>
+                  <H4>125</H4>
                 </HStack>
               </HStack>
             </VStack>
@@ -131,21 +137,21 @@ function SchoolAdminTile({ title }) {
               <Box>
                 <VStack space={4}>
                   <HStack alignItems="center">
-                    <Text bold>Scheduled Caste (SC) : </Text>
-                    <Text>50</Text>
+                    <H4>Scheduled Caste (SC) : </H4>
+                    <BodyLarge>50</BodyLarge>
                   </HStack>
                   <HStack alignItems="center">
-                    <Text bold>scheduled Tribe (ST) : </Text>
-                    <Text>125</Text>
+                    <H4>scheduled Tribe (ST) : </H4>
+                    <BodyLarge>125</BodyLarge>
                   </HStack>
 
                   <HStack alignItems="center">
-                    <Text bold>Other Backward Class (OBC) : </Text>
-                    <Text>90</Text>
+                    <H4>Other Backward Class (OBC) : </H4>
+                    <BodyLarge>90</BodyLarge>
                   </HStack>
                   <HStack alignItems="center">
-                    <Text bold>General Category (GC) : </Text>
-                    <Text>95</Text>
+                    <H4>General Category (GC) : </H4>
+                    <BodyLarge>95</BodyLarge>
                   </HStack>
                 </VStack>
               </Box>
@@ -158,21 +164,19 @@ function SchoolAdminTile({ title }) {
         isOpen={academicDetailModal}
         onClose={() => setAcademicDetailModal(false)}
       >
-        <Actionsheet.Content alignItems={"left"} bg="#E0DFF6">
+        <Actionsheet.Content alignItems={"left"} bg={colors.lightGray}>
           <HStack justifyContent={"space-between"}>
-            <Stack p={5} pt={2} pb="25px">
-              <Text fontSize="16px" fontWeight={"600"}>
-                {t("View By")}
-              </Text>
+            <Stack p={5} pt={2} pb="15px">
+              <H2>{t("View By")}</H2>
             </Stack>
             <IconByName
               name="CloseCircleLineIcon"
-              color={"#6461D2"}
+              color={colors.primary}
               onPress={() => setAcademicDetailModal(false)}
             />
           </HStack>
         </Actionsheet.Content>
-        <Box w="100%" p={4} justifyContent="center" bg="white">
+        <Box w="100%" p={4} justifyContent="center" bg={colors.white}>
           <Actionsheet.Item
             onPress={() => {
               setViewBy("grade");

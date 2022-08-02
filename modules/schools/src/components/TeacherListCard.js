@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Collapsible, IconByName } from "@shiksha/common-lib";
+import {
+  BodyMedium,
+  Collapsible,
+  H3,
+  H4,
+  IconByName,
+} from "@shiksha/common-lib";
 import {
   HStack,
   Text,
@@ -11,7 +17,9 @@ import {
 } from "native-base";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
-import { H2 } from "@shiksha/common-lib";
+import { H2, overrideColorTheme } from "@shiksha/common-lib";
+import colorTheme from "../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 // import StudentDetailCard from "./StudentDetail";
 
 const PRESENT = "Present";
@@ -72,18 +80,17 @@ const TeacherListCard = ({ classId, students, setHeaderDetails }) => {
                           }}
                         />
                         <VStack>
-                          <Text
-                            color="coolGray.800"
+                          <H3
+                            color={colors.bodyText}
                             _dark={{
                               color: "warmGray.50",
                             }}
-                            bold
                           >
                             {index + 1} . {teacher.name}
-                          </Text>
-                          <Text color="gray.400" fontSize={"xs"}>
+                          </H3>
+                          <BodyMedium color={colors.subtitle}>
                             Class Teacher: {teacher.class}
-                          </Text>
+                          </BodyMedium>
                         </VStack>
                       </HStack>
                     </Box>
@@ -92,13 +99,13 @@ const TeacherListCard = ({ classId, students, setHeaderDetails }) => {
                         <IconByName
                           _icon={{ size: "22" }}
                           borderRadius="full"
-                          bg="#282754"
-                          color="white"
+                          bg={colors.avatarBackground}
+                          color={colors.white}
                           name="UserLineIcon"
                         />
                         <IconByName
                           _icon={{ size: "18" }}
-                          color="#BBBBBB"
+                          color={colors.cheveron}
                           name="ArrowRightSLineIcon"
                         />
                       </HStack>
@@ -114,7 +121,7 @@ const TeacherListCard = ({ classId, students, setHeaderDetails }) => {
       <Box pt={4} textAlign="center">
         <Link
           to="/schools/my-visits"
-          style={{ color: "#6461D2", textDecoration: "none" }}
+          style={{ color: colors.primary, textDecoration: "none" }}
         >
           Load More
         </Link>
