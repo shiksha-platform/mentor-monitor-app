@@ -9,8 +9,11 @@ import {
   Divider,
 } from "native-base";
 import {
+  BodyLarge,
+  BodyMedium,
   DEFAULT_THEME,
   H2,
+  H3,
   IconByName,
   overrideColorTheme,
 } from "@shiksha/common-lib";
@@ -28,7 +31,7 @@ function MySchoolsCard({ isVisited }) {
     <>
       <VStack space={6}>
         <Box
-          bg={colors.cardBg}
+          bg="#dff5dd9e"
           borderRadius={10}
           borderColor={colors.visitedCardBorderColor}
         >
@@ -44,12 +47,10 @@ function MySchoolsCard({ isVisited }) {
                   }}
                 />
                 <VStack>
-                  <Text bold fontSize={14}>
-                    Delhi Public School, Ghaziabad
-                  </Text>
-                  <Text bold fontSize={12} color="#666">
+                  <H3>Delhi Public School, Ghaziabad</H3>
+                  <BodyMedium color={colors.subtitle}>
                     Ghaziabad, Uttar Pradesh
-                  </Text>
+                  </BodyMedium>
                 </VStack>
               </HStack>
             </VStack>
@@ -71,11 +72,11 @@ function MySchoolsCard({ isVisited }) {
                 <VStack>
                   <HStack alignItems="center">
                     <IconByName size="12px" mr={2} name="MapPinLineIcon" />
-                    <Text color="#666" fontSize="12">
+                    <BodyMedium color="#666" fontSize="12">
                       District
-                    </Text>
+                    </BodyMedium>
                   </HStack>
-                  <Text fontSize="12">Ghaziabad</Text>
+                  <BodyMedium>Ghaziabad</BodyMedium>
                 </VStack>
               </div>
 
@@ -89,11 +90,9 @@ function MySchoolsCard({ isVisited }) {
                 <VStack>
                   <HStack alignItems="center">
                     <IconByName size="12px" mr={2} name="GovernmentLineIcon" />
-                    <Text color="#666" fontSize="12">
-                      Block
-                    </Text>
+                    <BodyMedium color="#666">Block</BodyMedium>
                   </HStack>
-                  <Text fontSize="12">Not Available</Text>
+                  <BodyMedium>Not Available</BodyMedium>
                 </VStack>
               </div>
 
@@ -111,11 +110,9 @@ function MySchoolsCard({ isVisited }) {
                       mr={2}
                       name="CalendarEventLineIcon"
                     />
-                    <Text color="#666" fontSize="12">
-                      Last Visited
-                    </Text>
+                    <BodyMedium color="#666">Last Visited</BodyMedium>
                   </HStack>
-                  <Text fontSize="12">30 May 2022</Text>
+                  <BodyMedium>30 May 2022</BodyMedium>
                 </VStack>
               </div>
             </HStack>

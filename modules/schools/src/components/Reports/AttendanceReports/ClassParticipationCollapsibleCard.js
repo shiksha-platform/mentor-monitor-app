@@ -17,22 +17,27 @@ import {
   IconByName,
   Collapsible,
   ProgressBar,
+  overrideColorTheme,
+  BodyMedium,
+  BodySmall,
 } from "@shiksha/common-lib";
+import colorTheme from "../../../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 function ClassParticipationCollapsibleCard() {
   const [progressData, setProgressData] = React.useState([
     {
       name: "22 Present",
-      color: "#43B13A",
+      color: colors.green,
       value: 22,
     },
     {
       name: "4 Absent",
-      color: "#DF5B5B",
+      color: colors.absent,
       value: 4,
     },
     {
       name: "1 Unmarked",
-      color: "#C1C0ED",
+      color: colors.unmarked,
       value: 1,
     },
   ]);
@@ -43,15 +48,11 @@ function ClassParticipationCollapsibleCard() {
         <Box py={4}>
           <H2>Class Participation</H2>
           <HStack align="middle">
-            <Text color="#666" fontSize="11px" fontWeight={300}>
-              Total 34
-            </Text>
-            <Text fontSize="8px" color="#666" mx={2}>
+            <BodySmall color={colors.subtitle}>Total 34</BodySmall>
+            <Text fontSize="8px" color={colors.subtitle} mx={2}>
               ●
             </Text>
-            <Text color="#666" fontSize="11px" fontWeight={300}>
-              Present 28
-            </Text>
+            <BodySmall color={colors.subtitle}>Present 28</BodySmall>
           </HStack>
         </Box>
       }
@@ -66,21 +67,21 @@ function ClassParticipationCollapsibleCard() {
               <Box>
                 <VStack space={6}>
                   <HStack alignItems="center" justifyContent="space-between">
-                    <Text w={"20%"}>Girls</Text>
+                    <BodyMedium w={"20%"}>Girls</BodyMedium>
                     <Box w={"80%"}>
                       <ProgressBar data={progressData} />
                     </Box>
                   </HStack>
 
                   <HStack alignItems="center" justifyContent="space-between">
-                    <Text w={"20%"}>Boys</Text>
+                    <BodyMedium w={"20%"}>Boys</BodyMedium>
                     <Box w={"80%"}>
                       <ProgressBar data={progressData} />
                     </Box>
                   </HStack>
 
                   <HStack alignItems="center" justifyContent="space-between">
-                    <Text w={"20%"}>Total</Text>
+                    <BodyMedium w={"20%"}>Total</BodyMedium>
                     <Box w={"80%"}>
                       <ProgressBar data={progressData} />
                     </Box>
@@ -88,25 +89,25 @@ function ClassParticipationCollapsibleCard() {
 
                   <HStack alignItems="center" justifyContent="space-between">
                     <HStack alignItems="center">
-                      <Box bg="#2BB639" w="15px" h="15px" rounded={4} />
-                      <Text mx={2}>Present</Text>
+                      <Box bg={colors.green} w="15px" h="15px" rounded={4} />
+                      <BodyMedium mx={2}>Present</BodyMedium>
                     </HStack>
                     <HStack alignItems="center">
-                      <Box bg="#F57B7B" w="15px" h="15px" rounded={4} />
-                      <Text mx={2}>Absent</Text>
+                      <Box bg={colors.absent} w="15px" h="15px" rounded={4} />
+                      <BodyMedium mx={2}>Absent</BodyMedium>
                     </HStack>
                     <HStack alignItems="center">
-                      <Box bg="#B5B5C8" w="15px" h="15px" rounded={4} />
-                      <Text mx={2}>Unmarked</Text>
+                      <Box bg={colors.unmarked} w="15px" h="15px" rounded={4} />
+                      <BodyMedium mx={2}>Unmarked</BodyMedium>
                     </HStack>
                   </HStack>
 
                   <Text>
-                    <Text bold>Note:</Text>{" "}
-                    <Text color="#333333">
+                    <BodyMedium bold>Note:</BodyMedium>{" "}
+                    <BodyMedium color={colors.bodyText}>
                       Monthly Report will be generated on the last day of every
                       month.
-                    </Text>
+                    </BodyMedium>
                   </Text>
                 </VStack>
               </Box>

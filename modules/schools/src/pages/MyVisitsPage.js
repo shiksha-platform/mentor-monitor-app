@@ -1,4 +1,13 @@
-import { H2, IconByName, Layout } from "@shiksha/common-lib";
+import {
+  BodyLarge,
+  BodyMedium,
+  H2,
+  H3,
+  H4,
+  IconByName,
+  Layout,
+  overrideColorTheme,
+} from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -15,6 +24,8 @@ import {
   Avatar,
 } from "native-base";
 import TeacherTile from "../components/TeacherTile";
+import colorTheme from "../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 
 export default function Myvisitspage() {
   const { t } = useTranslation();
@@ -64,7 +75,7 @@ export default function Myvisitspage() {
       }
       _header={{
         title: "My Visits",
-        _heading: { color: "white" },
+        _heading: { color: colors.white },
       }}
       _appBar={{ languages: ["en"] }}
     >
@@ -72,7 +83,7 @@ export default function Myvisitspage() {
         <VStack space={6}>
           <Box>
             <H2>Teacher’s List</H2>
-            <Text fontSize="xs">View all teachers</Text>
+            <BodyLarge>View all teachers</BodyLarge>
           </Box>
           <VStack space={6}>
             {teacherlist &&
@@ -95,7 +106,7 @@ export default function Myvisitspage() {
         isOpen={teacherDetailModal}
         onClose={() => setTeacherDetailModal(false)}
       >
-        <Actionsheet.Content alignItems={"left"} bg="#E0DFF6">
+        <Actionsheet.Content alignItems={"left"} bg={colors.lightGray}>
           <HStack justifyContent={"space-between"} alignItems="center">
             <Stack p={5} pt={2} pb="15px">
               <Box>
@@ -108,18 +119,17 @@ export default function Myvisitspage() {
                     }}
                   />
                   <VStack>
-                    <Text
-                      color="coolGray.800"
+                    <H3
+                      color={colors.bodyText}
                       _dark={{
                         color: "warmGray.50",
                       }}
-                      bold
                     >
                       Rahul
-                    </Text>
-                    <Text color="gray.400" fontSize={"xs"}>
+                    </H3>
+                    <BodyMedium color={colors.subtitle}>
                       Class Teacher: VI A
-                    </Text>
+                    </BodyMedium>
                   </VStack>
                 </HStack>
               </Box>
@@ -127,26 +137,29 @@ export default function Myvisitspage() {
             <Stack pb="15px">
               <IconByName
                 name="CloseCircleLineIcon"
-                color={"#6461D2"}
+                color={colors.primary}
                 onPress={() => setTeacherDetailModal(false)}
               />
             </Stack>
           </HStack>
         </Actionsheet.Content>
-        <Box w="100%" p={4} justifyContent="center" bg="white">
+        <Box w="100%" p={4} justifyContent="center" bg={colors.white}>
           <VStack space={6}>
-            <Text bold>Assistant Officer</Text>
             <Box>
-              <Text>Qualification</Text>
-              <Text>B.Com. Hons</Text>
+              <H4 color={colors.subtitle}>Qualifications</H4>
+              <BodyLarge>Assistant Officer</BodyLarge>
             </Box>
             <Box>
-              <Text>Phone</Text>
-              <Text>+91 1234 567 890</Text>
+              <H4 color={colors.subtitle}>Qualifications</H4>
+              <BodyLarge>B.Com. Hons</BodyLarge>
             </Box>
             <Box>
-              <Text>Date of Joining</Text>
-              <Text>10 Aug, 2013</Text>
+              <H4 color={colors.subtitle}>Phone</H4>
+              <BodyLarge>+91 1234 567 890</BodyLarge>
+            </Box>
+            <Box>
+              <H4 color={colors.subtitle}>Date of Joining</H4>
+              <BodyLarge>10 Aug, 2013</BodyLarge>
             </Box>
           </VStack>
           <Divider marginTop={6} />

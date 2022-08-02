@@ -1,5 +1,16 @@
 import React from "react";
-import { Collapsible, IconByName, Layout } from "@shiksha/common-lib";
+import {
+  BodyLarge,
+  BodyMedium,
+  BodySmall,
+  Collapsible,
+  H1,
+  H2,
+  H3,
+  IconByName,
+  Layout,
+  overrideColorTheme,
+} from "@shiksha/common-lib";
 import {
   Box,
   HStack,
@@ -14,6 +25,8 @@ import {
   buildStyles,
   CircularProgressbarWithChildren,
 } from "react-circular-progressbar";
+import colorTheme from "../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 
 const TeacherDetails = () => {
   const navigate = useNavigate();
@@ -53,20 +66,20 @@ const TeacherDetails = () => {
           <Divider marginTop={6} />
           <VStack space={6} marginTop={6}>
             <Box>
-              <Text bold>Designation</Text>
-              <Text>Assistant Officer</Text>
+              <H3 color={colors.subtitle}>Designation</H3>
+              <BodyLarge>Assistant Officer</BodyLarge>
             </Box>
             <Box>
-              <Text bold>Qualification</Text>
-              <Text>B.Com. Hons</Text>
+              <H3 color={colors.subtitle}>Qualification</H3>
+              <BodyLarge>B.Com. Hons</BodyLarge>
             </Box>
             <Box>
-              <Text bold>Phone</Text>
-              <Text>+91 1234 567 890</Text>
+              <H3 color={colors.subtitle}>Phone</H3>
+              <BodyLarge>+91 1234 567 890</BodyLarge>
             </Box>
             <Box>
-              <Text bold>Date of Joining</Text>
-              <Text>10 Aug, 2013</Text>
+              <H3 color={colors.subtitle}>Date of Joining</H3>
+              <BodyLarge>10 Aug, 2013</BodyLarge>
             </Box>
           </VStack>
         </Collapsible>
@@ -75,7 +88,7 @@ const TeacherDetails = () => {
         <Collapsible header="Attendance">
           <Divider marginY={6} />
           <HStack
-            background={"#F9DEDE"}
+            background={colors.redLight}
             p={4}
             borderRadius={5}
             alignItems="center"
@@ -83,17 +96,15 @@ const TeacherDetails = () => {
             <Box pr={3}>
               <IconByName
                 name="EmotionSadLineIcon"
-                color={"#DF5B5B"}
+                color={colors.absent}
                 isDisabled
               />
             </Box>
             <Box>
-              <Text color="#DF5B5B" bold>
-                Very Bad
-              </Text>
-              <Text color="#DF5B5B" fontSize={10}>
+              <H2 color={colors.absent}>Very Bad</H2>
+              <BodySmall color={colors.absent}>
                 You have been present all days this month
-              </Text>
+              </BodySmall>
             </Box>
           </HStack>
           <Box pt={6}>
@@ -104,17 +115,17 @@ const TeacherDetails = () => {
                     value={51}
                     maxValue={100}
                     styles={buildStyles({
-                      pathColor: "#DF5B5B",
-                      textColor: "#DF5B5B",
-                      trailColor: "#F9DEDE",
+                      pathColor: colors.absent,
+                      textColor: colors.absent,
+                      trailColor: colors.redLight,
                     })}
                   >
                     <Box textAlign="center">
-                      <Text fontSize={18}>51%</Text>
+                      <H1 color={colors.absent}>51%</H1>
                     </Box>
                   </CircularProgressbarWithChildren>
                 </Box>
-                <Text>This Month</Text>
+                <BodyMedium>This Month</BodyMedium>
               </VStack>
 
               <VStack alignItems="center" space={3}>
@@ -123,17 +134,17 @@ const TeacherDetails = () => {
                     value={90}
                     maxValue={100}
                     styles={buildStyles({
-                      pathColor: "#43B13A",
-                      textColor: "#43B13A",
-                      trailColor: "#D9EFD8",
+                      pathColor: colors.green,
+                      textColor: colors.green,
+                      trailColor: colors.lightGreen,
                     })}
                   >
                     <Box textAlign="center">
-                      <Text fontSize={18}>90%</Text>
+                      <H1 color={colors.green}>90%</H1>
                     </Box>
                   </CircularProgressbarWithChildren>
                 </Box>
-                <Text>Last Year</Text>
+                <BodyMedium>Last Year</BodyMedium>
               </VStack>
             </HStack>
           </Box>
@@ -164,10 +175,10 @@ const TeacherDetails = () => {
             justifyContent="space-between"
           >
             <Box>
-              <Text bold>VI A</Text>
-              <Text>65 Students</Text>
+              <H3>VI A</H3>
+              <BodyMedium>65 Students</BodyMedium>
             </Box>
-            <IconByName name="ArrowRightSLineIcon" color="#BBBBBB" />
+            <IconByName name="ArrowRightSLineIcon" color={colors.cheveron} />
           </HStack>
           <HStack
             mx={2}
@@ -179,10 +190,10 @@ const TeacherDetails = () => {
             justifyContent="space-between"
           >
             <Box>
-              <Text bold>VII A</Text>
-              <Text>69 Students</Text>
+              <H3>VII A</H3>
+              <BodyMedium>69 Students</BodyMedium>
             </Box>
-            <IconByName name="ArrowRightSLineIcon" color="#BBBBBB" />
+            <IconByName name="ArrowRightSLineIcon" color={colors.cheveron} />
           </HStack>
         </Collapsible>
       </Box>
@@ -207,34 +218,32 @@ const TeacherDetails = () => {
                   }}
                 />
                 <VStack>
-                  <Text bold>Chandan Pandit</Text>
-                  <Text fontSize={12} color="gray.500">
+                  <H2>Chandan Pandit</H2>
+                  <BodyMedium color={colors.gray}>
                     Class Teacher: VI A
-                  </Text>
+                  </BodyMedium>
                 </VStack>
               </HStack>
               <HStack mt={4}>
                 <VStack mr={4}>
-                  <Text fontSize={12} color="gray.500">
+                  <BodyMedium color={colors.gray}>
                     <IconByName
                       name="CalendarEventLineIcon"
-                      color="gray.500"
+                      color={colors.gray}
                       size={4}
                       alignItems="center"
                     />{" "}
                     Last Visited on:
-                  </Text>
-                  <Text fontSize={12}>30 May 2022</Text>
+                  </BodyMedium>
+                  <BodyMedium>30 May 2022</BodyMedium>
                 </VStack>
                 <VStack>
-                  <Text fontSize={12} color="gray.500">
-                    Last Visited by:
-                  </Text>
-                  <Text fontSize={12}>Kritika Kumar Gupta</Text>
+                  <BodyMedium color={colors.gray}>Last Visited by:</BodyMedium>
+                  <BodyMedium>Kritika Kumar Gupta</BodyMedium>
                 </VStack>
               </HStack>
             </Box>
-            <IconByName name="ArrowRightSLineIcon" color="#BBBBBB" />
+            <IconByName name="ArrowRightSLineIcon" color={colors.cheveron} />
           </HStack>
           <HStack
             mx={2}
@@ -255,34 +264,32 @@ const TeacherDetails = () => {
                   }}
                 />
                 <VStack>
-                  <Text bold>Chandan Pandit</Text>
-                  <Text fontSize={12} color="gray.500">
+                  <H3>Chandan Pandit</H3>
+                  <BodyMedium color={colors.gray}>
                     Class Teacher: VI A
-                  </Text>
+                  </BodyMedium>
                 </VStack>
               </HStack>
               <HStack mt={4}>
                 <VStack mr={4}>
-                  <Text fontSize={12} color="gray.500">
+                  <BodyMedium color={colors.gray}>
                     <IconByName
                       name="CalendarEventLineIcon"
-                      color="gray.500"
+                      color={colors.gray}
                       size={4}
                       alignItems="center"
                     />{" "}
                     Last Visited on:
-                  </Text>
-                  <Text fontSize={12}>30 May 2022</Text>
+                  </BodyMedium>
+                  <BodyMedium>30 May 2022</BodyMedium>
                 </VStack>
                 <VStack>
-                  <Text fontSize={12} color="gray.500">
-                    Last Visited by:
-                  </Text>
-                  <Text fontSize={12}>Kritika Kumar Gupta</Text>
+                  <BodyMedium color={colors.gray}>Last Visited by:</BodyMedium>
+                  <BodyMedium>Kritika Kumar Gupta</BodyMedium>
                 </VStack>
               </HStack>
             </Box>
-            <IconByName name="ArrowRightSLineIcon" color="#BBBBBB" />
+            <IconByName name="ArrowRightSLineIcon" color={colors.cheveron} />
           </HStack>
         </Collapsible>
       </Box>

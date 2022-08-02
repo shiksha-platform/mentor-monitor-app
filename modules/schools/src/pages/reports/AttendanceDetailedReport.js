@@ -1,4 +1,11 @@
-import { H2, IconByName, Layout } from "@shiksha/common-lib";
+import {
+  BodyLarge,
+  H2,
+  H3,
+  IconByName,
+  Layout,
+  overrideColorTheme,
+} from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -19,6 +26,8 @@ import ClassParticipationCollapsibleCard from "../../components/Reports/Attendan
 import AttendanceSuccessFailureCard from "../../components/Reports/AttendanceReports/AttendanceSuccessFailureCard";
 import StudentAttendanceCollapsibleCard from "../../components/Reports/AttendanceReports/StudentAttendanceCollapsibleCard";
 import CalendarBar from "../../components/CalendarBar";
+import colorTheme from "../../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 
 export default function AttendanceDetailedReport() {
   const { t } = useTranslation();
@@ -55,21 +64,19 @@ export default function AttendanceDetailedReport() {
     <Layout
       _header={{
         title: "Report Details",
-        _heading: { color: "white" },
+        _heading: { color: colors.white },
         subHeading: (
           <VStack>
-            <Text fontSize="14px" color="white">
-              {t("Attendance")}
-            </Text>
+            <H3 color={colors.white}>{t("Attendance")}</H3>
             <HStack>
               <IconByName
                 name="DownloadLineIcon"
-                color={"white"}
+                color={colors.white}
                 // onPress={() => setSortModal(false)}
               />
               <IconByName
                 name="ShareLineIcon"
-                color={"white"}
+                color={colors.white}
                 // onPress={() => setSortModal(false)}
               />
             </HStack>
@@ -151,21 +158,26 @@ export default function AttendanceDetailedReport() {
                 </Button>
                 <Actionsheet
                   isOpen={showModal}
-                  _backdrop={{ opacity: "0.9", bg: "#ccc" }}
+                  _backdrop={{ opacity: "0.9", bg: colors.lightGray }}
                 >
-                  <Actionsheet.Content p="0" alignItems={"left"} bg={"#ccc"}>
+                  <Actionsheet.Content
+                    p="0"
+                    alignItems={"left"}
+                    bg={colors.lightGray}
+                  >
                     <HStack justifyContent={"space-between"}>
-                      <Stack p={5} pt={2} pb="25px">
+                      <Stack p={5} pt={2} pb="15px">
                         <H2>{t("SELECT_VIEW")}</H2>
                       </Stack>
                       <IconByName
                         name="CloseCircleLineIcon"
                         onPress={(e) => setShowModal(false)}
+                        color={colors.lightPurple}
                       />
                     </HStack>
                   </Actionsheet.Content>
 
-                  <Box w="100%" bg={"white"}>
+                  <Box w="100%" bg={colors.white}>
                     {[
                       { name: t("TODAY_VIEW"), value: "day" },
                       { name: t("WEEK_VIEW"), value: "week" },
@@ -177,7 +189,7 @@ export default function AttendanceDetailedReport() {
                           key={index}
                           p="5"
                           borderBottomWidth={1}
-                          borderBottomColor={"coolGray.500"}
+                          borderBottomColor={colors.lightGray}
                           onPress={(e) => {
                             setCalendarView(item.value);
                             setShowModal(false);
@@ -205,7 +217,7 @@ export default function AttendanceDetailedReport() {
         isOpen={teacherDetailModal}
         onClose={() => setTeacherDetailModal(false)}
       >
-        <Actionsheet.Content alignItems={"left"} bg="#E0DFF6">
+        <Actionsheet.Content alignItems={"left"} bg={colors.lightGray}>
           <HStack justifyContent={"space-between"} alignItems="center">
             <Stack p={5} pt={2} pb="15px">
               <Box>
@@ -218,18 +230,17 @@ export default function AttendanceDetailedReport() {
                     }}
                   />
                   <VStack>
-                    <Text
-                      color="coolGray.800"
+                    <H3
+                      color={colors.bodyText}
                       _dark={{
                         color: "warmGray.50",
                       }}
-                      bold
                     >
                       Rahul
-                    </Text>
-                    <Text color="gray.400" fontSize={"xs"}>
+                    </H3>
+                    <BodyLarge color={colors.subtitle} fontSize={"xs"}>
                       Class Teacher: VI A
-                    </Text>
+                    </BodyLarge>
                   </VStack>
                 </HStack>
               </Box>
@@ -237,26 +248,29 @@ export default function AttendanceDetailedReport() {
             <Stack pb="15px">
               <IconByName
                 name="CloseCircleLineIcon"
-                color={"#6461D2"}
+                color={colors.primary}
                 onPress={() => setTeacherDetailModal(false)}
               />
             </Stack>
           </HStack>
         </Actionsheet.Content>
-        <Box w="100%" p={4} justifyContent="center" bg="white">
+        <Box w="100%" p={4} justifyContent="center" bg={colors.white}>
           <VStack space={6}>
-            <Text bold>Assistant Officer</Text>
             <Box>
-              <Text>Qualification</Text>
-              <Text>B.Com. Hons</Text>
+              <H3 color={colors.subtitle}>Designation</H3>
+              <BodyLarge>Assistant Officer</BodyLarge>
             </Box>
             <Box>
-              <Text>Phone</Text>
-              <Text>+91 1234 567 890</Text>
+              <H3 color={colors.subtitle}>Qualifications</H3>
+              <BodyLarge>B.Com. Hons</BodyLarge>
             </Box>
             <Box>
-              <Text>Date of Joining</Text>
-              <Text>10 Aug, 2013</Text>
+              <H3 color={colors.subtitle}>Phone</H3>
+              <BodyLarge>+91 1234 567 890</BodyLarge>
+            </Box>
+            <Box>
+              <H3 color={colors.subtitle}>Date of Joining</H3>
+              <BodyLarge>10 Aug, 2013</BodyLarge>
             </Box>
           </VStack>
         </Box>

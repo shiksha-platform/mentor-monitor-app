@@ -5,6 +5,7 @@ import {
   attendanceRegistryService,
   ProgressBar,
   getUniqAttendance,
+  BodyMedium,
 } from "@shiksha/common-lib";
 import {
   HStack,
@@ -24,7 +25,10 @@ import {
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import { Link, useNavigate } from "react-router-dom";
-import { H2 } from "@shiksha/common-lib";
+import { H2, overrideColorTheme } from "@shiksha/common-lib";
+import colorTheme from "../../../colorTheme";
+const colors = overrideColorTheme(colorTheme);
+
 // import StudentDetailCard from "./StudentDetail";
 
 const PRESENT = "Present";
@@ -39,10 +43,10 @@ const StudentTile = ({ index, student, dataFor }) => {
     return (
       <React.Fragment>
         <Box
-          bg={"#D9EFD8"}
+          bg={colors.lightGreen}
           p={4}
           rounded={5}
-          borderColor="#43B13A"
+          borderColor={colors.green}
           borderWidth={1}
         >
           <HStack alignItems="center" space={3}>
@@ -55,15 +59,15 @@ const StudentTile = ({ index, student, dataFor }) => {
             />
             <VStack>
               <HStack alignItems="center">
-                <Text color="#666">{student.name}</Text>
-                <Text fontSize="8px" color="#666" mx={2}>
+                <BodyMedium color={colors.subtitle}>{student.name}</BodyMedium>
+                <Text fontSize="8px" color={colors.subtitle} mx={2}>
                   ●
                 </Text>
-                <Text color="#43B13A">100%</Text>
+                <Text color={colors.green}>100%</Text>
               </HStack>
-              <Text color="gray.400" fontSize={"xs"}>
+              <BodyMedium color={colors.subtitle}>
                 Roll No: {student.rollNo}
-              </Text>
+              </BodyMedium>
             </VStack>
           </HStack>
         </Box>
@@ -73,10 +77,10 @@ const StudentTile = ({ index, student, dataFor }) => {
     return (
       <React.Fragment>
         <Box
-          bg={"#F9DEDE"}
+          bg={colors.redLight}
           p={4}
           rounded={5}
-          borderColor="#DF5B5B"
+          borderColor={colors.absent}
           borderWidth={1}
         >
           <HStack alignItems="center" space={3}>
@@ -89,15 +93,15 @@ const StudentTile = ({ index, student, dataFor }) => {
             />
             <VStack>
               <HStack alignItems="center">
-                <Text color="#666">{student.name}</Text>
-                <Text fontSize="8px" color="#666" mx={2}>
+                <BodyMedium color={colors.subtitle}>{student.name}</BodyMedium>
+                <Text fontSize="8px" color={colors.subtitle} mx={2}>
                   ●
                 </Text>
-                <Text color="#DF5B5B">14 days</Text>
+                <Text color={colors.absent}>14 days</Text>
               </HStack>
-              <Text color="gray.400" fontSize={"xs"}>
+              <BodyMedium color={colors.subtitle}>
                 Roll No: {student.rollNo}
-              </Text>
+              </BodyMedium>
             </VStack>
           </HStack>
         </Box>
@@ -106,7 +110,7 @@ const StudentTile = ({ index, student, dataFor }) => {
   } else {
     return (
       <React.Fragment>
-        <Box bg={"white"} py={1}>
+        <Box bg={colors.white} py={1}>
           <HStack alignItems="center" space={3}>
             <Avatar
               size="48px"
@@ -116,10 +120,10 @@ const StudentTile = ({ index, student, dataFor }) => {
               }}
             />
             <VStack>
-              <Text color="#666">{student.name}</Text>
-              <Text color="gray.400" fontSize={"xs"}>
+              <BodyMedium color={colors.subtitle}>{student.name}</BodyMedium>
+              <BodyMedium color={colors.subtitle} fontSize={"xs"}>
                 Roll No: {student.rollNo}
-              </Text>
+              </BodyMedium>
             </VStack>
           </HStack>
         </Box>

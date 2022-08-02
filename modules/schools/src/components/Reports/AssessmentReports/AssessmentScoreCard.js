@@ -5,6 +5,9 @@ import {
   attendanceRegistryService,
   ProgressBar,
   getUniqAttendance,
+  overrideColorTheme,
+  BodyMedium,
+  BodyLarge,
 } from "@shiksha/common-lib";
 import {
   HStack,
@@ -26,6 +29,8 @@ import moment from "moment";
 import { Link, useNavigate } from "react-router-dom";
 import { H2 } from "@shiksha/common-lib";
 import RoundedProgressBar from "../../RoundedProgressBar";
+import colorTheme from "../../../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 // import StudentDetailCard from "./StudentDetail";
 
 const PRESENT = "Present";
@@ -49,7 +54,7 @@ const AssessmentScoreCard = () => {
   ]);
 
   return (
-    <Box borderColor="#EEEEEE" borderWidth={1} rounded={10}>
+    <Box borderColor={colors.borderSeprator} borderWidth={1} rounded={10}>
       <Box p={4}>
         <HStack alignItems="center" justifyContent="space-between">
           <Box>
@@ -66,9 +71,9 @@ const AssessmentScoreCard = () => {
                 <VStack>
                   <H2>Shah Rukh Khan</H2>
                   <HStack alignItems={"center"}>
-                    <Text color={"#373839"} fontSize={"xs"} fontWeight={400}>
+                    <BodyLarge color={colors.bodyText}>
                       {t("Roll No. 23")}{" "}
-                    </Text>
+                    </BodyLarge>
                   </HStack>
                 </VStack>
               </Box>
@@ -85,7 +90,7 @@ const AssessmentScoreCard = () => {
         </HStack>
       </Box>
       <Divider />
-      <Box borderColor="#EFEFEF" borderRadius={10} p={4}>
+      <Box borderColor={colors.borderSeprator} borderRadius={10} p={4}>
         <HStack justifyContent="space-between" flexWrap="wrap">
           {questions &&
             questions.length &&
@@ -98,11 +103,16 @@ const AssessmentScoreCard = () => {
                     space={2}
                   >
                     <Box>
-                      <Text fontSize="xs" color="#666">
+                      <BodyMedium color={colors.subtitle}>
                         Q-{index + 1}
-                      </Text>
+                      </BodyMedium>
                     </Box>
-                    <Box w={"24px"} h={"24px"} rounded={5} bg={"#E0DFF6"}>
+                    <Box
+                      w={"24px"}
+                      h={"24px"}
+                      rounded={5}
+                      bg={colors.lightGray}
+                    >
                       <Text style={{ lineHeight: "24px" }}>1</Text>
                     </Box>
                   </VStack>

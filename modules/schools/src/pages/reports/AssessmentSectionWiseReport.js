@@ -1,4 +1,11 @@
-import { H2, IconByName, Layout } from "@shiksha/common-lib";
+import {
+  BodyLarge,
+  H2,
+  H3,
+  IconByName,
+  Layout,
+  overrideColorTheme,
+} from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -16,6 +23,8 @@ import {
 
 import ClassSectionCollapsibleCard from "../../components/Reports/AssessmentReports/ClassSectionCollapsibleCard";
 import ExaminationTypeFilterButton from "../../components/Reports/AssessmentReports/ExaminationTypeFilterButton";
+import colorTheme from "../../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 
 export default function AssessmentSectionWiseReport() {
   const { t } = useTranslation();
@@ -48,7 +57,7 @@ export default function AssessmentSectionWiseReport() {
     <Layout
       _header={{
         title: "Class I Assessment Reports",
-        _heading: { color: "white" },
+        _heading: { color: colors.white },
       }}
       _appBar={{
         languages: ["en"],
@@ -113,7 +122,7 @@ export default function AssessmentSectionWiseReport() {
         isOpen={teacherDetailModal}
         onClose={() => setTeacherDetailModal(false)}
       >
-        <Actionsheet.Content alignItems={"left"} bg="#E0DFF6">
+        <Actionsheet.Content alignItems={"left"} bg={colors.lightGray}>
           <HStack justifyContent={"space-between"} alignItems="center">
             <Stack p={5} pt={2} pb="15px">
               <Box>
@@ -126,18 +135,17 @@ export default function AssessmentSectionWiseReport() {
                     }}
                   />
                   <VStack>
-                    <Text
-                      color="coolGray.800"
+                    <H3
+                      color={colors.bodyText}
                       _dark={{
                         color: "warmGray.50",
                       }}
-                      bold
                     >
                       Rahul
-                    </Text>
-                    <Text color="gray.400" fontSize={"xs"}>
+                    </H3>
+                    <BodyLarge color={colors.subtitle}>
                       Class Teacher: VI A
-                    </Text>
+                    </BodyLarge>
                   </VStack>
                 </HStack>
               </Box>
@@ -145,26 +153,29 @@ export default function AssessmentSectionWiseReport() {
             <Stack pb="15px">
               <IconByName
                 name="CloseCircleLineIcon"
-                color={"#6461D2"}
+                color={colors.primary}
                 onPress={() => setTeacherDetailModal(false)}
               />
             </Stack>
           </HStack>
         </Actionsheet.Content>
-        <Box w="100%" p={4} justifyContent="center" bg="white">
+        <Box w="100%" p={4} justifyContent="center" bg={colors.white}>
           <VStack space={6}>
-            <Text bold>Assistant Officer</Text>
             <Box>
-              <Text>Qualification</Text>
-              <Text>B.Com. Hons</Text>
+              <H3 color={colors.subtitle}>Designation</H3>
+              <BodyLarge>Assistant Officer</BodyLarge>
             </Box>
             <Box>
-              <Text>Phone</Text>
-              <Text>+91 1234 567 890</Text>
+              <H3 color={colors.subtitle}>Qualifications</H3>
+              <BodyLarge>B.Com. Hons</BodyLarge>
             </Box>
             <Box>
-              <Text>Date of Joining</Text>
-              <Text>10 Aug, 2013</Text>
+              <H3 color={colors.subtitle}>Phone</H3>
+              <BodyLarge>+91 1234 567 890</BodyLarge>
+            </Box>
+            <Box>
+              <H3 color={colors.subtitle}>Date of Joining</H3>
+              <BodyLarge>10 Aug, 2013</BodyLarge>
             </Box>
           </VStack>
         </Box>

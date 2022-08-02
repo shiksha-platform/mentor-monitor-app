@@ -1,4 +1,10 @@
-import { H2, H3, IconByName, Layout } from "@shiksha/common-lib";
+import {
+  H2,
+  H3,
+  IconByName,
+  Layout,
+  overrideColorTheme,
+} from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import {
@@ -16,6 +22,8 @@ import {
 
 import ClassCollapsibleCard from "../../components/Reports/AttendanceReports/ClassCollapsibleCard";
 import CalendarBar from "../../components/CalendarBar";
+import colorTheme from "../../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 
 export default function AttendanceReportDashboard() {
   const { t } = useTranslation();
@@ -30,7 +38,7 @@ export default function AttendanceReportDashboard() {
     <Layout
       _header={{
         title: "Attendance Reports",
-        _heading: { color: "white" },
+        _heading: { color: colors.white },
       }}
       _appBar={{
         languages: ["en"],
@@ -107,16 +115,21 @@ export default function AttendanceReportDashboard() {
                 </Button>
                 <Actionsheet
                   isOpen={showModal}
-                  _backdrop={{ opacity: "0.9", bg: "#ccc" }}
+                  _backdrop={{ opacity: "0.9", bg: colors.lightGray }}
                 >
-                  <Actionsheet.Content p="0" alignItems={"left"} bg={"#ccc"}>
+                  <Actionsheet.Content
+                    p="0"
+                    alignItems={"left"}
+                    bg={colors.lightGray}
+                  >
                     <HStack justifyContent={"space-between"}>
-                      <Stack p={5} pt={2} pb="25px">
+                      <Stack p={5} pt={2} pb="15px">
                         <H2>{t("SELECT_VIEW")}</H2>
                       </Stack>
                       <IconByName
                         name="CloseCircleLineIcon"
                         onPress={(e) => setShowModal(false)}
+                        color={colors.cheveron}
                       />
                     </HStack>
                   </Actionsheet.Content>

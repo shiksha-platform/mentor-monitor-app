@@ -13,7 +13,9 @@ import {
 } from "native-base";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { IconByName } from "@shiksha/common-lib";
+import { H2, IconByName, overrideColorTheme } from "@shiksha/common-lib";
+import colorTheme from "../../../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 
 export default function ExaminationTypeFilterButton({
   getObject,
@@ -39,7 +41,11 @@ export default function ExaminationTypeFilterButton({
         colorScheme="button"
         px="5"
         rightIcon={
-          <IconByName color="white" name="ArrowDownSLineIcon" isDisabled />
+          <IconByName
+            color={colors.white}
+            name="ArrowDownSLineIcon"
+            isDisabled
+          />
         }
         onPress={(e) => {
           if (value?.data && value?.data.length > 0) {
@@ -48,25 +54,24 @@ export default function ExaminationTypeFilterButton({
         }}
         {..._button}
       >
-        <Text color="white">
+        <Text color={colors.white}>
           {selectData && selectData.length ? selectData[0] : "Class"}
         </Text>
       </Button>
       <Actionsheet isOpen={filterData} onClose={() => setFilterData()}>
         <Actionsheet.Content
           alignItems={"left"}
-          bg="classCard.500"
+          bg={colors.lightGray}
           {..._actionSheet}
         >
           <HStack justifyContent={"space-between"}>
-            <Stack p={5} pt={2} pb="25px">
-              <Text fontSize="16px" fontWeight={"600"}>
-                {t("Select Assessments")}
-              </Text>
+            <Stack p={5} pt={2} pb="15px">
+              <H2>{t("Select Assessments")}</H2>
             </Stack>
             <IconByName
               name="CloseCircleLineIcon"
               onPress={(e) => setFilterData()}
+              color={colors.lightPurple}
             />
           </HStack>
         </Actionsheet.Content>

@@ -9,6 +9,11 @@ import {
   ProgressBar,
   telemetryFactory,
   capture,
+  overrideColorTheme,
+  BodyLarge,
+  BodyMedium,
+  H4,
+  BodySmall,
 } from "@shiksha/common-lib";
 import {
   Button,
@@ -21,6 +26,8 @@ import {
 } from "native-base";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import colorTheme from "../../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 
 export default function VisitSubmit({ handleBackButton, formObject }) {
   const [width, height] = useWindowSize();
@@ -29,12 +36,12 @@ export default function VisitSubmit({ handleBackButton, formObject }) {
   const [progressAssessment, setProgressAssessment] = React.useState([
     {
       name: "12 Assessed",
-      color: "#0D921B",
+      color: colors.green,
       value: 12,
     },
     {
       name: "6 pending",
-      color: "#DDDDDD",
+      color: colors.gray,
       value: 6,
     },
   ]);
@@ -48,31 +55,25 @@ export default function VisitSubmit({ handleBackButton, formObject }) {
   };
 
   return (
-    <Layout isDisabledAppBar={true} pageBgColor={"#D9EFD8"}>
+    <Layout isDisabledAppBar={true} pageBgColor={colors.lightGreen}>
       <Loading
         width={width}
         height={height}
         customComponent={
           <VStack space="0" flex="1" width={width}>
-            <VStack bg="#D9EFD8" pb="100px" pt="32px">
+            <VStack bg={colors.lightGreen} pb="100px" pt="32px">
               <IconByName
                 alignSelf="center"
                 name="CheckboxCircleFillIcon"
-                color="successAlertText.500"
+                color={colors.green}
                 _icon={{ size: 40 }}
               />
 
               <Box alignItems="center">
-                <H1
-                  fontSize="18px"
-                  fontWeight="600"
-                  color="successAlertText.500"
-                >
-                  Submitted
-                </H1>
-                <Text color="successAlertText.500" mt={4}>
+                <H1 color={colors.green}>Submitted</H1>
+                <H4 color={colors.green} mt={4}>
                   Your visit details has been sent successfully
-                </Text>
+                </H4>
               </Box>
 
               <Box textAlign="center" mt={10}>
@@ -87,15 +88,17 @@ export default function VisitSubmit({ handleBackButton, formObject }) {
                     />
                   </Box>
                   <Box alignItems="center">
-                    <Text fontSize="14" fontWeight="600">
-                      Chandan KrishnaKumar Pandit
-                    </Text>
+                    <H3>Chandan KrishnaKumar Pandit</H3>
                     <HStack align="middle">
-                      <Text color="#333333">VI A</Text>
-                      <Text fontSize="8px" color="#B5B5C8" mx={2}>
+                      <BodyMedium color={colors.bodyText}>VI A</BodyMedium>
+                      <BodyMedium
+                        fontSize="8px"
+                        color={colors.attendanceUnmarked}
+                        mx={2}
+                      >
                         ●
-                      </Text>
-                      <Text color="#333333">Maths</Text>
+                      </BodyMedium>
+                      <BodyMedium color={colors.bodyText}>Maths</BodyMedium>
                     </HStack>
                   </Box>
                 </VStack>
@@ -103,7 +106,7 @@ export default function VisitSubmit({ handleBackButton, formObject }) {
             </VStack>
 
             <Box px={4}>
-              <Box bg="white" p={4} rounded={10} pb={100}>
+              <Box bg={colors.bodyText} p={4} rounded={10} pb={100}>
                 <>
                   <Text bold fontSize={"sm"}>
                     <Box py={4}>
@@ -118,87 +121,87 @@ export default function VisitSubmit({ handleBackButton, formObject }) {
                         {/*row 1 box*/}
                         <Box>
                           <VStack space={6}>
-                            <Box bg={"#F9DEDE"} rounded={5} p={2}>
+                            <Box bg={colors.redLight} rounded={5} p={2}>
                               <HStack alignItems={"center"}>
                                 <IconByName
                                   name="EmotionSadLineIcon"
-                                  color={"#DF5B5B"}
+                                  color={colors.red}
                                   // onPress={() => setSortModal(false)}
                                 />
                                 <Box
                                   borderLeftWidth={2}
-                                  borderLeftColor={"#DF5B5B"}
+                                  borderLeftColor={colors.red}
                                   pl={2}
                                 >
-                                  <Text fontSize={11} color="#DF5B5B">
+                                  <BodySmall color={colors.red}>
                                     You spent only 10 minutes on this visit!
-                                  </Text>
+                                  </BodySmall>
                                 </Box>
                               </HStack>
                             </Box>
                             <VStack space={8}>
                               <Box>
-                                <Text bold>
+                                <H3>
                                   Q1. Is the teacher aware of nipun lakshyas for
                                   their respective subejct & grades?
-                                </Text>
-                                <Text>Whiteboard</Text>
+                                </H3>
+                                <BodyLarge>Whiteboard</BodyLarge>
                               </Box>
 
                               <Box>
-                                <Text bold>
+                                <H3>
                                   Q2. Does the classroom have NIPUN Lakshya
                                   charts pasted on walls?
-                                </Text>
-                                <Text>Answer as in ODK</Text>
+                                </H3>
+                                <BodyLarge>Answer as in ODK</BodyLarge>
                               </Box>
                               <Box>
-                                <Text bold>
+                                <H3>
                                   Q1. Is the teacher aware of nipun lakshyas for
                                   their respective subejct & grades?
-                                </Text>
-                                <Text>Whiteboard</Text>
+                                </H3>
+                                <BodyLarge>Whiteboard</BodyLarge>
                               </Box>
 
                               <Box>
-                                <Text bold>
+                                <H3>
                                   Q2. Does the classroom have NIPUN Lakshya
                                   charts pasted on walls?
-                                </Text>
-                                <Text>Answer as in ODK</Text>
+                                </H3>
+                                <BodyLarge>Answer as in ODK</BodyLarge>
                               </Box>
                               <Box>
-                                <Text bold>
+                                <H3>
                                   Q1. Is the teacher aware of nipun lakshyas for
                                   their respective subejct & grades?
-                                </Text>
-                                <Text>Whiteboard</Text>
+                                </H3>
+                                <BodyLarge>Whiteboard</BodyLarge>
                               </Box>
 
                               <Box>
-                                <Text bold>
+                                <H3>
                                   Q2. Does the classroom have NIPUN Lakshya
                                   charts pasted on walls?
-                                </Text>
-                                <Text>Answer as in ODK</Text>
+                                </H3>
+                                <BodyLarge>Answer as in ODK</BodyLarge>
                               </Box>
                               <Box>
-                                <Text bold>
+                                <H3>
                                   Q1. Is the teacher aware of nipun lakshyas for
                                   their respective subejct & grades?
-                                </Text>
-                                <Text>Whiteboard</Text>
+                                </H3>
+                                <BodyLarge>Whiteboard</BodyLarge>
                               </Box>
 
                               <Box>
-                                <Text bold>
+                                <H3>
                                   Q2. Does the classroom have NIPUN Lakshya
                                   charts pasted on walls?
-                                </Text>
-                                <Text>Answer as in ODK</Text>
+                                </H3>
+                                <BodyLarge>Answer as in ODK</BodyLarge>
                               </Box>
                             </VStack>
-                            <Box bg="white" p="5" shadow={2}>
+                            <Box bg={colors.white} p="5" shadow={2}>
                               <HStack justifyContent={"space-between"}>
                                 <Button
                                   colorScheme="button"
@@ -215,7 +218,7 @@ export default function VisitSubmit({ handleBackButton, formObject }) {
                                 <Button
                                   colorScheme="button"
                                   _text={{
-                                    color: "#fff",
+                                    color: colors.white,
                                     fontSize: "14px",
                                     p: "1",
                                   }}

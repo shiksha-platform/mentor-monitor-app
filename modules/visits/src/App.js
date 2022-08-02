@@ -6,14 +6,13 @@ import { DEFAULT_THEME, AppShell } from "@shiksha/common-lib";
 import Myvisits from "./pages/Myvisits";
 import Recommendedschools from "./pages/Recommended-schools";
 import Allocatedschools from "./pages/Allocated-schools";
-import Home from "pages/Home";
 
 function App() {
   const theme = extendTheme(DEFAULT_THEME);
   const routes = [
     {
       path: "/",
-      component: Home,
+      component: Myvisits,
     },
     {
       path: "/visits/recommended-schools",

@@ -1,4 +1,9 @@
-import { H2, IconByName, Layout } from "@shiksha/common-lib";
+import {
+  H2,
+  IconByName,
+  Layout,
+  overrideColorTheme,
+} from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -16,6 +21,8 @@ import {
 
 import ClassCollapsibleCard from "../../components/Reports/AssessmentReports/ClassCollapsibleCard";
 import ExaminationTypeFilterButton from "../../components/Reports/AssessmentReports/ExaminationTypeFilterButton";
+import colorTheme from "../../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 
 export default function AssessmentReportDashboard() {
   const { t } = useTranslation();
@@ -45,7 +52,7 @@ export default function AssessmentReportDashboard() {
     <Layout
       _header={{
         title: "Class I Assessment Reports",
-        _heading: { color: "white" },
+        _heading: { color: colors.white },
       }}
       _appBar={{
         languages: ["en"],

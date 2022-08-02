@@ -18,10 +18,16 @@ import {
   Collapsible,
   ProgressBar,
   Tab,
+  overrideColorTheme,
+  BodyMedium,
+  BodyLarge,
 } from "@shiksha/common-lib";
 import SectionWiseSubjectProgress from "./SectionWiseSubjectProgress";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import colorTheme from "../../../colorTheme";
+const colors = overrideColorTheme(colorTheme);
+
 function ClassSectionCollapsibleCard() {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -73,13 +79,13 @@ function ClassSectionCollapsibleCard() {
       defaultCollapse={true}
       header={
         <Box py={4}>
-          <H2 fontWeight={400}>
+          <H2>
             <HStack align="middle">
-              <Text>Class I</Text>
-              <Text fontSize="8px" color="#666" mx={2}>
+              <H2>Class I</H2>
+              <Text fontSize="8px" color={colors.subtitle} mx={2}>
                 ●
               </Text>
-              <Text color="#666">Sec A</Text>
+              <BodyLarge color={colors.subtitle}>Sec A</BodyLarge>
             </HStack>
           </H2>
         </Box>

@@ -13,7 +13,16 @@ import {
 } from "native-base";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { IconByName } from "@shiksha/common-lib";
+import {
+  BodyMedium,
+  H2,
+  H3,
+  H4,
+  IconByName,
+  overrideColorTheme,
+} from "@shiksha/common-lib";
+import colorTheme from "../../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 
 export default function TeacherFilterButton({
   getObject,
@@ -35,7 +44,7 @@ export default function TeacherFilterButton({
   return (
     <Box roundedBottom={"xl"} {..._box}>
       <VStack space={2}>
-        <Text>Teacher Name</Text>
+        <H4>Teacher Name</H4>
         <Button
           rounded="10"
           colorScheme="button"
@@ -43,7 +52,7 @@ export default function TeacherFilterButton({
           px="5"
           rightIcon={
             <IconByName
-              color="button.500"
+              color={colors.primary}
               name="ArrowDownSLineIcon"
               isDisabled
             />
@@ -55,29 +64,28 @@ export default function TeacherFilterButton({
           }}
           {..._button}
         >
-          <Text color="button.500">
+          <Text color={colors.primary}>
             {selectData && selectData.length ? selectData[0] : "Teacher"}
           </Text>
         </Button>
         <Actionsheet isOpen={filterData} onClose={() => setFilterData()}>
           <Actionsheet.Content
             alignItems={"left"}
-            bg="classCard.500"
+            bg={colors.lightGray}
             {..._actionSheet}
           >
             <HStack justifyContent={"space-between"}>
-              <Stack p={5} pt={2} pb="25px">
-                <Text fontSize="16px" fontWeight={"600"}>
-                  {t("Choose Teacher")}
-                </Text>
+              <Stack p={5} pt={2} pb="15px">
+                <H2>{t("Choose Teacher")}</H2>
               </Stack>
               <IconByName
                 name="CloseCircleLineIcon"
                 onPress={(e) => setFilterData()}
+                color={colors.primary}
               />
             </HStack>
           </Actionsheet.Content>
-          <Box bg="white" width={"100%"} pt={4}>
+          <Box bg={colors.white} width={"100%"} pt={4}>
             <VStack space={4}>
               {filterData?.data &&
                 filterData?.data.map((value, index) => (
@@ -88,7 +96,7 @@ export default function TeacherFilterButton({
                       setSelectData([value]);
                     }}
                   >
-                    <Box bg={"white"}>
+                    <Box bg={colors.white}>
                       <HStack
                         alignItems="center"
                         justifyContent="space-between"
@@ -103,18 +111,17 @@ export default function TeacherFilterButton({
                               }}
                             />
                             <VStack>
-                              <Text
-                                color="coolGray.800"
+                              <H3
+                                color={colors.bodyText}
                                 _dark={{
                                   color: "warmGray.50",
                                 }}
-                                bold
                               >
                                 {value}
-                              </Text>
-                              <Text color="gray.400" fontSize={"xs"}>
+                              </H3>
+                              <BodyMedium color={colors.subtitle}>
                                 Class Teacher: Vi A
-                              </Text>
+                              </BodyMedium>
                             </VStack>
                           </HStack>
                         </Box>
@@ -131,7 +138,7 @@ export default function TeacherFilterButton({
             <Box p="5">
               <Button
                 colorScheme="button"
-                _text={{ color: "white" }}
+                _text={{ color: colors.white }}
                 onPress={() => {
                   setFilterData({});
                   if (getObject) getObject(selectData);

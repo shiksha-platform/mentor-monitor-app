@@ -1,4 +1,13 @@
-import { DEFAULT_THEME, FilterButton, H2, Layout } from "@shiksha/common-lib";
+import {
+  BodyLarge,
+  BodyMedium,
+  BodySmall,
+  DEFAULT_THEME,
+  FilterButton,
+  H1,
+  H2,
+  Layout,
+} from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
 import React, { useState } from "react";
 import { Avatar, Box, HStack, Text, VStack, Divider } from "native-base";
@@ -7,7 +16,7 @@ import {
   buildStyles,
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-
+import { overrideColorTheme } from "@shiksha/common-lib";
 const defaultInputs = [
   {
     name: "Year",
@@ -54,8 +63,8 @@ const defaultInputs = [
     ],
   },
 ];
-let colors = DEFAULT_THEME;
-
+let colors = overrideColorTheme({});
+console.log({ colors });
 export default function Home({ footerLinks, appName }) {
   const { t } = useTranslation();
   const [recommendedVisits, setRecommendedVisits] = useState([{}, {}, {}, {}]);
@@ -79,15 +88,13 @@ export default function Home({ footerLinks, appName }) {
                 }}
               />
               <VStack>
-                <Text fontWeight={300} fontSize={"xs"}>
-                  Welcome
-                </Text>
-                <Text>Mr. Dhananjay Tripathi</Text>
+                <BodyLarge>Welcome</BodyLarge>
+                <H1>Mr. Dhananjay Tripathi</H1>
               </VStack>
             </HStack>
           </Box>
         ),
-        _heading: { color: "white" },
+        _heading: { color: colors.white },
       }}
       _appBar={{ languages: ["en"], isShowNotificationButton: true }}
       _footer={{
@@ -98,6 +105,7 @@ export default function Home({ footerLinks, appName }) {
             module: "Registry",
             route: "/",
             routeparameters: {},
+            textTransform: "capitalize",
           },
           {
             title: "VISITS",
@@ -105,6 +113,7 @@ export default function Home({ footerLinks, appName }) {
             module: "Registry",
             route: "/visits",
             routeparameters: {},
+            textTransform: "capitalize",
           },
           {
             title: "LEARNING",
@@ -112,6 +121,7 @@ export default function Home({ footerLinks, appName }) {
             module: "Registry",
             route: "/",
             routeparameters: {},
+            textTransform: "capitalize",
           },
           {
             title: "MATERIALS",
@@ -119,6 +129,7 @@ export default function Home({ footerLinks, appName }) {
             module: "Registry",
             route: "/",
             routeparameters: {},
+            textTransform: "capitalize",
           },
           {
             title: "PROFILE",
@@ -126,16 +137,17 @@ export default function Home({ footerLinks, appName }) {
             module: "Registry",
             route: "/",
             routeparameters: {},
+            textTransform: "capitalize",
           },
         ],
       }}
     >
       <Box p={6}>
         <VStack space={6}>
-          <Box rounded={10} bg="white" shadow="md">
+          <Box rounded={10} bg={colors.white} shadow="md">
             <VStack>
               <Box alignItems="center" p={4}>
-                <H2>Your monthly review</H2>
+                <H2 textTransform="none">Your monthly review</H2>
               </Box>
               <Divider />
               <Box p={6}>
@@ -145,20 +157,21 @@ export default function Home({ footerLinks, appName }) {
                       value={24}
                       maxValue={60}
                       styles={buildStyles({
-                        pathColor: "#BB6BD9",
-                        textColor: "#f88",
-                        trailColor: "#F3F3F3",
+                        pathColor: colors.purple,
+                        textColor: colors.error,
+                        trailColor: colors.background,
                       })}
                     >
                       <Box textAlign="center">
                         <VStack>
-                          <Text color="#BB6BD9" fontSize={18}>
-                            <Text fontSize={18} bold>
-                              24/
-                            </Text>
-                            <Text fontSize={15}>60</Text>
+                          <Text color={colors.purple}>
+                            <H1>24/</H1>
+                            <H2>60</H2>
                           </Text>
-                          <Text fontSize={11}>Teachers Mentored</Text>
+                          <BodySmall>
+                            Teachers
+                            <br /> Mentored
+                          </BodySmall>
                         </VStack>
                       </Box>
                     </CircularProgressbarWithChildren>
@@ -169,24 +182,22 @@ export default function Home({ footerLinks, appName }) {
                       value={7}
                       maxValue={14}
                       styles={buildStyles({
-                        pathColor: "#3498DB",
-                        textColor: "#f88",
-                        trailColor: "#F3F3F3",
+                        pathColor: colors.blue,
+                        textColor: colors.error,
+                        trailColor: colors.background,
                       })}
                     >
                       <Box textAlign="center">
                         <VStack>
-                          <Text color="#3498DB" fontSize={18}>
-                            <Text fontSize={18} bold>
-                              07/
-                            </Text>
-                            <Text fontSize={15}>14</Text>
+                          <Text color={colors.blue}>
+                            <H1>07/</H1>
+                            <H2>14</H2>
                           </Text>
-                          <Text fontSize={11}>
+                          <BodySmall>
                             Schools
                             <br />
                             Covered
-                          </Text>
+                          </BodySmall>
                         </VStack>
                       </Box>
                     </CircularProgressbarWithChildren>
@@ -196,26 +207,30 @@ export default function Home({ footerLinks, appName }) {
               <Divider />
               <Box p={4}>
                 <HStack alignItems="center" justifyContent="space-between">
-                  <Text fontSize="xs">Average Mentoring Time</Text>
-                  <Text fontSize={16} color="#43B13A">
-                    2.5 Hrs
-                  </Text>
+                  <BodyMedium>Average Mentoring Time</BodyMedium>
+                  <H2 color={colors.green}>2.5 Hrs</H2>
                 </HStack>
               </Box>
             </VStack>
           </Box>
 
           <Box>
-            <H2>Performance Overview of the District / Block</H2>
+            <H2 textTransform="none">
+              Performance Overview of the District / Block
+            </H2>
             <FilterButton
               getObject={callBackFilterObject}
               object={filterObject}
-              _actionSheet={{ bg: colors.cardBg }}
+              _actionSheet={{ bg: colors.white }}
               _box={{ pt: 5 }}
-              _button={{ bg: colors.primary, px: "15px", py: "2" }}
+              _button={{
+                px: "15px",
+                py: "2",
+                mr: "5",
+              }}
               _filterButton={{
                 rightIcon: "",
-                bg: "white",
+                bg: colors.white,
               }}
               resetButtonText={t("COLLAPSE")}
               filters={defaultInputs}
@@ -223,11 +238,13 @@ export default function Home({ footerLinks, appName }) {
           </Box>
 
           <Box>
-            <HStack space="20px">
+            <HStack space="10px">
               <Box
-                bg="white"
+                bg={colors.white}
                 rounded={10}
-                flexGrow={1}
+                flex={1}
+                w="115px"
+                h="150px"
                 alignItems="center"
                 textAlign="center"
                 py={4}
@@ -238,21 +255,26 @@ export default function Home({ footerLinks, appName }) {
                       value={0}
                       maxValue={756}
                       styles={buildStyles({
-                        pathColor: "#BB6BD9",
-                        textColor: "#f88",
-                        trailColor: "#F3F3F3",
+                        pathColor: colors.purple,
+                        textColor: colors.error,
+                        trailColor: colors.background,
                       })}
                     >
-                      <Text>756</Text>
+                      <BodyLarge color={colors.primary}>756</BodyLarge>
                     </CircularProgressbarWithChildren>
                   </Box>
-                  <Text>No of Mentors</Text>
+                  <BodyMedium>
+                    No of
+                    <br /> Mentors
+                  </BodyMedium>
                 </VStack>
               </Box>
               <Box
-                bg="white"
+                bg={colors.white}
                 rounded={10}
-                flexGrow={1}
+                flex={1}
+                w="115px"
+                h="150px"
                 alignItems="center"
                 textAlign="center"
                 py={4}
@@ -263,26 +285,28 @@ export default function Home({ footerLinks, appName }) {
                       value={450}
                       maxValue={600}
                       styles={buildStyles({
-                        pathColor: "#6461D2",
-                        trailColor: "#F3F3F3",
+                        pathColor: colors.primary,
+                        trailColor: colors.background,
                       })}
                     >
-                      <Text color="#6461D2">450</Text>
+                      <BodyLarge color={colors.primary}>450</BodyLarge>
                     </CircularProgressbarWithChildren>
                   </Box>
-                  <Text>
+                  <BodyMedium px="1">
                     No of
                     <br />
                     Monthly Targets
                     <br />
                     achievers
-                  </Text>
+                  </BodyMedium>
                 </VStack>
               </Box>
               <Box
-                bg="white"
+                bg={colors.white}
                 rounded={10}
-                flexGrow={1}
+                flex={1}
+                w="115px"
+                h="150px"
                 alignItems="center"
                 textAlign="center"
                 py={4}
@@ -293,20 +317,20 @@ export default function Home({ footerLinks, appName }) {
                       value={45}
                       maxValue={100}
                       styles={buildStyles({
-                        pathColor: "#6461D2",
-                        trailColor: "#F3F3F3",
+                        pathColor: colors.primary,
+                        trailColor: colors.background,
                       })}
                     >
-                      <Text color="#6461D2">45%</Text>
+                      <BodyLarge color={colors.primary}>45%</BodyLarge>
                     </CircularProgressbarWithChildren>
                   </Box>
-                  <Text>
+                  <BodyMedium px="1">
                     Percentage of
                     <br />
                     monthly target
                     <br />
                     achievers
-                  </Text>
+                  </BodyMedium>
                 </VStack>
               </Box>
             </HStack>

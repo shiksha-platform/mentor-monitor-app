@@ -17,7 +17,11 @@ import {
   IconByName,
   Collapsible,
   ProgressBar,
+  overrideColorTheme,
+  BodyMedium,
 } from "@shiksha/common-lib";
+import colorTheme from "../../../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 import StudentTile from "./StudentTile";
 function AttendanceSuccessFailureCard({ dataFor }) {
   const [studentList, setStudentList] = useState([
@@ -49,24 +53,18 @@ function AttendanceSuccessFailureCard({ dataFor }) {
           {dataFor === "success" && (
             <>
               <H2>100% This Week</H2>
-              <Text fontSize={11} color="#666" fontWeight={300}>
-                3 Students
-              </Text>
+              <BodyMedium color={colors.subtitle}>3 Students</BodyMedium>
             </>
           )}
           {dataFor === "failure" && (
             <>
               <H2>Absent Consecutive 3 Days</H2>
               <HStack alignItems="center">
-                <Text fontSize={11} color="#666" fontWeight={300}>
-                  3 Students
-                </Text>
-                <Text fontSize="8px" color="#666" mx={2}>
+                <BodyMedium color={colors.subtitle}>3 Students</BodyMedium>
+                <Text fontSize="8px" color={colors.subtitle} mx={2}>
                   ●
                 </Text>
-                <Text fontSize={11} color="#DF5B5B" fontWeight={300}>
-                  Less than 45%
-                </Text>
+                <BodyMedium color={colors.absent}>Less than 45%</BodyMedium>
               </HStack>
             </>
           )}

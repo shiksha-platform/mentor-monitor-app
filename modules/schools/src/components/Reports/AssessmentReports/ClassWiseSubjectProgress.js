@@ -18,25 +18,29 @@ import {
   Collapsible,
   ProgressBar,
   Tab,
+  overrideColorTheme,
+  BodyMedium,
 } from "@shiksha/common-lib";
 import { useTranslation } from "react-i18next";
+import colorTheme from "../../../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 
 function ClassWiseSubjectProgress() {
   const { t } = useTranslation();
   const [progressData, setProgressData] = React.useState([
     {
       name: "22 Present",
-      color: "#43B13A",
+      color: colors.green,
       value: 22,
     },
     {
       name: "4 Absent",
-      color: "#DF5B5B",
+      color: colors.absent,
       value: 4,
     },
     {
       name: "1 Unmarked",
-      color: "#C1C0ED",
+      color: colors.unmarked,
       value: 1,
     },
   ]);
@@ -45,21 +49,21 @@ function ClassWiseSubjectProgress() {
     <React.Fragment>
       <VStack space={6}>
         <HStack alignItems="center" justifyContent="space-between">
-          <Text w={"20%"}>Girls</Text>
+          <BodyMedium w={"20%"}>Girls</BodyMedium>
           <Box w={"80%"}>
             <ProgressBar data={progressData} />
           </Box>
         </HStack>
 
         <HStack alignItems="center" justifyContent="space-between">
-          <Text w={"20%"}>Boys</Text>
+          <BodyMedium w={"20%"}>Boys</BodyMedium>
           <Box w={"80%"}>
             <ProgressBar data={progressData} />
           </Box>
         </HStack>
 
         <HStack alignItems="center" justifyContent="space-between">
-          <Text w={"20%"}>Total</Text>
+          <BodyMedium w={"20%"}>Total</BodyMedium>
           <Box w={"80%"}>
             <ProgressBar data={progressData} />
           </Box>
@@ -67,16 +71,16 @@ function ClassWiseSubjectProgress() {
 
         <HStack alignItems="center" justifyContent="space-between">
           <HStack alignItems="center">
-            <Box bg="#2BB639" w="15px" h="15px" rounded={4} />
-            <Text mx={2}>Passed</Text>
+            <Box bg={colors.green} w="15px" h="15px" rounded={4} />
+            <BodyMedium mx={2}>Passed</BodyMedium>
           </HStack>
           <HStack alignItems="center">
-            <Box bg="#F57B7B" w="15px" h="15px" rounded={4} />
-            <Text mx={2}>Failed</Text>
+            <Box bg={colors.absent} w="15px" h="15px" rounded={4} />
+            <BodyMedium mx={2}>Failed</BodyMedium>
           </HStack>
           <HStack alignItems="center">
-            <Box bg="#B5B5C8" w="15px" h="15px" rounded={4} />
-            <Text mx={2}>Not attempted</Text>
+            <Box bg={colors.unmarked} w="15px" h="15px" rounded={4} />
+            <BodyMedium mx={2}>Not attempted</BodyMedium>
           </HStack>
         </HStack>
       </VStack>

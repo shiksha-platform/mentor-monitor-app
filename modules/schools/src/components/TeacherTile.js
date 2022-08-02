@@ -5,6 +5,8 @@ import {
   attendanceRegistryService,
   ProgressBar,
   getUniqAttendance,
+  H3,
+  BodyMedium,
 } from "@shiksha/common-lib";
 import {
   HStack,
@@ -24,7 +26,9 @@ import {
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import { Link, useNavigate } from "react-router-dom";
-import { H2 } from "@shiksha/common-lib";
+import { H2, overrideColorTheme } from "@shiksha/common-lib";
+import colorTheme from "../colorTheme";
+const colors = overrideColorTheme(colorTheme);
 // import StudentDetailCard from "./StudentDetail";
 
 const PRESENT = "Present";
@@ -50,24 +54,24 @@ const TeacherTile = ({ index, teacher, setTeacherDetailModal }) => {
                   }}
                 />
                 <VStack>
-                  <Text
-                    color="coolGray.800"
+                  <H3
+                    color={colors.bodyText}
                     _dark={{
                       color: "warmGray.50",
                     }}
-                    bold
                   >
                     {index + 1} . {teacher.name}
-                  </Text>
-                  <Text color="gray.400" fontSize={"xs"}>
+                  </H3>
+                  <BodyMedium color={colors.subtitle}>
                     Class Teacher: {teacher.class}
-                  </Text>
+                  </BodyMedium>
                 </VStack>
               </HStack>
             </Box>
 
             <IconByName
               name="ArrowRightSLineIcon"
+              color={colors.lightGray}
               // onPress={() => setSortModal(false)}
             />
           </HStack>

@@ -20,25 +20,27 @@ import {
   Collapsible,
   overrideColorTheme,
   calendar,
+  BodyLarge,
+  BodyMedium,
 } from "@shiksha/common-lib";
-import colorTheme from "colorTheme";
+import colorTheme from "../colorTheme";
 const colors = overrideColorTheme(colorTheme);
 
 const TeacherAttendanceReport = () => {
   const [progressData, setProgressData] = React.useState([
     {
       name: "22 Present",
-      color: "#43B13A",
+      color: colors.green,
       value: 22,
     },
     {
       name: "4 Absent",
-      color: "#DF5B5B",
+      color: colors.absent,
       value: 4,
     },
     {
       name: "1 Unmarked",
-      color: "#C1C0ED",
+      color: colors.unmarked,
       value: 1,
     },
   ]);
@@ -65,17 +67,13 @@ const TeacherAttendanceReport = () => {
     <Layout
       _header={{
         title: "Attendance Report",
-        _heading: { color: "white" },
+        _heading: { color: colors.white },
       }}
       _appBar={{ languages: ["en"] }}
     >
       <Box p={5} bg={"gray.100"}>
-        <Text fontWeight={600} fontSize={16}>
-          Chandan Pandit
-        </Text>
-        <Text color={colors.date} fontSize={14}>
-          Class VI . Sec A
-        </Text>
+        <H2>Chandan Pandit</H2>
+        <BodyLarge color={colors.date}>Class VI . Sec A</BodyLarge>
       </Box>
       <Box p={5} bg={"gray.100"}>
         <Collapsible
@@ -107,40 +105,34 @@ const TeacherAttendanceReport = () => {
           <Divider mb={4} />
           <VStack space={6}>
             <HStack alignItems="center" justifyContent="space-between">
-              <Text w={"20%"} fontSize={12}>
-                Jan 2022
-              </Text>
+              <BodyMedium w={"20%"}>Jan 2022</BodyMedium>
               <Box w={"80%"} pr={3}>
                 <ProgressBar data={progressData} />
               </Box>
             </HStack>
             <HStack alignItems="center" justifyContent="space-between">
-              <Text w={"20%"} fontSize={12}>
-                Dec 2021
-              </Text>
+              <BodyMedium w={"20%"}>Dec 2021</BodyMedium>
               <Box w={"80%"} pr={3}>
                 <ProgressBar data={progressData} />
               </Box>
             </HStack>
             <HStack alignItems="center" justifyContent="space-between">
-              <Text w={"20%"} fontSize={12}>
-                Nov 2021
-              </Text>
+              <BodyMedium w={"20%"}>Nov 2021</BodyMedium>
               <Box w={"80%"} pr={3}>
                 <ProgressBar data={progressData} />
               </Box>
             </HStack>
             <HStack alignItems="center" justifyContent="space-between">
               <HStack alignItems="center">
-                <Box bg="#2BB639" w="15px" h="15px" rounded={4} />
+                <Box bg={colors.green} w="15px" h="15px" rounded={4} />
                 <Text mx={2}>Present</Text>
               </HStack>
               <HStack alignItems="center">
-                <Box bg="#F57B7B" w="15px" h="15px" rounded={4} />
+                <Box bg={colors.absent} w="15px" h="15px" rounded={4} />
                 <Text mx={2}>Absent</Text>
               </HStack>
               <HStack alignItems="center">
-                <Box bg="#B5B5C8" w="15px" h="15px" rounded={4} />
+                <Box bg={colors.unmarkeds} w="15px" h="15px" rounded={4} />
                 <Text mx={2}>Unmarked</Text>
               </HStack>
             </HStack>

@@ -17,8 +17,14 @@ import {
   IconByName,
   Collapsible,
   ProgressBar,
+  overrideColorTheme,
+  BodyMedium,
+  Caption,
 } from "@shiksha/common-lib";
 import StudentTile from "../AttendanceReports/StudentTile";
+import colorTheme from "../../../colorTheme";
+const colors = overrideColorTheme(colorTheme);
+
 function AssessmentAchieverCard({ dataFor }) {
   const [studentList, setStudentList] = useState([
     {
@@ -42,19 +48,15 @@ function AssessmentAchieverCard({ dataFor }) {
   ]);
 
   return (
-    <Box bg="white" p={4} rounded={10}>
+    <Box bg={colors.white} p={4} rounded={10}>
       <Box py={4}>
         <H2>100% Achievers</H2>
         <HStack alignItems="center">
-          <Text fontSize={11} color="#666" fontWeight={300}>
-            SubText-1
-          </Text>
-          <Text fontSize="8px" color="#666" mx={2}>
+          <BodyMedium color={colors.subtitle}>SubText-1</BodyMedium>
+          <Caption color={colors.subtitle} mx={2}>
             ●
-          </Text>
-          <Text fontSize={11} color="#666" fontWeight={300}>
-            SubText-2
-          </Text>
+          </Caption>
+          <BodyMedium color={colors.subtitle}>SubText-2</BodyMedium>
         </HStack>
       </Box>
       <>
