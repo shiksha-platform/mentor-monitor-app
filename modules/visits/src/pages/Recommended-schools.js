@@ -24,7 +24,7 @@ import {
 import RecommendedVisitsCard from "../components/RecommendedVisitsCard";
 import MySchoolsCard from "../components/MySchoolsCard";
 import colorTheme from "../colorTheme";
-const colors0 = overrideColorTheme(colorTheme);
+const colors = overrideColorTheme(colorTheme);
 const defaultInputs = [
   {
     name: "District",
@@ -49,8 +49,6 @@ const defaultInputs = [
   },
 ];
 
-let colors = DEFAULT_THEME;
-
 export default function Recommendedschools() {
   const { t } = useTranslation();
   const [recommendedVisits, setRecommendedVisits] = useState([{}, {}, {}, {}]);
@@ -66,13 +64,13 @@ export default function Recommendedschools() {
     <Layout
       _header={{
         title: "Recommended Schools",
-        _heading: { color: colors0.white },
+        _heading: { color: colors.white },
         isEnableSearchBtn: true,
         subHeading: t("See all your recommended schools for visits here"),
-        _subHeading: { color: colors0.white, textTransform: "none" },
+        _subHeading: { color: colors.white, textTransform: "none" },
       }}
       _appBar={{ languages: ["en"] }}
-      _subHeader={{ bg: colors0.lightPurple }}
+      _subHeader={{ bg: colors.lightPurple }}
       _footer={{
         menues: [
           {
@@ -132,7 +130,7 @@ export default function Recommendedschools() {
                   </Box>
                   <Button
                     variant="outline"
-                    bg={colors0.white}
+                    bg={colors.white}
                     onPress={() => {
                       setSortModal(true);
                     }}
@@ -140,7 +138,7 @@ export default function Recommendedschools() {
                     Sort
                     {/* <IconByName
                       name="ArrowDownSLineIcon"
-                      color={colors0.primary}
+                      color={colors.primary}
                     /> */}
                   </Button>
                 </HStack>
@@ -150,12 +148,12 @@ export default function Recommendedschools() {
                 <FilterButton
                   getObject={callBackFilterObject}
                   object={filterObject}
-                  _actionSheet={{ bg: colors0.lightGray }}
+                  _actionSheet={{ bg: colors.lightGray }}
                   _box={{ pt: 5 }}
                   _button={{ bg: colors.primary, px: "15px", py: "2", mr: "4" }}
                   _filterButton={{
                     rightIcon: "",
-                    bg: colors0.white,
+                    bg: colors.white,
                   }}
                   resetButtonText={t("COLLAPSE")}
                   filters={defaultInputs}
@@ -172,28 +170,28 @@ export default function Recommendedschools() {
       </Box>
 
       <Actionsheet isOpen={sortModal} onClose={() => setSortModal(false)}>
-        <Actionsheet.Content alignItems={"left"} bg={colors0.lightGray}>
+        <Actionsheet.Content alignItems={"left"} bg={colors.lightGray}>
           <HStack justifyContent={"space-between"}>
             <Stack p={5} pt={2} pb="15px">
               <H2>{t("Sort")}</H2>
             </Stack>
             <IconByName
               name="CloseCircleLineIcon"
-              color={colors0.primary}
+              color={colors.primary}
               onPress={() => setSortModal(false)}
             />
           </HStack>
         </Actionsheet.Content>
-        <Box w="100%" p={4} justifyContent="center" bg={colors0.white}>
+        <Box w="100%" p={4} justifyContent="center" bg={colors.white}>
           {/*<Actionsheet.Item>Mathematics</Actionsheet.Item>*/}
           <Box pt="0">
-            <BodyMedium color={colors0.subtitle}>By last visited</BodyMedium>
+            <BodyMedium color={colors.subtitle}>By last visited</BodyMedium>
             <Actionsheet.Item>
               <HStack alignItems="center" p={0}>
                 <IconByName
                   size="sm"
                   name="ArrowRightUpLineIcon"
-                  color={colors0.bodyText}
+                  color={colors.bodyText}
                 />
                 <BodyLarge>Latest to Oldest</BodyLarge>
               </HStack>
@@ -203,7 +201,7 @@ export default function Recommendedschools() {
                 <IconByName
                   size="sm"
                   name="ArrowRightDownLineIcon"
-                  color={colors0.bodyText}
+                  color={colors.bodyText}
                 />
                 <BodyLarge>Oldest to Latest</BodyLarge>
               </HStack>
@@ -213,13 +211,13 @@ export default function Recommendedschools() {
           <Divider my={4}></Divider>
 
           <Box pt="0">
-            <BodyMedium color={colors0.subtitle}>By Completed</BodyMedium>
+            <BodyMedium color={colors.subtitle}>By Completed</BodyMedium>
             <Actionsheet.Item>
               <HStack alignItems="center" p={0}>
                 <IconByName
                   size="sm"
                   name="ArrowRightUpLineIcon"
-                  color={colors0.bodyText}
+                  color={colors.bodyText}
                 />
                 <BodyLarge>Visited</BodyLarge>
               </HStack>
@@ -229,7 +227,7 @@ export default function Recommendedschools() {
                 <IconByName
                   size="sm"
                   name="ArrowRightDownLineIcon"
-                  color={colors0.bodyText}
+                  color={colors.bodyText}
                 />
                 <BodyLarge>Not Visited</BodyLarge>
               </HStack>

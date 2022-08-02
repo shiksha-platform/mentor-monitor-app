@@ -71,7 +71,7 @@ function ClassParticipationCard() {
               {/*row 1 box*/}
               <Box>
                 <VStack space={6}>
-                  <Box bg={colors.redlight0} rounded={5} p={2}>
+                  <Box bg={colors.redLight} rounded={5} p={2}>
                     <HStack alignItems={"center"}>
                       <IconByName
                         name="EmotionSadLineIcon"

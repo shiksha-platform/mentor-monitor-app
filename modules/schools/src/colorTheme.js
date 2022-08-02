@@ -20,7 +20,7 @@ const colorTheme = {
   specialDuty: "#6461D2",
   holiDay: "#F0F0F4",
   isActive: "#545454",
-  redlight0: "#F9DEDE",
+  redLight: "#F9DEDE",
   avatarBackground: "#282754",
   absent: "#DF5B5B",
   lightGreen: "#D9EFD8",

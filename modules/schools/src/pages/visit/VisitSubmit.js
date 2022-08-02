@@ -41,7 +41,7 @@ export default function VisitSubmit({ handleBackButton, formObject }) {
     },
     {
       name: "6 pending",
-      color: colors.cgray,
+      color: colors.gray,
       value: 6,
     },
   ]);
@@ -121,19 +121,19 @@ export default function VisitSubmit({ handleBackButton, formObject }) {
                         {/*row 1 box*/}
                         <Box>
                           <VStack space={6}>
-                            <Box bg={colors.redlight0} rounded={5} p={2}>
+                            <Box bg={colors.redLight} rounded={5} p={2}>
                               <HStack alignItems={"center"}>
                                 <IconByName
                                   name="EmotionSadLineIcon"
-                                  color={colors.redlight}
+                                  color={colors.red}
                                   // onPress={() => setSortModal(false)}
                                 />
                                 <Box
                                   borderLeftWidth={2}
-                                  borderLeftColor={colors.redlight}
+                                  borderLeftColor={colors.red}
                                   pl={2}
                                 >
-                                  <BodySmall color={colors.redlight}>
+                                  <BodySmall color={colors.red}>
                                     You spent only 10 minutes on this visit!
                                   </BodySmall>
                                 </Box>

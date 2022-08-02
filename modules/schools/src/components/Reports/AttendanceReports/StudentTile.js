@@ -77,7 +77,7 @@ const StudentTile = ({ index, student, dataFor }) => {
     return (
       <React.Fragment>
         <Box
-          bg={colors.redlight0}
+          bg={colors.redLight}
           p={4}
           rounded={5}
           borderColor={colors.absent}

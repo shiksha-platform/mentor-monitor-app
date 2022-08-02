@@ -105,7 +105,7 @@ export default function Home({ footerLinks, appName }) {
             module: "Registry",
             route: "/",
             routeparameters: {},
-            textTransform: "capitelaize",
+            textTransform: "capitalize",
           },
           {
             title: "VISITS",

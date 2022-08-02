@@ -88,7 +88,7 @@ const TeacherDetails = () => {
         <Collapsible header="Attendance">
           <Divider marginY={6} />
           <HStack
-            background={colors.redlight0}
+            background={colors.redLight}
             p={4}
             borderRadius={5}
             alignItems="center"
@@ -117,7 +117,7 @@ const TeacherDetails = () => {
                     styles={buildStyles({
                       pathColor: colors.absent,
                       textColor: colors.absent,
-                      trailColor: colors.redlight0,
+                      trailColor: colors.redLight,
                     })}
                   >
                     <Box textAlign="center">
